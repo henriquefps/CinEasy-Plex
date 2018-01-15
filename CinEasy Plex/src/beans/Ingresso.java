@@ -5,8 +5,9 @@ public class Ingresso {
 	private boolean isMeia;
 	private Cadeira cadeiraVendida;
 	
-	public Ingresso(){
-		
+	public Ingresso(boolean isMeia, Cadeira cadeiraVendida){
+		this.isMeia = isMeia;
+		this.cadeiraVendida = cadeiraVendida;
 	}
 
 	public int getIdIngresso() {

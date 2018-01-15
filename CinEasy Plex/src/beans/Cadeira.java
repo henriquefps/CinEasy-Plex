@@ -1,11 +1,11 @@
 package beans;
 
 public class Cadeira {
-	private String idCadeira;
+	private String idCadeira; //E a combinacao letra-numero que da nome a cadeira
 	private boolean isDisponivel;
 	
-	public Cadeira(){
-		
+	public Cadeira(String idCadeira){
+		this.idCadeira = idCadeira;
 	}
 
 	public String getIdCadeira() {

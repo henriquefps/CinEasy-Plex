@@ -8,8 +8,11 @@ public class Filme {
 	private LocalTime duracao;
 	private String classificacao;
 	
-	public Filme(){
-		
+	public Filme(String titulo, String genero, LocalTime duracao, String classificacao){
+		this.titulo = titulo;
+		this.genero = genero;
+		this.duracao = duracao;
+		this.classificacao = classificacao;
 	}
 
 	public String getTitulo() {
