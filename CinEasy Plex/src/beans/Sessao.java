@@ -66,4 +66,7 @@ public class Sessao {
 		return listaDeCadeiras;
 	}
 	
+	public boolean equals(){
+		return true;
+	}
 }
