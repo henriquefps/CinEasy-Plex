@@ -66,7 +66,17 @@ public class Sessao {
 		return listaDeCadeiras;
 	}
 	
-	public boolean equals(){
-		return true;
+	
+	//TODO A sessão será igual quando o Filme, a Sala e o Horário inicial forem iguais 
+	public boolean equals(Object obj){
+		boolean res = false;
+		if(obj != null && obj.getClass() == this.getClass()){
+			if(this.getFilmeExibido().equals(((Sessao) obj).getFilmeExibido()) 
+					&& this.getSalaDeExibicao().equals(((Sessao)obj).getSalaDeExibicao())
+					&& this.getInicioDaSessao().equals(((Sessao)obj).getInicioDaSessao())){
+				res = true;
+			}
+		}
+		return res;
 	}
 }
