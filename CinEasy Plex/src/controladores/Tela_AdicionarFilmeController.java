@@ -25,6 +25,11 @@ public class Tela_AdicionarFilmeController {
 
 	@FXML
 	public void cadastrarFilme() {
+		if(!tituloTextField.getText().equals("") &&
+				!generoTextField.getText().equals("") &&
+				!duracao_horaTextField.getText().equals("") &&
+				!duracao_minutoTextField.getText().equals("") &&
+				!classificacaoTextField.getText().equals("")){
 		if (Integer.parseInt(duracao_minutoTextField.getText()) < 60
 				&& Integer.parseInt(duracao_minutoTextField.getText()) >= 0) {
 			
@@ -41,6 +46,7 @@ public class Tela_AdicionarFilmeController {
 			duracao_minutoTextField.setText("");
 			classificacaoTextField.setText("");
 		}
+	}
 	}
 
 }

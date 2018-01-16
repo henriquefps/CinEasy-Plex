@@ -48,7 +48,7 @@ public class Tela_ConfiguracoesController {
 		// TODO
 	}
 	@FXML public void abrirListarFilmes(){
-		// TODO
+		ScreenManager.setScene(ScreenManager.getInstance().getTelaListarFilme());
 	}
 	@FXML public void abrirListarSalas(){
 		// TODO
