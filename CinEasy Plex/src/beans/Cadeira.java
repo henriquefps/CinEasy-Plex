@@ -4,8 +4,9 @@ public class Cadeira {
 	private String idCadeira; //E a combinacao letra-numero que da nome a cadeira
 	private boolean isDisponivel;
 	
-	public Cadeira(String idCadeira){
-		this.idCadeira = idCadeira;
+	public Cadeira(String idCadeira, boolean isDisponivel){
+		this.setIdCadeira(idCadeira);
+		this.setDisponivel(isDisponivel);
 	}
 
 	public String getIdCadeira() {
