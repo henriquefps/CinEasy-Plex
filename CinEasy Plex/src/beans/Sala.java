@@ -9,10 +9,10 @@ public class Sala {
 	private String tipo; //Tipo da sala, 3D, 4K...
 	
 	public Sala(byte idSala, int quantidadeDeCadeiras, String tipoDeSala){
-		this.idSala = idSala;
-		this.quantidadeDeCadeiras = quantidadeDeCadeiras;
+		this.setIdSala(idSala);
+		this.setQuantidadeDeCadeiras(quantidadeDeCadeiras);
 		//TODO algoritmo de criacao dos objetos cadeiras
-		this.tipo = tipoDeSala;			
+		this.setTipo(tipoDeSala);			
 	}
 
 	public int getQuantidadeDeCadeiras() {

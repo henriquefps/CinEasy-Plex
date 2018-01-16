@@ -5,9 +5,10 @@ public class Venda {
 	private Ingresso ingressoVendido;
 	private Sessao sessaoVendida;
 	
-	public Venda(Ingresso ingressoVendido, Sessao sessaoVendida){
-		this.ingressoVendido = ingressoVendido;
-		this.sessaoVendida = sessaoVendida;
+	public Venda(Ingresso ingressoVendido, Sessao sessaoVendida, int idVenda){
+		this.setIngressoVendido(ingressoVendido);
+		this.setSessaoVendida(sessaoVendida);
+		this.setIdVenda(idVenda);
 	}
 
 	public int getIdVenda() {

@@ -13,13 +13,13 @@ public class Sessao {
 	private ArrayList<Cadeira> listaDeCadeiras = new ArrayList<Cadeira>();
 	
 	public Sessao(Filme filmeExibido, Sala salaDeExibicao, float valorDoIngresso, LocalDateTime inicioDaSessao){
-		this.filmeExibido = filmeExibido;
-		this.salaDeExibicao = salaDeExibicao;
-		this.valorDoIngresso = valorDoIngresso;
-		this.inicioDaSessao = inicioDaSessao;
-		this.fimDaSessao = inicioDaSessao;
-		this.fimDaSessao = fimDaSessao.plusMinutes(60 * filmeExibido.getDuracao().getHour() +
-				filmeExibido.getDuracao().getMinute());
+		this.setFilmeExibido(filmeExibido);
+		this.setSalaDeExibicao(salaDeExibicao);
+		this.setValorDoIngresso(valorDoIngresso);
+		this.setInicioDaSessao(inicioDaSessao);
+		this.setFimDaSessao(inicioDaSessao);
+		this.setFimDaSessao(fimDaSessao.plusMinutes(60 * filmeExibido.getDuracao().getHour() +
+				filmeExibido.getDuracao().getMinute()));
 	}
 
 	public Filme getFilmeExibido() {
@@ -66,4 +66,7 @@ public class Sessao {
 		return listaDeCadeiras;
 	}
 	
+	public boolean equals(){
+		return true;
+	}
 }
