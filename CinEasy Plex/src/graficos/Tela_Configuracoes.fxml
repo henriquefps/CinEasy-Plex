@@ -49,12 +49,12 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="175.0" layoutY="505.0" mnemonicParsing="false" text="Listar">
+      <Button layoutX="168.0" layoutY="450.0" mnemonicParsing="false" text="Alterar">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="168.0" layoutY="450.0" mnemonicParsing="false" text="Alterar">
+      <Button layoutX="175.0" layoutY="505.0" mnemonicParsing="false" text="Listar">
          <font>
             <Font size="24.0" />
          </font>
@@ -69,12 +69,12 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="466.0" layoutY="506.0" mnemonicParsing="false" text="Listar">
+      <Button layoutX="459.0" layoutY="451.0" mnemonicParsing="false" text="Alterar">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="459.0" layoutY="451.0" mnemonicParsing="false" text="Alterar">
+      <Button layoutX="466.0" layoutY="506.0" mnemonicParsing="false" text="Listar">
          <font>
             <Font size="24.0" />
          </font>
@@ -89,12 +89,12 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="735.0" layoutY="506.0" mnemonicParsing="false" text="Listar">
+      <Button layoutX="728.0" layoutY="451.0" mnemonicParsing="false" text="Alterar">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="728.0" layoutY="451.0" mnemonicParsing="false" text="Alterar">
+      <Button layoutX="735.0" layoutY="506.0" mnemonicParsing="false" text="Listar">
          <font>
             <Font size="24.0" />
          </font>
@@ -109,12 +109,12 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="1036.0" layoutY="507.0" mnemonicParsing="false" text="Listar">
+      <Button layoutX="1029.0" layoutY="452.0" mnemonicParsing="false" text="Alterar">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="1029.0" layoutY="452.0" mnemonicParsing="false" text="Alterar">
+      <Button layoutX="1036.0" layoutY="507.0" mnemonicParsing="false" text="Listar">
          <font>
             <Font size="24.0" />
          </font>
