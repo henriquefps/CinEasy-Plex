@@ -6,7 +6,7 @@ public class Tela_MenuPrincipalController {
 	
 	
 	@FXML public void sairParaLogin(){
-		//TODO abrir Tela Login
+		ScreenManager.setScene(ScreenManager.getInstance().getTelaLogin());
 	}
 	
 	@FXML public void abrirVenderIngressos(){
@@ -14,6 +14,6 @@ public class Tela_MenuPrincipalController {
 	}
 	
 	@FXML public void abrirConfiguracoes(){
-		// TODO abrir tela Configuracoes
+		ScreenManager.setScene(ScreenManager.getInstance().getTelaConfiguracao());
 	}
 }

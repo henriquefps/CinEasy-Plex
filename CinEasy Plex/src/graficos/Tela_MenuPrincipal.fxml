@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.Tela_MenuPrincipalController">
    <children>
       <ImageView fitHeight="88.0" fitWidth="400.0" layoutX="50.0" layoutY="31.0">
          <image>
@@ -25,7 +24,7 @@
             <Font size="36.0" />
          </font>
       </Button>
-      <Button layoutX="473.0" layoutY="376.0" mnemonicParsing="false" onAction="#venderIngressos" text="Vender Ingressos">
+      <Button layoutX="473.0" layoutY="376.0" mnemonicParsing="false" onAction="#abrirVenderIngressos" text="Vender Ingressos">
          <font>
             <Font size="36.0" />
          </font>

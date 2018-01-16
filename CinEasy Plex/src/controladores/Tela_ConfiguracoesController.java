@@ -2,17 +2,17 @@ package controladores;
 
 import javafx.fxml.FXML;
 
-public class TelaConfiguracoesController {
+public class Tela_ConfiguracoesController {
 
 	@FXML public void voltarParaMenuPrincipal(){
-		// TODO
+		ScreenManager.setScene(ScreenManager.getInstance().getTelaMenuPrincipal());
 	}
 	
 	@FXML public void abrirAdicionarContas(){
 		// TODO
 	}
 	@FXML public void abrirAdicionarFilmes(){
-		// TODO
+		ScreenManager.setScene(ScreenManager.getInstance().getTelaAdicionarFilme());
 	}
 	@FXML public void abrirAdicionarSalas(){
 		// TODO

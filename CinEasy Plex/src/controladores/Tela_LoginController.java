@@ -15,7 +15,7 @@ public class Tela_LoginController {
 	@FXML public void validarLogin(){
 		Conta procurado = fachada.buscarConta(loginTextField.getText());
 		if (procurado != null && procurado.getSenha().equals(senhaPasswordField.getText())) {
-			//TODO Chamar o controlador de telas para a próxima tela.
+			ScreenManager.setScene(ScreenManager.getInstance().getTelaMenuPrincipal());
 		}
 	}
 }
