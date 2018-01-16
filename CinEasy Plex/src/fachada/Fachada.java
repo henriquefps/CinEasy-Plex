@@ -39,13 +39,14 @@ public class Fachada {
 		vendas = new GerenciamentoVendas();
 	}
 	
-	public Fachada getInstance(){
+	public static Fachada getInstance(){
 		if(instance == null){
 			instance = new Fachada();
 		}
 		return instance;
 	}
 	
+	// CONTA
 	public void criarConta(String login, String senha){
 		contas.criarConta(login, senha);
 	}
@@ -62,6 +63,7 @@ public class Fachada {
 		return contas.listarContas();
 	}
 	
+	// FILME
 	public void criarFilme(String titulo, String genero, LocalTime duracao, String classificacao){
 		filmes.criarFilme(titulo, genero, duracao, classificacao);
 	}

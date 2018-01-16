@@ -27,9 +27,9 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <TextField layoutX="523.0" layoutY="364.0" prefHeight="48.0" prefWidth="291.0" />
-      <PasswordField layoutX="527.0" layoutY="440.0" prefHeight="54.0" prefWidth="290.0" />
-      <Button layoutX="510.0" layoutY="569.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="252.0" text="Entrar">
+      <TextField fx:id="loginTextField" layoutX="523.0" layoutY="364.0" prefHeight="48.0" prefWidth="291.0" />
+      <PasswordField fx:id="senhaPasswordField" layoutX="527.0" layoutY="440.0" prefHeight="54.0" prefWidth="290.0" />
+      <Button layoutX="510.0" layoutY="569.0" mnemonicParsing="false" onAction="#validarLogin" prefHeight="76.0" prefWidth="252.0" text="Entrar">
          <font>
             <Font size="40.0" />
          </font>

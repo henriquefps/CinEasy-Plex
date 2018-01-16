@@ -1,14 +1,17 @@
 package repositorios;
 
+import java.util.ArrayList;
+
 import beans.Filme;
 import interfaces.IRepositorioFilmes;
 
 public class RepositorioFilmes implements IRepositorioFilmes{
 
 	private static RepositorioFilmes instance;
+	private ArrayList<Filme> listaDeFilmes;
 	
 	private RepositorioFilmes() {
-
+		listaDeFilmes = new ArrayList<Filme>();
 	}
 	
 
@@ -20,20 +23,18 @@ public class RepositorioFilmes implements IRepositorioFilmes{
 	}
 	@Override
 	public void cadastrar(Filme a) {
-		// TODO Auto-generated method stub
-		
+		listaDeFilmes.add(a);
 	}
 
 	@Override
 	public void remover(Filme a) {
-		// TODO Auto-generated method stub
+		listaDeFilmes.remove(a);
 		
 	}
 
 	@Override
-	public void listar() {
-		// TODO Auto-generated method stub
-		
+	public ArrayList<Filme> listar() {
+		return listaDeFilmes;
 	}
 
 }
