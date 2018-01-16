@@ -1,6 +1,7 @@
 package gerencia;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 import beans.Filme;
 import interfaces.IRepositorioFilmes;
@@ -21,7 +22,7 @@ private IRepositorioFilmes instance = RepositorioFilmes.getInstance();
 		// TODO procurar no arraylist do repositorio e retornar
 	}
 	
-	public void listarFilmes(){
+	public ArrayList<Filme> listarFilmes(){
 		// TODO retornar o repositorio
 	}
 }
