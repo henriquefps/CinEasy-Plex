@@ -4,6 +4,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 import beans.Filme;
+import interfaces.IRepositorio;
 import interfaces.IRepositorioFilmes;
 import repositorios.RepositorioFilmes;
 

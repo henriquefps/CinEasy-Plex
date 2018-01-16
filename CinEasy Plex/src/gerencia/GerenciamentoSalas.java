@@ -3,12 +3,13 @@ package gerencia;
 import java.util.ArrayList;
 
 import beans.Cadeira;
+import beans.Ingresso;
 import beans.Sala;
-import interfaces.IRepositorioIngressos;
-import repositorios.RepositorioIngressos;
+import interfaces.IRepositorio;
+import repositorios.RepositorioIngressosArray;
 
 public class GerenciamentoSalas {
-private IRepositorioIngressos instance = RepositorioIngressos.getInstance();
+private IRepositorio<Ingresso> instance = RepositorioIngressosArray.getInstance();
 	
 	public void criarSala(byte idSala, int quantidadeDeCadeiras, String tipoDeSala){
 		// TODO criar um objeto e salvar no repositorio pela interface

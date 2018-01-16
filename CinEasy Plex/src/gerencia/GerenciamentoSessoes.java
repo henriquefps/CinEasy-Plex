@@ -6,11 +6,12 @@ import java.util.ArrayList;
 import beans.Filme;
 import beans.Sala;
 import beans.Sessao;
+import interfaces.IRepositorio;
 import interfaces.IRepositorioSessoes;
 import repositorios.RepositorioSessoes;
 
 public class GerenciamentoSessoes {
-private IRepositorioSessoes instance = RepositorioSessoes.getInstance();
+private IRepositorio<Sessao> instance = RepositorioSessoes.getInstance();
 	
 	public void criarSessao(Filme filmeExibido, Sala salaDeExibicao, float valorDoIngresso, LocalDateTime inicioDaSessao){
 		// TODO criar um objeto e salvar no repositorio pela interface

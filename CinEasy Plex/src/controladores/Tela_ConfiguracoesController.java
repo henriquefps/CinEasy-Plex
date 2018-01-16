@@ -24,7 +24,7 @@ public class Tela_ConfiguracoesController {
 		// TODO
 	}
 	@FXML public void abrirRemoverFilmes(){
-		// TODO
+		ScreenManager.setScene(ScreenManager.getInstance().getTelaRemoverFilme());
 	}
 	@FXML public void abrirRemoverSalas(){
 		// TODO	

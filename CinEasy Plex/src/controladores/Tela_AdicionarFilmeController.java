@@ -19,12 +19,12 @@ public class Tela_AdicionarFilmeController {
 	private TextField classificacaoTextField;
 
 	@FXML
-	private void voltarParaConfiguracoes() {
+	public void voltarParaConfiguracoes() {
 		ScreenManager.setScene(ScreenManager.getInstance().getTelaConfiguracao());
 	}
 
 	@FXML
-	private void cadastrarFilme() {
+	public void cadastrarFilme() {
 		if (Integer.parseInt(duracao_minutoTextField.getText()) < 60
 				&& Integer.parseInt(duracao_minutoTextField.getText()) >= 0) {
 			
@@ -34,6 +34,12 @@ public class Tela_AdicionarFilmeController {
 					LocalTime.of(Integer.parseInt(duracao_horaTextField.getText()),
 						Integer.parseInt(duracao_minutoTextField.getText())),
 					classificacaoTextField.getText());
+			
+			tituloTextField.setText("");
+			generoTextField.setText("");
+			duracao_horaTextField.setText("");
+			duracao_minutoTextField.setText("");
+			classificacaoTextField.setText("");
 		}
 	}
 

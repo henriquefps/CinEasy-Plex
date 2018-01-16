@@ -3,9 +3,9 @@ package repositorios;
 import java.util.ArrayList;
 
 import beans.Sessao;
-import interfaces.IRepostorio;
+import interfaces.IRepositorio;
 
-public class RepositorioSessoes implements IRepostorio<Sessao>{
+public class RepositorioSessoes implements IRepositorio<Sessao>{
 
 	private ArrayList<Sessao> repositorio;
 	private static RepositorioSessoes instance;
@@ -15,7 +15,7 @@ public class RepositorioSessoes implements IRepostorio<Sessao>{
 	}
 	
 	@SuppressWarnings("unused")
-	private static RepositorioSessoes getInstance(){
+	public static RepositorioSessoes getInstance(){
 		if(instance == null){
 			instance = new RepositorioSessoes();
 		}
@@ -56,6 +56,12 @@ public class RepositorioSessoes implements IRepostorio<Sessao>{
 	public Sessao buscar(int id) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public boolean existe(Sessao obj) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 		

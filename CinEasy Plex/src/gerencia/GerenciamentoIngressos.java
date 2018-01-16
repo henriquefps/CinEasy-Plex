@@ -2,11 +2,12 @@ package gerencia;
 
 import beans.Cadeira;
 import beans.Ingresso;
-import interfaces.IRepositorioIngressos;
-import repositorios.RepositorioIngressos;
+import interfaces.IRepositorio;
+import repositorios.RepositorioIngressosArray;
 
 public class GerenciamentoIngressos {
-private IRepositorioIngressos instance = RepositorioIngressos.getInstance();
+	
+private IRepositorio<Ingresso> instance = RepositorioIngressosArray.getInstance();
 	
 	public void criarIngresso(boolean isMeia, Cadeira cadeiraVendida){
 		// TODO criar um objeto e salvar no repositorio pela interface
