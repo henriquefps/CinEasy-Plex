@@ -10,6 +10,8 @@ public class ScreenManager {
 	private Scene telaMenuPrincipal;
 	private Scene telaAdicionarFilme;
 	private Scene telaRemoverFilme;
+	private Scene telaAlterarFilme;
+	
 
 	private static Stage mainStage;
 
@@ -95,6 +97,17 @@ public class ScreenManager {
 			e.printStackTrace();
 		}
 		return telaRemoverFilme;
+	}
+
+	public Scene getTelaAlterarFilme() {
+		try {
+			telaAlterarFilme = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_AlterarFilme.fxml")),
+					1280, 720);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return telaAlterarFilme;
 	}
 
 }
