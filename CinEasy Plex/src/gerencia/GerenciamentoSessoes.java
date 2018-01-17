@@ -14,16 +14,23 @@ import repositorios.RepositorioSessoes;
 public class GerenciamentoSessoes {
 private IRepositorio<Sessao> instance = RepositorioSessoes.getInstance();
 	
-	public void criarSessao(Filme filmeExibido, Sala salaDeExibicao, float valorDoIngresso, LocalDateTime inicioDaSessao){
+	public void criarSessao(int idSessao,Filme filmeExibido, Sala salaDeExibicao, float valorDoIngresso, LocalDateTime inicioDaSessao) throws Exception{
 		// TODO criar um objeto e salvar no repositorio pela interface
+			instance.cadastrar(new Sessao(idSessao, filmeExibido,salaDeExibicao,valorDoIngresso,inicioDaSessao));
 	}
 	
-	public void removerSessao(Sessao e){
+	public void removerSessao(Sessao e) throws Exception{
 		// TODO
+		instance.remover(e);
 	}
 	
-	public void listarSessoes(){
+	public void listarSessoes() {
 		// TODO retornar o repositorio
+		instance.listarTodos();
+	}
+	
+	public void atualizarSessao(int idSessao,Filme filmeExibido, Sala salaDeExibicao, float valorDoIngresso, LocalDateTime inicioDaSessao){
+		
 	}
 	
 	public ArrayList<Sessao> listarSessoesPorFilme(Filme a){

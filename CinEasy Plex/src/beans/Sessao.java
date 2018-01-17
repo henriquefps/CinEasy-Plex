@@ -13,7 +13,8 @@ public class Sessao {
 
 	private ArrayList<Cadeira> listaDeCadeiras = new ArrayList<Cadeira>();
 	
-	public Sessao(Filme filmeExibido, Sala salaDeExibicao, float valorDoIngresso, LocalDateTime inicioDaSessao){
+	public Sessao(int idSessao,Filme filmeExibido, Sala salaDeExibicao, float valorDoIngresso, LocalDateTime inicioDaSessao){
+		this.setIdSessao(idSessao);
 		this.setFilmeExibido(filmeExibido);
 		this.setSalaDeExibicao(salaDeExibicao);
 		this.setValorDoIngresso(valorDoIngresso);
