@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 public class Tela_ConfiguracoesController {
 
 	@FXML public void voltarParaMenuPrincipal(){
+		// Com a implementação do ScreenManager, tudo que preciso é usar o método statico setScene e dar como parâmetro
+		// A cena a ser carregada no Stage
 		ScreenManager.setScene(ScreenManager.getInstance().getTelaMenuPrincipal());
 	}
 	

@@ -33,8 +33,19 @@ public class Tela_ListarFilmeController implements Initializable{
 		ScreenManager.setScene(ScreenManager.getInstance().getTelaConfiguracao());
 	}
 	
+	// Este método preenche a TableView da Cena
 	private void preencherTabela(){
+		// Esta primeira linha carrega todas as intancias do repositório, nesse caso, de filmes.
 		ArrayList<Filme> listaDeFilmes = Fachada.getInstance().listarFilmes();
+		
+		// Os próximos 4 comandos são um pouco confusos, mas tudo o que você precisa prestar atenção são
+		//<Filme, String> Você vai trocar Filme pela classe do atributo, E pode deixar a String, Pois vc vai chamar
+		//		toString dos atributos que não forem strings, ou um String.valueOf
+		// todosOsFilmes é uma variável criada no final da linha 51
+		// O método dentro do comando, com override, está aí o new Callback pede a implementação dele.
+		// Na linha 52 você vai trocar o todosOsFilmes por sua variavel todosOsX.getValue().getAtributo()
+		// Se o atributo for um LocalTime/LocalDateTime, use o .toString()
+		// Se o atributo for um int, byte, float, use String.ValueOf(todosOsX.getValue().getAtributo())
 		colunaTitulo.setCellValueFactory(new Callback<CellDataFeatures<Filme,String>, ObservableValue<String>>() {
 			@Override
 			public ObservableValue<String> call(CellDataFeatures<Filme, String> todosOsFilmes) {
@@ -59,6 +70,14 @@ public class Tela_ListarFilmeController implements Initializable{
 				return new SimpleStringProperty(todosOsFilmes.getValue().getTitulo());
 				}
 			});
+		
+		//Depois de preparar cada coluna da tabela para receber os atributos de um arrayList
+		// Basta usar o setItems e o refresh para carregar na tabela.
+		// Não sei exatamente o que o método refresh faz, mas ele sozinho não atualiza a tabela após
+		//		modificações no repositório, é necessário chamar todo o método preencher tabela.
+		
+		// Neste exemplo carreguei todos os campos de fimle, mas também pode fazer com menos campos, como fiz em
+		// removerFilme e Alterar Filme.
 		tableViewFilmes.setItems(FXCollections.observableArrayList(listaDeFilmes));
 		tableViewFilmes.refresh();
 	}
