@@ -12,7 +12,7 @@ public interface IRepositorio<T> {
 	 * @param obj
 	 * 		referencia do objeto a ser cadastrado
 	 */
-	void cadastrar(T obj) throws Exception;
+	void cadastrar(T obj);
 	
 	/**
 	 * Atualiza um objeto do tipo T no repositorio
@@ -20,7 +20,7 @@ public interface IRepositorio<T> {
 	 * 		referencia do objeto do tipo T a ser atualizado
 	 * 		utilizar o atributo de chave primaria para fazer a atualizacao
 	 */
-	void atualizar(T newObj) throws Exception;
+	void atualizar(T newObj);
 	
 	/**
 	 * Remove um objeto do tipo T do repositorio
@@ -28,7 +28,7 @@ public interface IRepositorio<T> {
 	 * 		referencia do objeto a ser removido
 	 * 		utilizar o atributo de chave primaria para fazer a remocao
 	 */
-	void remover(T obj) throws Exception;
+	void remover(T obj);
 	
 	/** 
 	 * Faz uma busca especifica por um objeto do tipo T

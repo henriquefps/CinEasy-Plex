@@ -1,14 +1,17 @@
 package repositorios;
 
-import beans.Conta;
-import interfaces.IRepositorioContas;
+import java.util.ArrayList;
 
-public class RepositorioContas implements IRepositorioContas {
+import beans.Conta;
+import interfaces.IRepositorio;
+
+public class RepositorioContas implements IRepositorio<Conta> {
 
 	private static RepositorioContas instance;
+	private ArrayList<Conta> repositorio;
 	
 	private RepositorioContas() {
-
+		repositorio = new ArrayList<>();
 	}
 	
 
@@ -18,24 +21,39 @@ public class RepositorioContas implements IRepositorioContas {
 		}
 		return instance;
 	}
+
+
+	@Override
+	public void cadastrar(Conta obj) {
+		repositorio.add(obj);
+	}
+
+
+	@Override
+	public void atualizar(Conta newObj) {
+		repositorio.set(newObj.getIdConta(), newObj);
+		
+	}
+
+
+	@Override
+	public void remover(Conta obj) {
+		repositorio.remove(obj.getIdConta());
+		
+	}
+
+
+	@Override
+	public Conta buscar(int id) {
+		return repositorio.get(id);
+	}
+
+
+	@Override
+	public ArrayList<Conta> listarTodos() {
+		return repositorio;
+	}
 	
-	@Override
-	public void cadastrar(Conta a) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void remover(Conta a) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void listar() {
-		// TODO Auto-generated method stub
-		
-	}
 	
 
 }

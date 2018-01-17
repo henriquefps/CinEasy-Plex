@@ -24,18 +24,18 @@ public class RepositorioIngressosArray implements IRepositorio<Ingresso>{
 	}
 
 	@Override
-	public void cadastrar(Ingresso obj) throws ObjetoJaExisteException {
+	public void cadastrar(Ingresso obj) {
 		repositorio.add(obj.getIdIngresso(), obj);
 	}
 
 	@Override
-	public void atualizar(Ingresso newObj) throws ObjetoNaoExisteException {
+	public void atualizar(Ingresso newObj) {
 		repositorio.set(newObj.getIdIngresso(), newObj);
 		
 	}
 
 	@Override
-	public void remover(Ingresso obj) throws ObjetoNaoExisteException {
+	public void remover(Ingresso obj) {
 		repositorio.remove(obj.getIdIngresso());		
 	}
 
