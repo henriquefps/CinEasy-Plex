@@ -18,6 +18,7 @@ public interface IFachada {
 	public Conta buscarConta(int i) throws Exception;
 	public ArrayList<Conta> listarTodasConta();
 	public boolean existe(Conta c);
+	public Conta buscarContaPorNome(String s);
 	//Filme
 	public void cadastrarFilme(Filme c) throws Exception;
 	public void alterarFilme(Filme c) throws Exception;
