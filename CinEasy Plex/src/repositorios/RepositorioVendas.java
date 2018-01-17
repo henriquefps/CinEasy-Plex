@@ -1,38 +1,52 @@
 package repositorios;
 
+import java.util.ArrayList;
+
 import beans.Venda;
 import interfaces.IRepositorioVendas;
 
 public class RepositorioVendas implements IRepositorioVendas{
+	
+	private ArrayList<Venda> vendas;
 
 	private static RepositorioVendas instance;
 	
-	private RepositorioVendas() {
-
-	}
 	
-
 	public static RepositorioVendas getInstance(){
 		if(instance == null){
 			instance = new RepositorioVendas();
 		}
 		return instance;
 	}
-	@Override
-	public void cadastrar(Venda a) {
-		// TODO Auto-generated method stub
+	
+	private RepositorioVendas() {
+		this.vendas = new ArrayList<Venda>();
+
+	}
+	public void cadastrar(Venda nova_venda) {
+		this.vendas.add(nova_venda);	
 		
 	}
 
-	@Override
-	public void remover(Venda a) {
-		// TODO Auto-generated method stub
-		
+	
+	public boolean remover(int idVenda) {
+		Venda nova_venda = this.listar(idVenda);
+			if(nova_venda != null){
+				this.vendas.remove(nova_venda);
+				return true;
+			}
+		return false;
 	}
 
-	@Override
-	public void listar() {
-		// TODO Auto-generated method stub
+	
+	public Venda listar(int idVenda) {
+		
+		for(int venda_encontrada = 0; venda_encontrada < this.vendas.size(); venda_encontrada++){
+			if(idVenda == this.vendas.get(venda_encontrada).getIdVenda()){
+				return this.vendas.get(venda_encontrada);
+			}
+		}
+		return null;
 		
 	}
 
