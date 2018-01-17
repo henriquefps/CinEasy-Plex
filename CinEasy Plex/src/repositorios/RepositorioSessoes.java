@@ -1,14 +1,10 @@
 package repositorios;
 
 import java.util.ArrayList;
-
-
 import beans.Sessao;
-import exceptions.ObjetoJaExisteException;
-import exceptions.ObjetoNaoExisteException;
-import interfaces.IRepositorio;
+import interfaces.IRepositorioSessoes;
 
-public class RepositorioSessoes implements IRepositorio<Sessao>{
+public class RepositorioSessoes implements IRepositorioSessoes{
 
 	private ArrayList<Sessao> repositorio;
 	private static RepositorioSessoes instance;
@@ -38,42 +34,21 @@ public class RepositorioSessoes implements IRepositorio<Sessao>{
 	}
 
 	@Override
-	public void cadastrar(Sessao obj) throws ObjetoJaExisteException {
+	public void cadastrar(Sessao obj) {
 		// TODO Auto-generated method stub
-		if(obj != null){
-			if(existe(obj) == true)
-				throw new ObjetoJaExisteException("Esta sessão já existe");
-			else
-				repositorio.add(obj.getIdSessao(), obj);
-		}
+		repositorio.add(obj.getIdSessao(), obj);
 	}
 	
 	@Override
-	public void atualizar(Sessao newObj) throws ObjetoNaoExisteException {
+	public void atualizar(Sessao newObj) {
 		// TODO Auto-generated method stub
-		if(newObj != null){
-			if(existe(newObj) != true)
-				throw new ObjetoNaoExisteException("Essa sessão não existe no sistema");
-			else
-				repositorio.set(newObj.getIdSessao(), newObj);
-		}
+		repositorio.set(newObj.getIdSessao(), newObj);
 	}
 	
 	@Override
-	public void remover(Sessao obj) throws ObjetoNaoExisteException {
+	public void remover(Sessao obj) {
 		// TODO Auto-generated method stub
-		if(obj != null){
-			if(existe(obj) != true)
-				throw new ObjetoNaoExisteException("Essa sessão não existe no sistema");
-			else
-				repositorio.remove(obj);
-		}
-	}
-	
-	@Override
-	public ArrayList<Sessao> buscar(String s) {
-		// TODO Auto-generated method stub
-		return null;
+		repositorio.remove(obj);
 	}
 	
 	@Override
@@ -82,15 +57,6 @@ public class RepositorioSessoes implements IRepositorio<Sessao>{
 		return repositorio;
 	}
 	
-	@Override
-	public boolean existe(Sessao obj) {
-		// TODO Auto-generated method stub
-		if(buscar(obj.getIdSessao()) != null){
-			return true;
-		}
-		return false;
-    }
-
 	@Override
 	public ArrayList<Sessao> buscarPorFilme(String titulo) {
 		// TODO buscar sessao por filme
