@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import beans.Filme;
-import fachada.Fachada;
+import fachada.CinemaFachada;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -36,7 +36,7 @@ public class Tela_ListarFilmeController implements Initializable{
 	// Este método preenche a TableView da Cena
 	private void preencherTabela(){
 		// Esta primeira linha carrega todas as intancias do repositório, nesse caso, de filmes.
-		ArrayList<Filme> listaDeFilmes = Fachada.getInstance().listarFilmes();
+		ArrayList<Filme> listaDeFilmes = CinemaFachada.getInstance().listarFilmes();
 		
 		// Os próximos 4 comandos são um pouco confusos, mas tudo o que você precisa prestar atenção são
 		//<Filme, String> Você vai trocar Filme pela classe do atributo, E pode deixar a String, Pois vc vai chamar

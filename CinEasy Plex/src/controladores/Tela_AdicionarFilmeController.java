@@ -2,7 +2,7 @@ package controladores;
 
 import java.time.LocalTime;
 
-import fachada.Fachada;
+import fachada.CinemaFachada;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
@@ -33,7 +33,7 @@ public class Tela_AdicionarFilmeController {
 		if (Integer.parseInt(duracao_minutoTextField.getText()) < 60
 				&& Integer.parseInt(duracao_minutoTextField.getText()) >= 0) {
 			
-			Fachada.getInstance().criarFilme(
+			CinemaFachada.getInstance().criarFilme(
 					tituloTextField.getText(), 
 					generoTextField.getText(),
 					LocalTime.of(Integer.parseInt(duracao_horaTextField.getText()),
