@@ -2,9 +2,7 @@ package interfaces;
 
 import beans.Conta;
 
-public interface IRepositorioContas {
+public interface IRepositorioContas extends IRepositorio<Conta>{
 	
-	public abstract void cadastrar(Conta a);
-	public abstract void remover(Conta a);
-	public abstract void listar();	
+	public Conta pesquisarPorNome(String s);
 }

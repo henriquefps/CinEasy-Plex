@@ -3,21 +3,21 @@ package repositorios;
 import java.util.ArrayList;
 
 import beans.Conta;
-import interfaces.IRepositorio;
+import interfaces.IRepositorioContas;
 
-public class RepositorioContas implements IRepositorio<Conta> {
+public class RepositorioContasArray implements IRepositorioContas {
 
-	private static RepositorioContas instance;
+	private static RepositorioContasArray instance;
 	private ArrayList<Conta> repositorio;
 	
-	private RepositorioContas() {
+	private RepositorioContasArray() {
 		repositorio = new ArrayList<>();
 	}
 	
 
-	public static RepositorioContas getInstance(){
+	public static RepositorioContasArray getInstance(){
 		if(instance == null){
-			instance = new RepositorioContas();
+			instance = new RepositorioContasArray();
 		}
 		return instance;
 	}
@@ -52,6 +52,20 @@ public class RepositorioContas implements IRepositorio<Conta> {
 	@Override
 	public ArrayList<Conta> listarTodos() {
 		return repositorio;
+	}
+
+
+	@Override
+	public Conta pesquisarPorNome(String s) {
+		Conta res = null;
+		for (Conta conta : repositorio) {
+			if(conta.getLogin().equals(s)) {
+				res = conta;
+				break;
+			}
+		}
+		
+		return res;
 	}
 	
 	

@@ -19,7 +19,7 @@ import gerencia.GerenciamentoSessoes;
 import gerencia.GerenciamentoVendas;
 import interfaces.IFachada;
 import interfaces.IRepositorioContas;
-import repositorios.RepositorioContas;
+import repositorios.RepositorioContasArray;
 
 public class CinemaFachada implements IFachada {
 	private static CinemaFachada instance;
@@ -81,6 +81,11 @@ public class CinemaFachada implements IFachada {
 	public boolean existe(Conta c) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	
+	@Override
+	public Conta buscarContaPorNome(String s) {
+		return contas.pesquisarPorNome(s);
 	}
 
 	@Override
@@ -194,19 +199,19 @@ public class CinemaFachada implements IFachada {
 	@Override
 	public void cadastrarSessao(Sessao c) throws Exception {
 		// TODO Auto-generated method stub
-		
+		sessoes.criarSessao(c);
 	}
 
 	@Override
 	public void alterarSessao(Sessao c) throws Exception {
 		// TODO Auto-generated method stub
-		
+		sessoes.atualizarSessao(c);
 	}
 
 	@Override
 	public void removerSessao(Sessao c) throws Exception {
 		// TODO Auto-generated method stub
-		
+		sessoes.removerSessao(c);
 	}
 
 	@Override
@@ -214,6 +219,18 @@ public class CinemaFachada implements IFachada {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+	public ArrayList<Sessao> buscarSessaoPorTitulo(String titulo){
+		return sessoes.listarSessoesPorFilme(titulo);
+	}
+	
+	@Override
+	public ArrayList<Sessao> buscarSessaoPorSala(byte id) {
+		// TODO Auto-generated method stub
+		return sessoes.listarSessoesPorSala(id);
+	}
+	
 
 	@Override
 	public ArrayList<Sessao> listarTodasSessao() {
@@ -262,6 +279,5 @@ public class CinemaFachada implements IFachada {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
 	
 }

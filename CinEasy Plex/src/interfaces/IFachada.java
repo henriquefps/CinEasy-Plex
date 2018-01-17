@@ -18,6 +18,7 @@ public interface IFachada {
 	public Conta buscarConta(int i) throws Exception;
 	public ArrayList<Conta> listarTodasConta();
 	public boolean existe(Conta c);
+	public Conta buscarContaPorNome(String s);
 	//Filme
 	public void cadastrarFilme(Filme c) throws Exception;
 	public void alterarFilme(Filme c) throws Exception;
@@ -46,6 +47,8 @@ public interface IFachada {
 	public Sessao buscarSessao(int id) throws Exception;
 	public ArrayList<Sessao> listarTodasSessao();
 	public boolean existe(Sessao c);
+	ArrayList<Sessao> buscarSessaoPorTitulo(String titulo);
+	ArrayList<Sessao> buscarSessaoPorSala(byte id);
 	//Venda
 	public void cadastrarVenda(Venda c) throws Exception;
 	public void alterarVenda(Venda c) throws Exception;
@@ -53,5 +56,6 @@ public interface IFachada {
 	public Venda buscarVenda(int id) throws Exception;
 	public ArrayList<Venda> listarTodasVenda();
 	public boolean existe(Venda c);
+	
 
 }

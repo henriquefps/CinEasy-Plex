@@ -103,10 +103,12 @@ public class ScreenManager {
 	 * @return the telaAdcionarSessao
 	 */
 	public Scene getTelaAdcionarSessao() {
-		// TODO tela Adcionar Sessao
+		// TODO tela Adicionar Sessao
 		if(telaAdcionarSessao == null){
 			try {
-				telaAdcionarSessao = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_AdicionarSessao.fxml")),1280, 720);
+				
+				telaAdcionarSessao = new Scene(
+						FXMLLoader.load(getClass().getResource("/graficos/Tela_AdicionarSessao.fxml")), 1280, 720);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -117,8 +119,6 @@ public class ScreenManager {
 	
 	public Scene getTelaRemoverFilme() {
 		try {
-			// Nas telas que tem tabela eu não usei o if. Pois assim eu consigo atualizar a tabela usando o método
-			// initialize da interface Initialize, esse método é chamado sempre que a Cena é criada.
 			telaRemoverFilme = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_RemoverFilme.fxml")),
 					1280, 720);
 
