@@ -7,6 +7,4 @@ import beans.Filme;
 public interface IRepositorioFilmes extends IRepositorio<Filme> {
 	
 	ArrayList<Filme> buscarPorFilme(String titulo);
-	
-	ArrayList<Filme> buscarPorSala(byte id);
 }

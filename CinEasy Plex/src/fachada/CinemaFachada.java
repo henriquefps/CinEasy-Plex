@@ -49,38 +49,35 @@ public class CinemaFachada implements IFachada {
 
 	@Override
 	public void cadastrarConta(Conta c) throws Exception {
-		// TODO Auto-generated method stub
+		contas.cadastrar(c);
 		
 	}
 
 	@Override
 	public void alterarConta(Conta c) throws Exception {
-		// TODO Auto-generated method stub
+		contas.alterar(c);
 		
 	}
 
 	@Override
 	public void removerConta(Conta c) throws Exception {
-		// TODO Auto-generated method stub
+		contas.remover(c);
 		
 	}
 
 	@Override
-	public Conta buscarConta(int i) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public Conta buscarConta(int id) throws Exception {
+		return contas.buscar(id);
 	}
 
 	@Override
 	public ArrayList<Conta> listarTodasConta() {
-		// TODO Auto-generated method stub
-		return null;
+		return contas.listarTodos();
 	}
 
 	@Override
 	public boolean existe(Conta c) {
-		// TODO Auto-generated method stub
-		return false;
+		return contas.existe(c);
 	}
 	
 	@Override
@@ -90,74 +87,71 @@ public class CinemaFachada implements IFachada {
 
 	@Override
 	public void cadastrarFilme(Filme c) throws Exception {
-		// TODO Auto-generated method stub
+		filmes.cadastrar(c);
 		
 	}
 
 	@Override
 	public void alterarFilme(Filme c) throws Exception {
-		// TODO Auto-generated method stub
+		filmes.alterar(c);
 		
 	}
 
 	@Override
 	public void removerFilme(Filme c) throws Exception {
-		// TODO Auto-generated method stub
+		filmes.remover(c);
 		
 	}
 
 	@Override
 	public Filme buscarFilme(int id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return filmes.buscar(id);
 	}
 
 	@Override
 	public ArrayList<Filme> listarTodasFilme() {
-		// TODO Auto-generated method stub
-		return null;
+		return filmes.listarTodos();
 	}
 
 	@Override
 	public boolean existe(Filme c) {
-		// TODO Auto-generated method stub
-		return false;
+		return filmes.existe(c);
 	}
 
 	@Override
 	public void cadastrarIngresso(Ingresso c) throws Exception {
-		// TODO Auto-generated method stub
+		ingressos.cadastrar(c);
 		
 	}
 
 	@Override
 	public void alterarIngresso(Ingresso c) throws Exception {
-		// TODO Auto-generated method stub
+		ingressos.alterar(c);
 		
 	}
 
 	@Override
 	public void removerIngresso(Ingresso c) throws Exception {
-		// TODO Auto-generated method stub
+		ingressos.remover(c);
 		
 	}
 
 	@Override
 	public Ingresso buscarIngresso(int id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return ingressos.buscar(id);
+		
 	}
 
 	@Override
 	public ArrayList<Ingresso> listarTodasIngresso() {
-		// TODO Auto-generated method stub
-		return null;
+		return ingressos.listarTodos();
+				
 	}
 
 	@Override
 	public boolean existe(Ingresso c) {
-		// TODO Auto-generated method stub
-		return false;
+		return ingressos.existe(c);
+		
 	}
 
 	@Override

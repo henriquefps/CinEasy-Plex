@@ -11,6 +11,10 @@ public class Sessao {
 	private LocalDateTime inicioDaSessao;
 	private LocalDateTime fimDaSessao;
 	
+	public Sessao() {
+		
+	}
+	
 	public Sessao(int idSessao,Filme filmeExibido, Sala salaDeExibicao, float valorDoIngresso, LocalDateTime inicioDaSessao){
 		this.setIdSessao(idSessao);
 		this.setFilmeExibido(filmeExibido);

@@ -40,28 +40,24 @@ public class RepositorioFilmes implements IRepositorioFilmes{
 
 	@Override
 	public void atualizar(Filme newObj) {
-		// TODO Auto-generated method stub
-		
+		listaDeFilmes.set(newObj.getIdFilme(), newObj);	
 	}
 
 
 	@Override
 	public Filme buscar(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return listaDeFilmes.get(id);
 	}
 
 	@Override
 	public ArrayList<Filme> buscarPorFilme(String titulo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public ArrayList<Filme> buscarPorSala(byte id) {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Filme> filmes = new ArrayList<>();
+		for (Filme filme : listaDeFilmes) {
+			if(filme.getTitulo().contains(titulo))
+				filmes.add(filme);
+		}
+		
+		return filmes;
 	}
 
 }
