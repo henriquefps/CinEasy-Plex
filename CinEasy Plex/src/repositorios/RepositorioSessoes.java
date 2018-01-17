@@ -2,7 +2,10 @@ package repositorios;
 
 import java.util.ArrayList;
 
+
 import beans.Sessao;
+import exceptions.ObjetoJaExisteException;
+import exceptions.ObjetoNaoExisteException;
 import interfaces.IRepositorio;
 
 public class RepositorioSessoes implements IRepositorio<Sessao>{
@@ -28,27 +31,43 @@ public class RepositorioSessoes implements IRepositorio<Sessao>{
 		for(int i = 0; i < this.repositorio.size(); i++){
 			if(repositorio.get(i).getIdSessao() == id){
 				achou = repositorio.get(i);
+				return achou;
 			}
 		}
 		return achou;
 	}
 
 	@Override
-	public void cadastrar(Sessao obj) throws Exception {
+	public void cadastrar(Sessao obj) throws ObjetoJaExisteException {
 		// TODO Auto-generated method stub
-		
+		if(obj != null){
+			if(existe(obj) == true)
+				throw new ObjetoJaExisteException("Esta sessão já existe");
+			else
+				repositorio.add(obj.getIdSessao(), obj);
+		}
 	}
 	
 	@Override
-	public void atualizar(Sessao newObj) throws Exception {
+	public void atualizar(Sessao newObj) throws ObjetoNaoExisteException {
 		// TODO Auto-generated method stub
-		
+		if(newObj != null){
+			if(existe(newObj) != true)
+				throw new ObjetoNaoExisteException("Essa sessão não existe no sistema");
+			else
+				repositorio.set(newObj.getIdSessao(), newObj);
+		}
 	}
 	
 	@Override
-	public void remover(Sessao obj) throws Exception {
+	public void remover(Sessao obj) throws ObjetoNaoExisteException {
 		// TODO Auto-generated method stub
-		
+		if(obj != null){
+			if(existe(obj) != true)
+				throw new ObjetoNaoExisteException("Essa sessão não existe no sistema");
+			else
+				repositorio.remove(obj);
+		}
 	}
 	
 	@Override
@@ -57,15 +76,39 @@ public class RepositorioSessoes implements IRepositorio<Sessao>{
 		return null;
 	}
 	
+	public ArrayList<Sessao> buscarSessaoFilme(String s){
+		// TODO buscar sessao por filme
+		ArrayList<Sessao> r = new ArrayList<Sessao>();
+		if(s == null)
+			return null;
+		else{
+			for(int i = 0; i < repositorio.size(); i++){
+				if(repositorio.get(i).getFilmeExibido().equals(s)){
+					r.add(repositorio.get(i));
+				}
+			}
+		}
+		return r;
+	}
+	
+	public ArrayList<Sessao> buscarSessaoSala(byte id){
+		// TODO buscar sessao por sala
+		return null;
+	}
+	
+	
 	@Override
 	public ArrayList<Sessao> listarTodos() {
 		// TODO Auto-generated method stub
-		return null;
+		return repositorio;
 	}
 	
 	@Override
 	public boolean existe(Sessao obj) {
 		// TODO Auto-generated method stub
+		if(buscar(obj.getIdSessao()) != null){
+			return true;
+		}
 		return false;
-	}
+    }
 }

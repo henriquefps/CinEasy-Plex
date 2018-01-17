@@ -3,6 +3,7 @@ package gerencia;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+import beans.Cadeira;
 import beans.Filme;
 import beans.Sala;
 import beans.Sessao;
@@ -27,9 +28,11 @@ private IRepositorio<Sessao> instance = RepositorioSessoes.getInstance();
 	
 	public ArrayList<Sessao> listarSessoesPorFilme(Filme a){
 		//TODO
+		return null;
 	}
 	
 	public ArrayList<Cadeira> listarCadeirasDaSessao(Sessao a){
 		// TODO
+		return null;
 	}
 }
