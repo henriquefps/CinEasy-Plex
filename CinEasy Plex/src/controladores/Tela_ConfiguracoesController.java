@@ -19,6 +19,7 @@ public class Tela_ConfiguracoesController {
 	}
 	@FXML public void abrirAdicionarSessoes(){
 		// TODO
+		ScreenManager.setScene(ScreenManager.getInstance().getTelaAdcionarSessao());
 	}
 	@FXML public void abrirRemoverContas(){
 		// TODO

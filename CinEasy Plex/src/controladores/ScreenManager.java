@@ -98,10 +98,12 @@ public class ScreenManager {
 	 * @return the telaAdcionarSessao
 	 */
 	public Scene getTelaAdcionarSessao() {
-		// TODO tela Adcionar Sessao
+		// TODO tela Adicionar Sessao
 		if(telaAdcionarSessao == null){
 			try {
-				telaAdcionarSessao = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_AdicionarSessao.fxml")),1280, 720);
+				
+				telaAdcionarSessao = new Scene(
+						FXMLLoader.load(getClass().getResource("/graficos/Tela_AdicionarSessao.fxml")), 1280, 720);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
