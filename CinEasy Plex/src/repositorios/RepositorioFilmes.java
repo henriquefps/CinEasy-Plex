@@ -33,8 +33,35 @@ public class RepositorioFilmes implements IRepositorioFilmes{
 	}
 
 	@Override
-	public ArrayList<Filme> listar() {
+	public ArrayList<Filme> listarTodos() {
 		return listaDeFilmes;
+	}
+
+
+	@Override
+	public void atualizar(Filme newObj) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public Filme buscar(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<Filme> buscarPorFilme(String titulo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public ArrayList<Filme> buscarPorSala(byte id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
