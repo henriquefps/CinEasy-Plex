@@ -40,37 +40,11 @@ public interface IRepositorio<T> {
 	T buscar(int id);
 	
 	/**
-	 * busca generica de um item, bem utilizada para preenchimento de um tableview
-	 * de consulta
-	 * @param s
-	 * 		algum atributo do tipo String que identifica o objeto
-	 * @return
-	 * 		uma lista com todos os objetos que tem o atributo tipo String parecido
-	 */
-	ArrayList<T> buscar(String s);
-	
-	/**
 	 * Listar todos objetos do tipo T
 	 * @return
 	 * 		uma lista com todos os objetos do repositorio
 	 */
 	ArrayList<T> listarTodos();
-	
-	/**
-	 * Verifica a existencia do objeto do tipo T no repositorio
-	 * 
-	 * @param obj
-	 * 		referencia do objeto a ter a existencia verificada
-	 * 
-	 * @return
-	 * 		true se o objeto existe
-	 * 		false se o não existe
-	 */
-	boolean existe(T obj);
-	
-	ArrayList<T> buscarPorFilme(String titulo);
-	
-	ArrayList<T> buscarPorSala(byte id);
 	
 
 }
