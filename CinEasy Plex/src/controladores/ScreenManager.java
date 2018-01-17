@@ -1,5 +1,7 @@
 package controladores;
 
+import java.io.IOException;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -8,10 +10,13 @@ public class ScreenManager {
 	private Scene telaLogin;
 	private Scene telaConfiguracao;
 	private Scene telaMenuPrincipal;
+	
 	private Scene telaAdicionarFilme;
 	private Scene telaRemoverFilme;
 	private Scene telaAlterarFilme;
 	private Scene telaListarFilme;
+	
+	private Scene telaAdcionarSessao;
 	
 
 	private static Stage mainStage;
@@ -88,7 +93,23 @@ public class ScreenManager {
 		}
 		return telaAdicionarFilme;
 	}
-
+	
+	/**
+	 * @return the telaAdcionarSessao
+	 */
+	public Scene getTelaAdcionarSessao() {
+		// TODO tela Adcionar Sessao
+		if(telaAdcionarSessao == null){
+			try {
+				telaAdcionarSessao = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_AdicionarSessao.fxml")),1280, 720);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return telaAdcionarSessao;
+	}
+	
 	public Scene getTelaRemoverFilme() {
 		try {
 			telaRemoverFilme = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_RemoverFilme.fxml")),
@@ -121,5 +142,4 @@ public class ScreenManager {
 		}
 		return telaListarFilme;
 	}
-
 }
