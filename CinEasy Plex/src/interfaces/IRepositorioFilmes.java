@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 import beans.Filme;
 
-public interface IRepositorioFilmes {
+public interface IRepositorioFilmes extends IRepositorio<Filme> {
 	
-	public abstract void cadastrar(Filme a);
-	public abstract void remover(Filme a);
-	public abstract ArrayList<Filme> listar();	
+	ArrayList<Filme> buscarPorFilme(String titulo);
+	
+	ArrayList<Filme> buscarPorSala(byte id);
 }

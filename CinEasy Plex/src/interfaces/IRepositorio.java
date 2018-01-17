@@ -56,21 +56,5 @@ public interface IRepositorio<T> {
 	 */
 	ArrayList<T> listarTodos();
 	
-	/**
-	 * Verifica a existencia do objeto do tipo T no repositorio
-	 * 
-	 * @param obj
-	 * 		referencia do objeto a ter a existencia verificada
-	 * 
-	 * @return
-	 * 		true se o objeto existe
-	 * 		false se o não existe
-	 */
-	boolean existe(T obj);
-	
-	ArrayList<T> buscarPorFilme(String titulo);
-	
-	ArrayList<T> buscarPorSala(byte id);
-	
 
 }
