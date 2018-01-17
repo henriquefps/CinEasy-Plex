@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#abrirAdicionarContas" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.Tela_ConfiguracoesController">
+<AnchorPane maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#abrirAdicionarContas" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.Tela_ConfiguracoesController">
    <children>
       <ImageView fitHeight="88.0" fitWidth="400.0" layoutX="50.0" layoutY="31.0">
          <image>
@@ -44,17 +44,17 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="156.0" layoutY="395.0" mnemonicParsing="false" onAction="#abrirRemoverContas" text="Remover">
+      <Button layoutX="153.0" layoutY="396.0" mnemonicParsing="false" onAction="#abrirRemoverContas" prefHeight="51.0" prefWidth="133.0" text="Remover">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="168.0" layoutY="450.0" mnemonicParsing="false" onAction="#abrirAlterarContas" text="Alterar">
+      <Button layoutX="153.0" layoutY="456.0" mnemonicParsing="false" onAction="#abrirAlterarContas" prefHeight="51.0" prefWidth="133.0" text="Alterar">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="175.0" layoutY="505.0" mnemonicParsing="false" onAction="#abrirListarContas" text="Listar">
+      <Button layoutX="153.0" layoutY="514.0" mnemonicParsing="false" onAction="#abrirListarContas" prefHeight="51.0" prefWidth="133.0" text="Listar">
          <font>
             <Font size="24.0" />
          </font>
@@ -64,17 +64,17 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="447.0" layoutY="396.0" mnemonicParsing="false" onAction="#abrirRemoverFilmes" text="Remover">
+      <Button layoutX="444.0" layoutY="397.0" mnemonicParsing="false" onAction="#abrirRemoverFilmes" prefHeight="51.0" prefWidth="133.0" text="Remover">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="459.0" layoutY="451.0" mnemonicParsing="false" onAction="#abrirAlterarFilmes" text="Alterar">
+      <Button layoutX="444.0" layoutY="456.0" mnemonicParsing="false" onAction="#abrirAlterarFilmes" prefHeight="51.0" prefWidth="133.0" text="Alterar">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="466.0" layoutY="506.0" mnemonicParsing="false" onAction="#abrirListarFilmes" text="Listar">
+      <Button layoutX="444.0" layoutY="514.0" mnemonicParsing="false" onAction="#abrirListarFilmes" prefHeight="51.0" prefWidth="133.0" text="Listar">
          <font>
             <Font size="24.0" />
          </font>
@@ -84,37 +84,37 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="716.0" layoutY="396.0" mnemonicParsing="false" onAction="#abrirRemoverSalas" text="Remover">
+      <Button layoutX="713.0" layoutY="397.0" mnemonicParsing="false" onAction="#abrirRemoverSalas" prefHeight="51.0" prefWidth="133.0" text="Remover">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="728.0" layoutY="451.0" mnemonicParsing="false" onAction="#abrirAlterarSalas" text="Alterar">
+      <Button layoutX="713.0" layoutY="456.0" mnemonicParsing="false" onAction="#abrirAlterarSalas" prefHeight="51.0" prefWidth="133.0" text="Alterar">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="735.0" layoutY="506.0" mnemonicParsing="false" onAction="#abrirListarSalas" text="Listar">
+      <Button layoutX="713.0" layoutY="514.0" mnemonicParsing="false" onAction="#abrirListarSalas" prefHeight="51.0" prefWidth="133.0" text="Listar">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="1014.0" layoutY="340.0" mnemonicParsing="false" onAction="#abrirAdicionarSessoes" text="Adicionar" textAlignment="CENTER">
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="1014.0" layoutY="340.0" mnemonicParsing="false" onAction="#abrirAdicionarSessoes" prefHeight="51.0" prefWidth="133.0" text="Adicionar" textAlignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="1017.0" layoutY="397.0" mnemonicParsing="false" onAction="#abrirRemoverSessoes" text="Remover">
+      <Button layoutX="1014.0" layoutY="397.0" mnemonicParsing="false" onAction="#abrirRemoverSessoes" prefHeight="51.0" prefWidth="133.0" text="Remover">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="1029.0" layoutY="452.0" mnemonicParsing="false" onAction="#abrirAlterarSessoes" text="Alterar">
+      <Button layoutX="1014.0" layoutY="456.0" mnemonicParsing="false" onAction="#abrirAlterarSessoes" prefHeight="51.0" prefWidth="133.0" text="Alterar">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="1036.0" layoutY="507.0" mnemonicParsing="false" onAction="#abrirListarSessoes" text="Listar">
+      <Button layoutX="1014.0" layoutY="514.0" mnemonicParsing="false" onAction="#abrirListarSessoes" prefHeight="51.0" prefWidth="133.0" text="Listar">
          <font>
             <Font size="24.0" />
          </font>
