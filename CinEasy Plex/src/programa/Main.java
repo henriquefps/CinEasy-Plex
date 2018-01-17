@@ -25,6 +25,14 @@ public class Main extends Application{
 		// Contas
 		
 		// Sessoes
+		/*try {
+			CinemaFachada.getInstance().cadastrarSessao(null);
+			CinemaFachada.getInstance().cadastrarSessao(null);
+			CinemaFachada.getInstance().cadastrarSessao(null);
+			CinemaFachada.getInstance().cadastrarSessao(null);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}*/
 	}
 	
 	@Override

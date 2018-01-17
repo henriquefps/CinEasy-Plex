@@ -19,7 +19,9 @@ public class ScreenManager {
 	private Scene telaListarFilme;
 	
 	private Scene telaAdcionarSessao;
-	
+	private Scene telaRemoverSessao;
+	private Scene telaAlterarSessao;
+	private Scene telaListarSessao;
 
 	private static Stage mainStage;
 
@@ -99,24 +101,6 @@ public class ScreenManager {
 		return telaAdicionarFilme;
 	}
 	
-	/**
-	 * @return the telaAdcionarSessao
-	 */
-	public Scene getTelaAdcionarSessao() {
-		// TODO tela Adicionar Sessao
-		if(telaAdcionarSessao == null){
-			try {
-				
-				telaAdcionarSessao = new Scene(
-						FXMLLoader.load(getClass().getResource("/graficos/Tela_AdicionarSessao.fxml")), 1280, 720);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		return telaAdcionarSessao;
-	}
-	
 	public Scene getTelaRemoverFilme() {
 		try {
 			telaRemoverFilme = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_RemoverFilme.fxml")),
@@ -148,5 +132,56 @@ public class ScreenManager {
 			e.printStackTrace();
 		}
 		return telaListarFilme;
+	}
+	
+	/**
+	 * @return the telaAdcionarSessao
+	 */
+	public Scene getTelaAdcionarSessao() {
+		// TODO tela Adicionar Sessao
+		if(telaAdcionarSessao == null){
+			try {
+				
+				telaAdcionarSessao = new Scene(
+						FXMLLoader.load(getClass().getResource("/graficos/Tela_AdicionarSessao.fxml")), 1280, 720);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return telaAdcionarSessao;
+	}
+	
+	public Scene getTelaRemoverSessao(){
+		// TODO tela Remover Sessao
+		if(telaRemoverSessao == null){
+			try {
+				telaRemoverSessao =  new Scene(
+						FXMLLoader.load(getClass().getResource("/graficos/Tela_RemoverSessao.fxml")), 1280, 720);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+		}
+		return telaRemoverSessao;
+	}
+	
+	public Scene getTelaAlterarSessao(){
+		// TODO Tela Alterar Sessao
+		if(telaAlterarSessao == null){
+			try {
+				telaAlterarSessao = new Scene(
+						FXMLLoader.load(getClass().getResource("/graficos/Tela_AlterarSessao.fxml")), 1280, 720);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return telaAlterarSessao;
+	}
+	
+	public Scene getTelaListarSessao(){
+		// TODO 
+		return null;
 	}
 }

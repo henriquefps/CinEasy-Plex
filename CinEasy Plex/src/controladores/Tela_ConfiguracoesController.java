@@ -20,7 +20,7 @@ public class Tela_ConfiguracoesController {
 		// TODO
 	}
 	@FXML public void abrirAdicionarSessoes(){
-		// TODO
+		// TODO abrir tela adicionar Sessoes
 		ScreenManager.setScene(ScreenManager.getInstance().getTelaAdcionarSessao());
 	}
 	@FXML public void abrirRemoverContas(){
@@ -33,7 +33,8 @@ public class Tela_ConfiguracoesController {
 		// TODO	
 	}
 	@FXML public void abrirRemoverSessoes(){
-		// TODO
+		// TODO abrir tela remover sessoes
+		ScreenManager.setScene(ScreenManager.getInstance().getTelaRemoverSessao());
 	}
 	@FXML public void abrirAlterarContas(){
 		// TODO
@@ -43,9 +44,11 @@ public class Tela_ConfiguracoesController {
 	}
 	@FXML public void abrirAlterarSalas(){
 		// TODO
+		
 	}
 	@FXML public void abrirAlterarSessoes(){
 		// TODO
+		ScreenManager.setScene(ScreenManager.getInstance().getTelaAlterarSessao());
 	}
 	@FXML public void abrirListarContas(){
 		// TODO
