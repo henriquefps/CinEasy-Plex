@@ -91,5 +91,17 @@ public class RepositorioIngressosArray implements IRepositorio<Ingresso>{
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	@Override
+	public ArrayList<Ingresso> buscarPorFilme(String titulo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<Ingresso> buscarPorSala(byte id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

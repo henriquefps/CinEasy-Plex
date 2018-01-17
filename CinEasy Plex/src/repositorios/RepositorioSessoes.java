@@ -76,27 +76,6 @@ public class RepositorioSessoes implements IRepositorio<Sessao>{
 		return null;
 	}
 	
-	public ArrayList<Sessao> buscarSessaoFilme(String s){
-		// TODO buscar sessao por filme
-		ArrayList<Sessao> r = new ArrayList<Sessao>();
-		if(s == null)
-			return null;
-		else{
-			for(int i = 0; i < repositorio.size(); i++){
-				if(repositorio.get(i).getFilmeExibido().equals(s)){
-					r.add(repositorio.get(i));
-				}
-			}
-		}
-		return r;
-	}
-	
-	public ArrayList<Sessao> buscarSessaoSala(byte id){
-		// TODO buscar sessao por sala
-		return null;
-	}
-	
-	
 	@Override
 	public ArrayList<Sessao> listarTodos() {
 		// TODO Auto-generated method stub
@@ -111,4 +90,36 @@ public class RepositorioSessoes implements IRepositorio<Sessao>{
 		}
 		return false;
     }
+
+	@Override
+	public ArrayList<Sessao> buscarPorFilme(String titulo) {
+		// TODO buscar sessao por filme
+		ArrayList<Sessao> r = new ArrayList<Sessao>();
+		if(titulo == null)
+			return null;
+		else{
+			for(int i = 0; i < repositorio.size(); i++){
+				if(repositorio.get(i).getFilmeExibido().equals(titulo)){
+					r.add(repositorio.get(i));
+				}
+			}
+		}
+		return r;
+	}
+
+	@Override
+	public ArrayList<Sessao> buscarPorSala(byte id) {
+		// TODO buscar sessao por filme
+		ArrayList<Sessao> r = new ArrayList<Sessao>();
+		if(id < 0)
+			return null;
+		else{
+			for(int i = 0; i < repositorio.size(); i++){
+				if(repositorio.get(i).getSalaDeExibicao().getIdSala() == id){
+					r.add(repositorio.get(i));
+				}
+			}
+		}
+		return r;
+	}
 }

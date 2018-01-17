@@ -67,5 +67,10 @@ public interface IRepositorio<T> {
 	 * 		false se o não existe
 	 */
 	boolean existe(T obj);
+	
+	ArrayList<T> buscarPorFilme(String titulo);
+	
+	ArrayList<T> buscarPorSala(byte id);
+	
 
 }

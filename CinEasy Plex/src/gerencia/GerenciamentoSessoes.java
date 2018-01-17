@@ -30,7 +30,12 @@ private IRepositorio<Sessao> instance = RepositorioSessoes.getInstance();
 	}
 	
 	public void atualizarSessao(int idSessao,Filme filmeExibido, Sala salaDeExibicao, float valorDoIngresso, LocalDateTime inicioDaSessao){
-		
+		try {
+			instance.atualizar(new Sessao(idSessao, filmeExibido,salaDeExibicao,valorDoIngresso,inicioDaSessao));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public ArrayList<Sessao> listarSessoesPorFilme(Filme a){
