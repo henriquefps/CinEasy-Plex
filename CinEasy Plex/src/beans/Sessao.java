@@ -10,8 +10,6 @@ public class Sessao {
 	private float valorDoIngresso;
 	private LocalDateTime inicioDaSessao;
 	private LocalDateTime fimDaSessao;
-
-	private ArrayList<Cadeira> listaDeCadeiras = new ArrayList<Cadeira>();
 	
 	public Sessao(int idSessao,Filme filmeExibido, Sala salaDeExibicao, float valorDoIngresso, LocalDateTime inicioDaSessao){
 		this.setIdSessao(idSessao);
@@ -109,36 +107,17 @@ public class Sessao {
 	public void setInicioDaSessao(LocalDateTime inicioDaSessao) {
 		this.inicioDaSessao = inicioDaSessao;
 	}
-	
-
-	/**
-	 * @return the listaDeCadeiras
-	 */
-	public ArrayList<Cadeira> getListaDeCadeiras() {
-		return listaDeCadeiras;
-	}
-
-
-
-	/**
-	 * @param listaDeCadeiras the listaDeCadeiras to set
-	 */
-	public void setListaDeCadeiras(ArrayList<Cadeira> listaDeCadeiras) {
-		this.listaDeCadeiras = listaDeCadeiras;
-	}
-
-	
-	//TODO A sessão será igual quando o Filme, a Sala e o Horário inicial forem iguais 
-		public boolean equals(Object obj){
-			boolean res = false;
-			if(obj != null && obj.getClass() == this.getClass()){
-				if(this.getFilmeExibido().equals(((Sessao) obj).getFilmeExibido()) 
-						&& this.getSalaDeExibicao().equals(((Sessao)obj).getSalaDeExibicao())
-						&& this.getInicioDaSessao().equals(((Sessao)obj).getInicioDaSessao())){
-					res = true;
-				}
+		
+	public boolean equals(Object obj){
+		boolean res = false;
+		if(obj != null && obj.getClass() == this.getClass()){
+			if(this.getFilmeExibido().equals(((Sessao) obj).getFilmeExibido()) 
+					&& this.getSalaDeExibicao().equals(((Sessao)obj).getSalaDeExibicao())
+					&& this.getInicioDaSessao().equals(((Sessao)obj).getInicioDaSessao())){
+				res = true;
 			}
-			return res;
 		}
+		return res;
+	}
 
 }

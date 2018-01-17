@@ -65,9 +65,17 @@ private IRepositorioSessoes instance = RepositorioSessoes.getInstance();
 	}
 	
 	public boolean existe(Sessao obj) throws Exception{
-		// TODO faltando fazer existe sessão
-		boolean res = false;
-		
-		return res;
+		// TODO @return true caso a sessão exista
+		ArrayList<Sessao> r = this.listarSessoes();
+		if(obj == null)
+			throw new IllegalArgumentException("Parâmetro inválido");
+		else{
+			for(int i = 0; i < r.size(); i++){
+				if(r.get(i).equals(obj)){
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 }
