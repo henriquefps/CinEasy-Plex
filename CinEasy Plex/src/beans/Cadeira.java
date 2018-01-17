@@ -1,21 +1,22 @@
 package beans;
 
 public class Cadeira {
-	private String letra;
+	private char letra;
 	private int num;
 	private boolean isDisponivel;
 	
 	
-	public Cadeira(String letra, int num, boolean isDisponivel) {
-		this.letra = letra.toUpperCase();
+	public Cadeira(int letra, int num, boolean isDisponivel) {
+		
+		this.letra = transformaEmLetra(letra);
 		this.num = num;
 		this.isDisponivel = isDisponivel;
 	}
 	
-	public String getLetra() {
+	public char getLetra() {
 		return letra;
 	}
-	public void setLetra(String letra) {
+	public void setLetra(char letra) {
 		this.letra = letra;
 	}
 	public int getNum() {
@@ -50,7 +51,14 @@ public class Cadeira {
 	}
 	@Override
 	public String toString() {
-		return letra + num;
+		return "" + letra + num;
+	}
+	
+	private char transformaEmLetra(int letra) {
+		char letras[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 
+				'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+		
+		return letras[letra];
 	}
 	
 	

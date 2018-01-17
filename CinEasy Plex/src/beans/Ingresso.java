@@ -4,6 +4,7 @@ public class Ingresso {
 	private int idIngresso;
 	private boolean isMeia;
 	private Cadeira cadeiraVendida;
+	
 	private Sessao sessao;
 	
 	public Ingresso(boolean isMeia, Cadeira cadeiraVendida, Sessao sessao){

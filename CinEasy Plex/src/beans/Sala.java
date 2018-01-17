@@ -4,30 +4,43 @@ import java.util.ArrayList;
 
 public class Sala {
 	private byte idSala;
-	private int quantidadeDeCadeiras;
+	private int quantLinhas;
+	private int quantColunas;
 	private ArrayList<Cadeira> listaDeCadeiras = new ArrayList<Cadeira>();
-	private String tipo; //Tipo da sala, 3D, 4K...
+	private TipoSala tipo;
+	private TipoVisual visual;
 	
-	public Sala(byte idSala, int quantidadeDeCadeiras, String tipoDeSala){
-		this.setIdSala(idSala);
-		this.setQuantidadeDeCadeiras(quantidadeDeCadeiras);
-		//TODO algoritmo de criacao dos objetos cadeiras
-		this.setTipo(tipoDeSala);			
+	public Sala(byte idSala, int quantLinhas, int quantColunas, TipoSala tipo, TipoVisual visual) {
+		this.idSala = idSala;
+		this.quantLinhas = quantLinhas;
+		this.quantColunas = quantColunas;
+		populaListaCadeiras(quantLinhas, quantColunas);
+		this.tipo = tipo;
+		this.visual = visual;
 	}
 
-	public int getQuantidadeDeCadeiras() {
-		return quantidadeDeCadeiras;
+	public int getQuantLinhas() {
+		return quantLinhas;
 	}
 
-	public void setQuantidadeDeCadeiras(int quantidadeDeCadeiras) {
-		this.quantidadeDeCadeiras = quantidadeDeCadeiras;
+	public void setQuantLinhas(int quantLinhas) {
+		this.quantLinhas = quantLinhas;
+		
 	}
 
-	public String getTipo() {
+	public int getQuantColunas() {
+		return quantColunas;
+	}
+
+	public void setQuantColunas(int quantColunas) {
+		this.quantColunas = quantColunas;
+	}
+
+	public TipoSala getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(String tipo) {
+	public void setTipo(TipoSala tipo) {
 		this.tipo = tipo;
 	}
 
@@ -42,5 +55,54 @@ public class Sala {
 	public ArrayList<Cadeira> getListaDeCadeiras() {
 		return listaDeCadeiras;
 	}
+
+	public TipoVisual getVisual() {
+		return visual;
+	}
+
+	public void setVisual(TipoVisual visual) {
+		this.visual = visual;
+	}
+	
+	private void populaListaCadeiras(int l, int c) {
+		listaDeCadeiras.clear();
+		for(int i = 0; i < l; i++) {
+			for(int j = 0; j < c; j++) {
+				listaDeCadeiras.add(new Cadeira(i, j, true));
+			}
+		}
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Sala other = (Sala) obj;
+		if (idSala != other.idSala)
+			return false;
+		if (quantColunas != other.quantColunas)
+			return false;
+		if (quantLinhas != other.quantLinhas)
+			return false;
+		if (tipo != other.tipo)
+			return false;
+		if (visual != other.visual)
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Sala [idSala=" + idSala + ", quantLinhas=" + quantLinhas + ", quantColunas=" + quantColunas
+				+ ", listaDeCadeiras=" + listaDeCadeiras + ", tipo=" + tipo + ", visual=" + visual + "]";
+	}
+	
+	
+	
+	
 	
 }
