@@ -20,14 +20,17 @@ private IRepositorio<Ingresso> instance = RepositorioIngressosArray.getInstance(
 	}
 	
 	public Sala buscarSala(byte idSala){
+		return null;
 		// TODO procurar no arraylist do repositorio e retornar
 	}
 	
-	public void listarSalas(){
+	public ArrayList<Sala> listarSalas(){
 		// TODO retornar o repositorio
+		return null;
 	}
 	
 	public ArrayList<Cadeira> listarCadeirasDaSala(Sala a){
+		return null;
 		//TODO
 	}
 }

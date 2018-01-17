@@ -1,5 +1,7 @@
 package gerencia;
 
+import java.util.ArrayList;
+
 import beans.Cadeira;
 import beans.Ingresso;
 import interfaces.IRepositorio;
@@ -17,7 +19,9 @@ private IRepositorio<Ingresso> instance = RepositorioIngressosArray.getInstance(
 		// TODO
 	}
 	
-	public void listarIngressos(){
+	public ArrayList<Ingresso> listarIngressos(){
 		// TODO retornar o repositorio
+		
+		return null;
 	}
 }

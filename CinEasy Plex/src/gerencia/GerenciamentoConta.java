@@ -1,5 +1,7 @@
 package gerencia;
 
+import java.util.ArrayList;
+
 import beans.Conta;
 import interfaces.IRepositorioContas;
 import repositorios.RepositorioContas;
@@ -17,9 +19,11 @@ public class GerenciamentoConta {
 	
 	public Conta buscarConta(String login){
 		// TODO procurar no arraylist do repositorio e retornar
+		return null;
 	}
 	
-	public void listarContas(){
+	public ArrayList<Conta> listarContas(){
 		// TODO retornar o repositorio
+		return null;
 	}
 }
