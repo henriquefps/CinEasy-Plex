@@ -4,11 +4,12 @@ public class Ingresso {
 	private int idIngresso;
 	private boolean isMeia;
 	private Cadeira cadeiraVendida;
+	private Sessao sessao;
 	
-	public Ingresso(int idIngresso, boolean isMeia, Cadeira cadeiraVendida){
-		this.setIdIngresso(idIngresso);
-		this.setMeia(isMeia);
-		this.setCadeiraVendida(cadeiraVendida);
+	public Ingresso(boolean isMeia, Cadeira cadeiraVendida, Sessao sessao){
+		this.isMeia = isMeia;
+		this.cadeiraVendida = cadeiraVendida;
+		this.sessao = sessao;
 	}
 
 	public int getIdIngresso() {
@@ -35,6 +36,14 @@ public class Ingresso {
 		this.cadeiraVendida = cadeiraVendida;
 	}
 
+	public Sessao getSessao() {
+		return sessao;
+	}
+
+	public void setSessao(Sessao sessao) {
+		this.sessao = sessao;
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -49,6 +58,11 @@ public class Ingresso {
 				return false;
 		} else if (!cadeiraVendida.equals(other.cadeiraVendida))
 			return false;
+		if (sessao == null) {
+			if (other.sessao != null)
+				return false;
+		} else if (!sessao.equals(other.sessao))
+			return false;
 		if (idIngresso != other.idIngresso)
 			return false;
 		if (isMeia != other.isMeia)
@@ -58,7 +72,8 @@ public class Ingresso {
 
 	@Override
 	public String toString() {
-		return "Ingresso [idIngresso=" + idIngresso + ", isMeia=" + isMeia + ", cadeiraVendida=" + cadeiraVendida + "]";
+		return "Ingresso [idIngresso=" + idIngresso + ", isMeia=" + isMeia + ", cadeiraVendida=" + cadeiraVendida + 
+				", sessao=" + sessao + "]";
 	}
 	
 	
