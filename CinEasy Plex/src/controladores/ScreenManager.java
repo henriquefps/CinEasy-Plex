@@ -117,8 +117,6 @@ public class ScreenManager {
 	
 	public Scene getTelaRemoverFilme() {
 		try {
-			// Nas telas que tem tabela eu não usei o if. Pois assim eu consigo atualizar a tabela usando o método
-			// initialize da interface Initialize, esse método é chamado sempre que a Cena é criada.
 			telaRemoverFilme = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_RemoverFilme.fxml")),
 					1280, 720);
 

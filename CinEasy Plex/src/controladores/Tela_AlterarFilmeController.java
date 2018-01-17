@@ -42,7 +42,7 @@ public class Tela_AlterarFilmeController implements Initializable{
 	
 	
 	private void preencherTabela(){
-		ArrayList<Filme> listaDeFilmes = CinemaFachada.getInstance().listarFilmes();
+		ArrayList<Filme> listaDeFilmes = CinemaFachada.getInstance().listarTodasFilme();
 		tableColumnTituloFilme.setCellValueFactory(new Callback<CellDataFeatures<Filme,String>, ObservableValue<String>>() {
 			@Override
 			public ObservableValue<String> call(CellDataFeatures<Filme, String> todosOsFilmes) {

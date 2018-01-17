@@ -36,7 +36,7 @@ public class Tela_ListarFilmeController implements Initializable{
 	// Este método preenche a TableView da Cena
 	private void preencherTabela(){
 		// Esta primeira linha carrega todas as intancias do repositório, nesse caso, de filmes.
-		ArrayList<Filme> listaDeFilmes = CinemaFachada.getInstance().listarFilmes();
+		ArrayList<Filme> listaDeFilmes = CinemaFachada.getInstance().listarTodasFilme();
 		
 		// Os próximos 4 comandos são um pouco confusos, mas tudo o que você precisa prestar atenção são
 		//<Filme, String> Você vai trocar Filme pela classe do atributo, E pode deixar a String, Pois vc vai chamar
