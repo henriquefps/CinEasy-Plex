@@ -4,21 +4,21 @@ package programa;
 import java.time.LocalTime;
 
 import controladores.ScreenManager;
-import fachada.Fachada;
+import fachada.CinemaFachada;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
 public class Main extends Application{
 	public void scriptsDePovoamento(){
 		// Filmes
-		Fachada.getInstance().criarFilme("Logan", "Ação", LocalTime.of(2, 15), "18");
-		Fachada.getInstance().criarFilme("Titanic", "Drama", LocalTime.of(3, 10), "14");
-		Fachada.getInstance().criarFilme("Thor: Ragnarok", "Comédia", LocalTime.of(2, 0), "3");
-		Fachada.getInstance().criarFilme("It: A Coisa", "Terror", LocalTime.of(2, 10), "18");
+		CinemaFachada.getInstance().criarFilme("Logan", "Ação", LocalTime.of(2, 15), "18");
+		CinemaFachada.getInstance().criarFilme("Titanic", "Drama", LocalTime.of(3, 10), "14");
+		CinemaFachada.getInstance().criarFilme("Thor: Ragnarok", "Comédia", LocalTime.of(2, 0), "3");
+		CinemaFachada.getInstance().criarFilme("It: A Coisa", "Terror", LocalTime.of(2, 10), "18");
 		// Salas
 		
 		// Contas
-		Fachada.getInstance().criarConta("adm", "adm");
+		CinemaFachada.getInstance().criarConta("adm", "adm");
 		
 		// Sessoes
 	}

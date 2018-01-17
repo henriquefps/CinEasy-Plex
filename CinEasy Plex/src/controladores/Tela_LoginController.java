@@ -1,13 +1,13 @@
 package controladores;
 
 import beans.Conta;
-import fachada.Fachada;
+import fachada.CinemaFachada;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class Tela_LoginController {
-	private Fachada fachada = Fachada.getInstance();
+	private CinemaFachada fachada = CinemaFachada.getInstance();
 	
 	@FXML private TextField loginTextField;
 	@FXML private PasswordField senhaPasswordField;

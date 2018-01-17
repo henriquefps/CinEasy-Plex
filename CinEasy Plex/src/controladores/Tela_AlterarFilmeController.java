@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import beans.Filme;
-import fachada.Fachada;
+import fachada.CinemaFachada;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -42,7 +42,7 @@ public class Tela_AlterarFilmeController implements Initializable{
 	
 	
 	private void preencherTabela(){
-		ArrayList<Filme> listaDeFilmes = Fachada.getInstance().listarFilmes();
+		ArrayList<Filme> listaDeFilmes = CinemaFachada.getInstance().listarFilmes();
 		tableColumnTituloFilme.setCellValueFactory(new Callback<CellDataFeatures<Filme,String>, ObservableValue<String>>() {
 			@Override
 			public ObservableValue<String> call(CellDataFeatures<Filme, String> todosOsFilmes) {
