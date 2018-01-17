@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import beans.Conta;
 import exceptions.ObjetoJaExisteException;
 import exceptions.ObjetoNaoExisteException;
-import interfaces.IRepositorio;
-import repositorios.RepositorioContas;
+import interfaces.IRepositorioContas;
+import repositorios.RepositorioContasArray;
 
 public class GerenciamentoConta {
-	private IRepositorio<Conta> instance = RepositorioContas.getInstance();
+	private IRepositorioContas instance = RepositorioContasArray.getInstance();
 	
 	public void cadastrar(Conta obj) throws Exception {
 		if(obj != null) {
@@ -71,5 +71,14 @@ public class GerenciamentoConta {
 		
 		return res;
 	
+	}
+	
+	public Conta pesquisarPorNome(String s) {
+		if(s != null) {
+			Conta c = instance.pesquisarPorNome(s);
+			return c;
+		}
+		else
+			throw new IllegalArgumentException("Nome Inválido");
 	}
 }

@@ -19,7 +19,7 @@ import gerencia.GerenciamentoSessoes;
 import gerencia.GerenciamentoVendas;
 import interfaces.IFachada;
 import interfaces.IRepositorioContas;
-import repositorios.RepositorioContas;
+import repositorios.RepositorioContasArray;
 
 public class CinemaFachada implements IFachada {
 	private static CinemaFachada instance;
@@ -81,6 +81,11 @@ public class CinemaFachada implements IFachada {
 	public boolean existe(Conta c) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	
+	@Override
+	public Conta buscarContaPorNome(String s) {
+		return contas.pesquisarPorNome(s);
 	}
 
 	@Override
