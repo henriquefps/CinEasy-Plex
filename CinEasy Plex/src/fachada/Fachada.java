@@ -112,8 +112,8 @@ public class Fachada {
 		return salas.listarCadeirasDaSala(a);
 	}
 	
-	public void criarSessao(Filme filmeExibido, Sala salaDeExibicao, float valorDoIngresso, LocalDateTime inicioDaSessao){
-		sessoes.criarSessao(filmeExibido, salaDeExibicao, valorDoIngresso, inicioDaSessao);
+	public void criarSessao(int id,Filme filmeExibido, Sala salaDeExibicao, float valorDoIngresso, LocalDateTime inicioDaSessao) throws Exception{
+		sessoes.criarSessao(id, filmeExibido, salaDeExibicao, valorDoIngresso, inicioDaSessao);
 	}
 	
 	public void removerSessao(Sessao e){
@@ -125,7 +125,7 @@ public class Fachada {
 	}
 	
 	public ArrayList<Sessao> listarSessoesPorFilme(Filme a){
-		return sessoes.listarSessoesPorFilme(a);
+		return sessoes.listarSessoesPorFilme(a.getTitulo());
 	}
 	
 	public ArrayList<Cadeira> listarCadeirasDaSessao(Sessao a){

@@ -19,14 +19,19 @@ private IRepositorio<Sessao> instance = RepositorioSessoes.getInstance();
 			instance.cadastrar(new Sessao(idSessao, filmeExibido,salaDeExibicao,valorDoIngresso,inicioDaSessao));
 	}
 	
-	public void removerSessao(Sessao e) throws Exception{
+	public void removerSessao(Sessao e){
 		// TODO
-		instance.remover(e);
+		try {
+			instance.remover(e);
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 	
-	public void listarSessoes() {
+	public ArrayList<Sessao> listarSessoes() {
 		// TODO retornar o repositorio
-		instance.listarTodos();
+		return instance.listarTodos();
 	}
 	
 	public void atualizarSessao(int idSessao,Filme filmeExibido, Sala salaDeExibicao, float valorDoIngresso, LocalDateTime inicioDaSessao){
@@ -38,13 +43,13 @@ private IRepositorio<Sessao> instance = RepositorioSessoes.getInstance();
 		}
 	}
 	
-	public ArrayList<Sessao> listarSessoesPorFilme(Filme a){
-		//TODO
-		return null;
+	public ArrayList<Sessao> listarSessoesPorFilme(String titulo){
+		//TODO lista todas as sessões pelo titulo do filme
+		return instance.buscarPorFilme(titulo);
 	}
 	
 	public ArrayList<Cadeira> listarCadeirasDaSessao(Sessao a){
-		// TODO
+		// TODO faltando fazer cadeiras
 		return null;
 	}
 }
