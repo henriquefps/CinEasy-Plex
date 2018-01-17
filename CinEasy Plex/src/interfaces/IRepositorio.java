@@ -40,16 +40,6 @@ public interface IRepositorio<T> {
 	T buscar(int id);
 	
 	/**
-	 * busca generica de um item, bem utilizada para preenchimento de um tableview
-	 * de consulta
-	 * @param s
-	 * 		algum atributo do tipo String que identifica o objeto
-	 * @return
-	 * 		uma lista com todos os objetos que tem o atributo tipo String parecido
-	 */
-	ArrayList<T> buscar(String s);
-	
-	/**
 	 * Listar todos objetos do tipo T
 	 * @return
 	 * 		uma lista com todos os objetos do repositorio
