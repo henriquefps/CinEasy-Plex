@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class ScreenManager {
+	// Instancias das scenas. Cada Stage(A janela do programa em si, nessa implementação só temos um stage) 
+	// recebe uma cena.
 	private Scene telaLogin;
 	private Scene telaConfiguracao;
 	private Scene telaMenuPrincipal;
@@ -33,7 +35,9 @@ public class ScreenManager {
 		}
 		return instance;
 	}
-
+	
+	// Coloca o Stage para mostrar a Cena a. É necessário chamar o setScene(a) e depois o 
+	// show() para atualizar a imagem da janela
 	public static void setScene(Scene a) {
 		mainStage.setScene(a);
 		mainStage.show();
@@ -49,7 +53,8 @@ public class ScreenManager {
 
 	public Scene getTelaLogin() {
 		try {
-			if (telaLogin == null) {
+			if (telaLogin == null) { //Repare no IF.
+				//Esta linha cria uma Scene a partir de um Root, O root é gerado pelo FXMLLoader e ele lança uma exceção.
 				telaLogin = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_Login.fxml")), 1280, 720);
 			}
 		} catch (Exception e) {
@@ -114,6 +119,8 @@ public class ScreenManager {
 	
 	public Scene getTelaRemoverFilme() {
 		try {
+			// Nas telas que tem tabela eu não usei o if. Pois assim eu consigo atualizar a tabela usando o método
+			// initialize da interface Initialize, esse método é chamado sempre que a Cena é criada.
 			telaRemoverFilme = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_RemoverFilme.fxml")),
 					1280, 720);
 
