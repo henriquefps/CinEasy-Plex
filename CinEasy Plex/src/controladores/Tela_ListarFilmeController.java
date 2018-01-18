@@ -67,7 +67,7 @@ public class Tela_ListarFilmeController implements Initializable{
 		colunaClassificacao.setCellValueFactory(new Callback<CellDataFeatures<Filme,String>, ObservableValue<String>>() {
 			@Override
 			public ObservableValue<String> call(CellDataFeatures<Filme, String> todosOsFilmes) {
-				return new SimpleStringProperty(todosOsFilmes.getValue().getTitulo());
+				return new SimpleStringProperty(todosOsFilmes.getValue().getClassificacao());
 				}
 			});
 		
