@@ -157,7 +157,7 @@ public class CinemaFachada implements IFachada {
 	@Override
 	public void cadastrarSala(Sala c) throws Exception {
 		// TODO Auto-generated method stub
-		
+		salas.cadastrar(c);
 	}
 
 	@Override
@@ -181,7 +181,7 @@ public class CinemaFachada implements IFachada {
 	@Override
 	public ArrayList<Sala> listarTodasSala() {
 		// TODO Auto-generated method stub
-		return null;
+		return salas.listarTodos();
 	}
 
 	@Override

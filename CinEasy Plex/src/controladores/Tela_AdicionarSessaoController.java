@@ -1,16 +1,21 @@
 package controladores;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import beans.Filme;
 import beans.Sala;
 import beans.Sessao;
+import fachada.CinemaFachada;
+import interfaces.IRepositorioSala;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 public class Tela_AdicionarSessaoController {
+	
+	private CinemaFachada f = CinemaFachada.getInstance();
 	@FXML
 	private TextField pesquisarFilme;
 	@FXML
@@ -36,12 +41,16 @@ public class Tela_AdicionarSessaoController {
 	
 	@FXML
 	public void buscarFilmes(){
-		System.out.println("teste");
+		
 	}
 	
 	@FXML
 	public void buscarSalas(){
-		System.out.println("teste");
+		ArrayList<Sala> s = new ArrayList<>();
+		s = f.listarTodasSala();
+		for(int i = 0; i < s.size(); i++){
+			System.out.println(s.get(i).getIdSala()+ s.get(i).getTipo().toString() + '\n');
+		}
 	}
 	
 	@FXML
