@@ -21,7 +21,7 @@ public class Sessao {
 		this.setSalaDeExibicao(salaDeExibicao);
 		this.setValorDoIngresso(valorDoIngresso);
 		this.setInicioDaSessao(inicioDaSessao);
-		this.setInicioDaSessao(inicioDaSessao);
+		this.setFimDaSessao(inicioDaSessao);
 		this.setFimDaSessao(fimDaSessao.plusMinutes(60 * filmeExibido.getDuracao().getHour() +
 				filmeExibido.getDuracao().getMinute()));
 	}

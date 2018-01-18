@@ -62,4 +62,11 @@ public class Tela_AdicionarSessaoController {
 	public void voltarParaConfiguracoes() {
 		ScreenManager.setScene(ScreenManager.getInstance().getTelaConfiguracao());
 	}
+	
+	public void preencherTabelas(){
+		ArrayList<Filme> filmes = CinemaFachada.getInstance().listarTodasFilme();
+		ArrayList<Sala> salas = CinemaFachada.getInstance().listarTodasSala();
+		
+		
+	}
 }

@@ -59,7 +59,6 @@ public class RepositorioSessoes implements IRepositorioSessoes{
 	
 	@Override
 	public ArrayList<Sessao> buscarPorFilme(String titulo) {
-		// TODO buscar sessao por filme
 		ArrayList<Sessao> r = new ArrayList<Sessao>();
 		if(titulo == null)
 			return null;
@@ -75,7 +74,6 @@ public class RepositorioSessoes implements IRepositorioSessoes{
 
 	@Override
 	public ArrayList<Sessao> buscarPorSala(byte id) {
-		// TODO buscar sessao por filme
 		ArrayList<Sessao> r = new ArrayList<Sessao>();
 		if(id < 0)
 			return null;
