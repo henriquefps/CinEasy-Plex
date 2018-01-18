@@ -8,19 +8,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.Tela_AdicionarFilmeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.Tela_VenderIngressoController">
    <children>
       <ImageView fitHeight="88.0" fitWidth="400.0" layoutX="60.0" layoutY="41.0">
          <image>
             <Image url="@../../../../ProjetoCinema/src/br/com/ufrpe/cine_easyplex/imagens/logo.png" />
          </image>
       </ImageView>
-      <Button layoutX="1103.0" layoutY="51.0" mnemonicParsing="false" onAction="#voltarParaConfiguracoes" text="Voltar">
+      <Button layoutX="1103.0" layoutY="51.0" mnemonicParsing="false" onAction="#voltarParaMenuPrincipal" text="Voltar">
          <font>
             <Font size="36.0" />
          </font>
       </Button>
-      <Button layoutX="866.0" layoutY="393.0" mnemonicParsing="false" onAction="#cadastrarFilme" text="Adicionar Ingresso">
+      <Button layoutX="866.0" layoutY="393.0" mnemonicParsing="false" text="Comprar Ingresso">
          <font>
             <Font size="36.0" />
          </font>

@@ -23,6 +23,8 @@ public class ScreenManager {
 	private Scene telaRemoverSessao;
 	private Scene telaAlterarSessao;
 	private Scene telaListarSessao;
+	
+	private Scene telaVenderIngresso;
 
 	private static Stage mainStage;
 
@@ -183,5 +185,16 @@ public class ScreenManager {
 	public Scene getTelaListarSessao() {
 		// TODO
 		return null;
+	}
+	
+	public Scene getTelaVenderIngresso() {
+		try {
+			telaVenderIngresso = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_VenderIngresso.fxml")),
+					1280, 720);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return telaVenderIngresso;
 	}
 }

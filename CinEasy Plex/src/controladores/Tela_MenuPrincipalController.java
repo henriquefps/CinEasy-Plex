@@ -10,7 +10,7 @@ public class Tela_MenuPrincipalController {
 	}
 	
 	@FXML public void abrirVenderIngressos(){
-		// TODO abrir tela Vender Ingressos
+		ScreenManager.setScene(ScreenManager.getInstance().getTelaVenderIngresso());
 	}
 	
 	@FXML public void abrirConfiguracoes(){
