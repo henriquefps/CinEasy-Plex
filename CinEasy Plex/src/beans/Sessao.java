@@ -1,7 +1,6 @@
 package beans;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 
 public class Sessao {
 	private int idSessao;
@@ -15,19 +14,17 @@ public class Sessao {
 		
 	}
 	
-	public Sessao(int idSessao,Filme filmeExibido, Sala salaDeExibicao, float valorDoIngresso, LocalDateTime inicioDaSessao){
-		this.setIdSessao(idSessao);
-		this.setFilmeExibido(filmeExibido);
-		this.setSalaDeExibicao(salaDeExibicao);
-		this.setValorDoIngresso(valorDoIngresso);
-		this.setInicioDaSessao(inicioDaSessao);
-		this.setFimDaSessao(inicioDaSessao);
-		this.setFimDaSessao(fimDaSessao.plusMinutes(60 * filmeExibido.getDuracao().getHour() +
-				filmeExibido.getDuracao().getMinute()));
+
+	public Sessao(Filme filmeExibido, Sala salaDeExibicao, float valorDoIngresso, LocalDateTime inicioDaSessao,
+			LocalDateTime fimDaSessao) {
+		this.filmeExibido = filmeExibido;
+		this.salaDeExibicao = salaDeExibicao;
+		this.valorDoIngresso = valorDoIngresso;
+		this.inicioDaSessao = inicioDaSessao;
+		this.fimDaSessao = fimDaSessao;
 	}
 
 
-	
 	public LocalDateTime getFimDaSessao(){
 		return fimDaSessao;
 	}

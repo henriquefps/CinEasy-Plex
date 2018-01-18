@@ -9,9 +9,11 @@ public class RepositorioContasArray implements IRepositorioContas {
 
 	private static RepositorioContasArray instance;
 	private ArrayList<Conta> repositorio;
+	private static int id;
 	
 	private RepositorioContasArray() {
 		repositorio = new ArrayList<>();
+		id = 0;
 	}
 	
 
@@ -25,13 +27,15 @@ public class RepositorioContasArray implements IRepositorioContas {
 
 	@Override
 	public void cadastrar(Conta obj) {
+		id += 1;
+		obj.setIdConta(id);
 		repositorio.add(obj);
 	}
 
 
 	@Override
 	public void atualizar(Conta newObj) {
-		repositorio.set(newObj.getIdConta(), newObj);
+		repositorio.set(newObj.getIdConta()-1, newObj);
 		
 	}
 
@@ -45,7 +49,7 @@ public class RepositorioContasArray implements IRepositorioContas {
 
 	@Override
 	public Conta buscar(int id) {
-		return repositorio.get(id);
+		return repositorio.get(id-1);
 	}
 
 

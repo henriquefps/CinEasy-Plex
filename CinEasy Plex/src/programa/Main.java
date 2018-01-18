@@ -28,10 +28,10 @@ public class Main extends Application{
 		}
 		// Salas
 		try {
-			CinemaFachada.getInstance().cadastrarSala(new Sala((byte) 1, 20, 20, TipoSala.Convencional, TipoVisual.D2));
-			CinemaFachada.getInstance().cadastrarSala(new Sala((byte) 2, 20, 20, TipoSala.IMAX, TipoVisual.D2));
-			CinemaFachada.getInstance().cadastrarSala(new Sala((byte) 3, 20, 20, TipoSala.XD, TipoVisual.D3));
-			CinemaFachada.getInstance().cadastrarSala(new Sala((byte) 4, 20, 20, TipoSala.Convencional, TipoVisual.D2));
+			CinemaFachada.getInstance().cadastrarSala(new Sala(20, 20, TipoSala.Convencional, TipoVisual.D2));
+			CinemaFachada.getInstance().cadastrarSala(new Sala(20, 20, TipoSala.IMAX, TipoVisual.D2));
+			CinemaFachada.getInstance().cadastrarSala(new Sala(20, 20, TipoSala.XD, TipoVisual.D3));
+			CinemaFachada.getInstance().cadastrarSala(new Sala(20, 20, TipoSala.Convencional, TipoVisual.D2));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -39,10 +39,18 @@ public class Main extends Application{
 		
 		// Sessoes
 		try {
-			CinemaFachada.getInstance().cadastrarSessao(new Sessao(1,new Filme("Logan", "Ação", LocalTime.of(2, 15), "18") , new Sala((byte) 1, 20, 20, TipoSala.Convencional, TipoVisual.D2), 10, LocalDateTime.of(LocalDate.of(2018, 1, 19),LocalTime.of(14, 20))));
-			CinemaFachada.getInstance().cadastrarSessao(new Sessao(2,new Filme("It: A Coisa", "Terror", LocalTime.of(2, 10), "18") , new Sala((byte) 1, 20, 20, TipoSala.Convencional, TipoVisual.D2), 10, LocalDateTime.of(LocalDate.of(2018, 1, 19),LocalTime.of(18, 20))));
-			CinemaFachada.getInstance().cadastrarSessao(new Sessao(3,new Filme("It: A Coisa", "Terror", LocalTime.of(2, 10), "18") , new Sala((byte) 1, 20, 20, TipoSala.Convencional, TipoVisual.D2), 10, LocalDateTime.of(LocalDate.of(2018, 1, 19),LocalTime.of(10, 20))));
-			CinemaFachada.getInstance().cadastrarSessao(new Sessao(4,new Filme("Logan", "Ação", LocalTime.of(2, 15), "18") , new Sala((byte) 1, 20, 20, TipoSala.Convencional, TipoVisual.D2), 10, LocalDateTime.of(LocalDate.of(2018, 1, 19),LocalTime.of(8, 20))));
+			CinemaFachada.getInstance().cadastrarSessao(new Sessao(CinemaFachada.getInstance().buscarFilme(1), 
+					CinemaFachada.getInstance().buscarSala(2),50, LocalDateTime.of(LocalDate.of(2018, 1, 19),LocalTime.of(14, 20)), 
+					LocalDateTime.of(LocalDate.of(2018, 1, 19),LocalTime.of(14, 20))));
+			CinemaFachada.getInstance().cadastrarSessao(new Sessao(CinemaFachada.getInstance().buscarFilme(3), 
+					CinemaFachada.getInstance().buscarSala(1),50, LocalDateTime.of(LocalDate.of(2018, 1, 19),LocalTime.of(14, 20)), 
+					LocalDateTime.of(LocalDate.of(2018, 1, 19),LocalTime.of(14, 20))));
+			CinemaFachada.getInstance().cadastrarSessao(new Sessao(CinemaFachada.getInstance().buscarFilme(4), 
+					CinemaFachada.getInstance().buscarSala(4),50, LocalDateTime.of(LocalDate.of(2018, 1, 19),LocalTime.of(14, 20)), 
+					LocalDateTime.of(LocalDate.of(2018, 1, 19),LocalTime.of(14, 20))));
+			CinemaFachada.getInstance().cadastrarSessao(new Sessao(CinemaFachada.getInstance().buscarFilme(2), 
+					CinemaFachada.getInstance().buscarSala(3),50, LocalDateTime.of(LocalDate.of(2018, 1, 19),LocalTime.of(14, 20)), 
+					LocalDateTime.of(LocalDate.of(2018, 1, 19),LocalTime.of(14, 20))));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

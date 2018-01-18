@@ -9,9 +9,11 @@ public class RepositorioFilmes implements IRepositorioFilmes{
 
 	private static RepositorioFilmes instance;
 	private ArrayList<Filme> listaDeFilmes;
+	private static int id;
 	
 	private RepositorioFilmes() {
 		listaDeFilmes = new ArrayList<Filme>();
+		id = 0;
 	}
 	
 
@@ -23,6 +25,8 @@ public class RepositorioFilmes implements IRepositorioFilmes{
 	}
 	@Override
 	public void cadastrar(Filme a) {
+		id += 1;
+		a.setIdFilme(id);
 		listaDeFilmes.add(a);
 	}
 
@@ -40,13 +44,13 @@ public class RepositorioFilmes implements IRepositorioFilmes{
 
 	@Override
 	public void atualizar(Filme newObj) {
-		listaDeFilmes.set(newObj.getIdFilme(), newObj);	
+		listaDeFilmes.set(newObj.getIdFilme()-1, newObj);	
 	}
 
 
 	@Override
 	public Filme buscar(int id) {
-		return listaDeFilmes.get(id);
+		return listaDeFilmes.get(id-1);
 	}
 
 	@Override

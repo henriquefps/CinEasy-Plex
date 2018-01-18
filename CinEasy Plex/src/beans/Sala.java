@@ -10,8 +10,7 @@ public class Sala {
 	private TipoSala tipo;
 	private TipoVisual visual;
 	
-	public Sala(byte idSala, int quantLinhas, int quantColunas, TipoSala tipo, TipoVisual visual) {
-		this.idSala = idSala;
+	public Sala(int quantLinhas, int quantColunas, TipoSala tipo, TipoVisual visual) {
 		this.quantLinhas = quantLinhas;
 		this.quantColunas = quantColunas;
 		populaListaCadeiras(quantLinhas, quantColunas);

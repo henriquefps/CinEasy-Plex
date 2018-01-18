@@ -8,12 +8,12 @@ import interfaces.IRepositorio;
 public class RepositorioSalasArray implements IRepositorio<Sala>{
 
 	private static RepositorioSalasArray instance;
-	
 	private ArrayList<Sala> salas;
+	private static int id;
 	
 	private RepositorioSalasArray() {
-
 		salas = new ArrayList<Sala>();
+		id = 0;
 	}
 	
 
@@ -27,6 +27,8 @@ public class RepositorioSalasArray implements IRepositorio<Sala>{
 
 	@Override
 	public void cadastrar(Sala obj) {
+		id += 1;
+		obj.setIdSala((byte) id);
 		salas.add(obj);
 		
 	}
@@ -34,7 +36,7 @@ public class RepositorioSalasArray implements IRepositorio<Sala>{
 
 	@Override
 	public void atualizar(Sala newObj) {
-		salas.set(newObj.getIdSala(), newObj);
+		salas.set((byte)newObj.getIdSala()-1, newObj);
 		
 	}
 
@@ -48,7 +50,7 @@ public class RepositorioSalasArray implements IRepositorio<Sala>{
 
 	@Override
 	public Sala buscar(int id) {
-		return salas.get(id);
+		return salas.get((byte)id-1);
 	}
 
 

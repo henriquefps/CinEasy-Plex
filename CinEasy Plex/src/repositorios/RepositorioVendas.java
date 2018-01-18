@@ -8,8 +8,8 @@ import interfaces.IRepositorioVendas;
 
 public class RepositorioVendas implements IRepositorioVendas{
 	private ArrayList<Venda> todasAsVendas;
-	
 	private static RepositorioVendas instance;
+	private static int id;
 	
 	
 	public static RepositorioVendas getInstance(){
@@ -21,10 +21,13 @@ public class RepositorioVendas implements IRepositorioVendas{
 	}
 	private RepositorioVendas() {
 		this.todasAsVendas = new ArrayList<Venda>();
+		id = 0;
 
 	}
 	
 	public void cadastrar(Venda a) {
+		id += 1;
+		a.setIdVenda(id);
 		todasAsVendas.add(a);
 		
 	}
@@ -41,7 +44,7 @@ public class RepositorioVendas implements IRepositorioVendas{
 	}
 	
 	public Venda buscar(int idVenda) {
-		return todasAsVendas.get(idVenda);
+		return todasAsVendas.get(idVenda-1);
 		
 	}
 

@@ -1,10 +1,7 @@
 package fachada;
 
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.ArrayList;
 
-import beans.Cadeira;
 import beans.Conta;
 import beans.Filme;
 import beans.Ingresso;
@@ -18,8 +15,6 @@ import gerencia.GerenciamentoSalas;
 import gerencia.GerenciamentoSessoes;
 import gerencia.GerenciamentoVendas;
 import interfaces.IFachada;
-import interfaces.IRepositorioContas;
-import repositorios.RepositorioContasArray;
 
 public class CinemaFachada implements IFachada {
 	private static CinemaFachada instance;

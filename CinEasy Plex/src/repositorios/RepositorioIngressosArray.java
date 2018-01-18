@@ -11,9 +11,11 @@ public class RepositorioIngressosArray implements IRepositorio<Ingresso>{
 
 	private static IRepositorio<Ingresso> instance;
 	private ArrayList<Ingresso> repositorio;
+	private static int id;
 	
 	private RepositorioIngressosArray() {
 		repositorio = new ArrayList<>();
+		id = 0;
 	}
 	
 	public static IRepositorio<Ingresso> getInstance(){
@@ -25,12 +27,14 @@ public class RepositorioIngressosArray implements IRepositorio<Ingresso>{
 
 	@Override
 	public void cadastrar(Ingresso obj) {
+		id += 1;
+		obj.setIdIngresso(id);
 		repositorio.add(obj.getIdIngresso(), obj);
 	}
 
 	@Override
 	public void atualizar(Ingresso newObj) {
-		repositorio.set(newObj.getIdIngresso(), newObj);
+		repositorio.set(newObj.getIdIngresso()-1, newObj);
 		
 	}
 
@@ -41,7 +45,7 @@ public class RepositorioIngressosArray implements IRepositorio<Ingresso>{
 
 	@Override
 	public Ingresso buscar(int id) {
-		return repositorio.get(id);
+		return repositorio.get(id-1);
 		
 	}
 	

@@ -5,10 +5,9 @@ public class Venda {
 	private Ingresso ingressoVendido;
 	private Sessao sessaoVendida;
 	
-	public Venda(Ingresso ingressoVendido, Sessao sessaoVendida, int idVenda){
-		this.setIngressoVendido(ingressoVendido);
-		this.setSessaoVendida(sessaoVendida);
-		this.setIdVenda(idVenda);
+	public Venda(Ingresso ingressoVendido, Sessao sessaoVendida) {
+		this.ingressoVendido = ingressoVendido;
+		this.sessaoVendida = sessaoVendida;
 	}
 
 	public int getIdVenda() {
@@ -61,7 +60,7 @@ public class Venda {
 	
 	@Override
 	public String toString() {
-		return "Codigo: " + idVenda + "\nIngresso: " + ingressoVendido +  "\nSessão: " +sessaoVendida;
+		return "Codigo: " + idVenda + "\nIngresso: " + ingressoVendido +  "\nSessï¿½o: " +sessaoVendida;
 	}
 	
 	

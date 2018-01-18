@@ -8,9 +8,11 @@ public class RepositorioSessoes implements IRepositorioSessoes{
 
 	private ArrayList<Sessao> repositorio;
 	private static RepositorioSessoes instance;
+	private static int id;
 	
 	private RepositorioSessoes(){
 		repositorio = new ArrayList<Sessao>();
+		id = 0;
 	}
 	
 	public static RepositorioSessoes getInstance(){
@@ -22,38 +24,28 @@ public class RepositorioSessoes implements IRepositorioSessoes{
 
 	@Override
 	public Sessao buscar(int id) {
-		// TODO Auto-generated method stub
-		Sessao achou = null;
-		for(int i = 0; i < this.repositorio.size(); i++){
-			if(repositorio.get(i).getIdSessao() == id){
-				achou = repositorio.get(i);
-				return achou;
-			}
-		}
-		return achou;
+		return repositorio.get(id-1);
 	}
 
 	@Override
 	public void cadastrar(Sessao obj) {
-		// TODO Auto-generated method stub
-		repositorio.add(obj.getIdSessao(), obj);
+		id += 1;
+		obj.setIdSessao(id);
+		repositorio.add(obj);
 	}
 	
 	@Override
 	public void atualizar(Sessao newObj) {
-		// TODO Auto-generated method stub
-		repositorio.set(newObj.getIdSessao(), newObj);
+		repositorio.set(newObj.getIdSessao()-1, newObj);
 	}
 	
 	@Override
 	public void remover(Sessao obj) {
-		// TODO Auto-generated method stub
 		repositorio.remove(obj);
 	}
 	
 	@Override
 	public ArrayList<Sessao> listarTodos() {
-		// TODO Auto-generated method stub
 		return repositorio;
 	}
 	
