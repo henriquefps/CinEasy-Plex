@@ -40,17 +40,13 @@ public class Main extends Application{
 		// Sessoes
 		try {
 			CinemaFachada.getInstance().cadastrarSessao(new Sessao(CinemaFachada.getInstance().buscarFilme(1), 
-					CinemaFachada.getInstance().buscarSala(2),50, LocalDateTime.of(LocalDate.of(2018, 1, 19),LocalTime.of(14, 20)), 
-					LocalDateTime.of(LocalDate.of(2018, 1, 19),LocalTime.of(14, 20))));
+					CinemaFachada.getInstance().buscarSala(2),50, LocalDateTime.of(2018, 1, 19, 14, 20)));
 			CinemaFachada.getInstance().cadastrarSessao(new Sessao(CinemaFachada.getInstance().buscarFilme(3), 
-					CinemaFachada.getInstance().buscarSala(1),50, LocalDateTime.of(LocalDate.of(2018, 1, 19),LocalTime.of(14, 20)), 
-					LocalDateTime.of(LocalDate.of(2018, 1, 19),LocalTime.of(14, 20))));
+					CinemaFachada.getInstance().buscarSala(1),50, LocalDateTime.of(2018, 1, 19,14, 20)));
 			CinemaFachada.getInstance().cadastrarSessao(new Sessao(CinemaFachada.getInstance().buscarFilme(4), 
-					CinemaFachada.getInstance().buscarSala(4),50, LocalDateTime.of(LocalDate.of(2018, 1, 19),LocalTime.of(14, 20)), 
-					LocalDateTime.of(LocalDate.of(2018, 1, 19),LocalTime.of(14, 20))));
+					CinemaFachada.getInstance().buscarSala(4),50, LocalDateTime.of(2018, 1, 19,14, 20)));
 			CinemaFachada.getInstance().cadastrarSessao(new Sessao(CinemaFachada.getInstance().buscarFilme(2), 
-					CinemaFachada.getInstance().buscarSala(3),50, LocalDateTime.of(LocalDate.of(2018, 1, 19),LocalTime.of(14, 20)), 
-					LocalDateTime.of(LocalDate.of(2018, 1, 19),LocalTime.of(14, 20))));
+					CinemaFachada.getInstance().buscarSala(3),50, LocalDateTime.of(2018, 1, 19,14, 20)));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -169,13 +169,11 @@ public class CinemaFachada implements IFachada {
 
 	@Override
 	public Sala buscarSala(int id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return salas.buscar(id);
 	}
 
 	@Override
 	public ArrayList<Sala> listarTodasSala() {
-		// TODO Auto-generated method stub
 		return salas.listarTodos();
 	}
 
@@ -187,7 +185,6 @@ public class CinemaFachada implements IFachada {
 
 	@Override
 	public void cadastrarSessao(Sessao c) throws Exception {
-		// TODO Auto-generated method stub
 		sessoes.criarSessao(c);
 	}
 
@@ -223,8 +220,7 @@ public class CinemaFachada implements IFachada {
 
 	@Override
 	public ArrayList<Sessao> listarTodasSessao() {
-		// TODO Auto-generated method stub
-		return null;
+		return sessoes.listarSessoes();
 	}
 
 	@Override
