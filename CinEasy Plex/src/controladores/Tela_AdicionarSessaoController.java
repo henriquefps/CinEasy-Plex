@@ -2,26 +2,35 @@ package controladores;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import beans.Filme;
 import beans.Sala;
+import beans.Sessao;
 import beans.TipoSala;
 import fachada.CinemaFachada;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.converter.LocalDateTimeStringConverter;
+import javafx.util.converter.LocalTimeStringConverter;
 
 public class Tela_AdicionarSessaoController implements Initializable{
 	
-	private CinemaFachada f;
+	
 	@FXML
 	private DatePicker dtSessao;
 	@FXML
@@ -43,17 +52,86 @@ public class Tela_AdicionarSessaoController implements Initializable{
 	@FXML
 	private TableColumn<Sala, TipoSala> tipo;
 	
+	private Filme filmeAtual;
+	private Sala salaAtual;
+	private LocalDate dataSessao;
+	private CinemaFachada f;
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		f = CinemaFachada.getInstance();
 		preencherTabelaFilme();
 		preencherTabelaSala();
+		tvFilmes.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Filme>(){
+
+			@Override
+			public void changed(ObservableValue<? extends Filme> arg0, Filme arg1, Filme arg2) {
+				// TODO Auto-generated method stub
+				if(arg2 != null)
+					filmeSelecionado.setText(arg2.getTitulo());
+				filmeAtual = arg2;
+			}
+			
+		});
+		
+		tvSalas.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Sala>() {
+
+			@Override
+			public void changed(ObservableValue<? extends Sala> observable, Sala oldValue, Sala newValue) {
+				// TODO Auto-generated method stub
+				if(newValue != null)
+					salaSelecionada.setText(newValue.getTipo().toString());
+				salaAtual = newValue;
+			}
+		
+		});
+		
+		dtSessao.valueProperty().addListener(new ChangeListener<LocalDate>() {
+
+			@Override
+			public void changed(ObservableValue<? extends LocalDate> observable, LocalDate oldValue,
+					LocalDate newValue) {
+				// TODO Auto-generated method stub
+				LocalDate agora = LocalDate.now();
+				if(newValue != null){
+					if(newValue.isBefore(agora)){
+						Alert alert = new Alert(AlertType.ERROR);
+						alert.setTitle("Erro!");
+						alert.setHeaderText("Data inválida!");
+						alert.setContentText("Não é permitido marcar sessao antes do dia atual!");
+						alert.showAndWait();
+						dtSessao.setValue(null);
+					}
+				}else{
+					dataSessao = newValue;
+				}
+					
+				
+			}
+		});
 	}
 	
 	@FXML
-	public void cadastrarSessao(){
-		System.out.println("teste");
+	public void cadastrarSessao(){ 
+		 int valor1;
+		 int valor2;
+		 
+		valor1 = Integer.parseInt(inicio_hr.getText());
+		valor2 = Integer.parseInt(inicio_min.getText());
+		
+		System.out.println(valor1 + ":" + valor2);
+		LocalDate i = dataSessao;
+		LocalTime i2 = LocalTime.of(valor1, valor2);
+		LocalDateTime inicioDaSessao = LocalDateTime.of(i, i2);
+		try {
+			f.cadastrarSessao(new Sessao(filmeAtual, salaAtual, 0, inicioDaSessao));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		inicio_hr.setPromptText("Hora");
+		inicio_min.setPromptText("Min");
 	}
 	
 	@FXML
