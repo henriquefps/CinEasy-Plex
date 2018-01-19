@@ -95,5 +95,15 @@
             <Font size="14.0" />
          </font>
       </Label>
+      <Label layoutX="770.0" layoutY="290.0" text="Valor do Ingresso">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <TextField fx:id="valorIngresso" layoutX="1060.0" layoutY="291.0" prefHeight="50.0" prefWidth="106.0" promptText="Preço">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>

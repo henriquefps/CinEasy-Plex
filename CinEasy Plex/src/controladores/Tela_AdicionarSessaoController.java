@@ -38,7 +38,7 @@ public class Tela_AdicionarSessaoController implements Initializable{
 	@FXML
 	private TextField inicio_hr;
 	@FXML
-	private TextField inicio_min;
+	private TextField inicio_min, valorIngresso;
 	@FXML
 	private TableView<Filme> tvFilmes;
 	@FXML
@@ -111,23 +111,29 @@ public class Tela_AdicionarSessaoController implements Initializable{
 	public void cadastrarSessao(){ 
 		 int valor1;
 		 int valor2;
-		 
+		//TODO colocar Exceções em hora 
 		valor1 = Integer.parseInt(inicio_hr.getText());
 		valor2 = Integer.parseInt(inicio_min.getText());
-		
-		System.out.println(valor1 + ":" + valor2);
+		float valor3 = Float.parseFloat(valorIngresso.getText());
 		LocalDate i = dtSessao.getValue();
-		System.out.println(i.toString());
 		LocalTime i2 = LocalTime.of(valor1, valor2);
 		LocalDateTime inicioDaSessao = LocalDateTime.of(i, i2);
 		try {
-			f.cadastrarSessao(new Sessao(filmeAtual, salaAtual, 0, inicioDaSessao));
+			f.cadastrarSessao(new Sessao(filmeAtual, salaAtual, valor3, inicioDaSessao));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		inicio_hr.setPromptText("Hora");
 		inicio_min.setPromptText("Min");
+		inicio_hr.setText(null);
+		inicio_min.setText(null);
+		filmeSelecionado.setText(null);
+		salaSelecionada.setText(null);
+		dtSessao.setValue(null);
+		valorIngresso.setText(null);
+		valorIngresso.setPromptText("Preço");
 	}
 	
 	@FXML
