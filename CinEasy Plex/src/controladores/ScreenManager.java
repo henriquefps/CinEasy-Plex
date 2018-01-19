@@ -24,10 +24,15 @@ public class ScreenManager {
 	private Scene telaAlterarSessao;
 	private Scene telaListarSessao;
 	
+<<<<<<< HEAD
 	
 	private Scene telaAdicionarSala;
 	private Scene telaListarSala;
 	
+=======
+	private Scene telaVenderIngresso;
+
+>>>>>>> development
 	private static Stage mainStage;
 
 	private static ScreenManager instance;
@@ -215,5 +220,16 @@ public class ScreenManager {
 	public Scene getTelaListarSessao() {
 		// TODO
 		return null;
+	}
+	
+	public Scene getTelaVenderIngresso() {
+		try {
+			telaVenderIngresso = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_VenderIngresso.fxml")),
+					1280, 720);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return telaVenderIngresso;
 	}
 }
