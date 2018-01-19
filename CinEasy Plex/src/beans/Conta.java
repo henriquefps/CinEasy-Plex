@@ -5,15 +5,15 @@ public class Conta {
 	private String login;
 	private String senha;
 	
-	public Conta() {
-		
-	}
-	
 	public Conta(String login, String senha){
 		this.setLogin(login);
 		this.setSenha(senha);
 	}
 
+	public Conta() {
+		
+	}
+	
 	public String getLogin() {
 		return login;
 	}

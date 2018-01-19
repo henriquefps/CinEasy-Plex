@@ -9,15 +9,15 @@ public class Filme {
 	private LocalTime duracao;
 	private String classificacao;
 	
-	public Filme() {
-		
-	}
-	
 	public Filme(String titulo, String genero, LocalTime duracao, String classificacao){
 		this.setTitulo(titulo);
 		this.setGenero(genero);
 		this.setDuracao(duracao);
 		this.setClassificacao(classificacao);
+	}
+	
+	public Filme() {
+		
 	}
 
 	public String getTitulo() {

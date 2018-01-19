@@ -11,17 +11,17 @@ public class Sala {
 	private boolean d3;
 	
 	public Sala(int quantLinhas, int quantColunas, TipoSala tipo, boolean d3) {
-		this.quantLinhas = quantLinhas;
-		this.quantColunas = quantColunas;
+		this.setQuantLinhas(quantLinhas);
+		this.setQuantColunas(quantColunas);
 		populaListaCadeiras(quantLinhas, quantColunas);
-		this.tipo = tipo;
-		this.d3 = d3;
+		this.setTipo(tipo);
+		this.setVisual(d3);
 	}
 
-	public Sala()
-	{
+	public Sala() {
 		
 	}
+	
 	public int getQuantLinhas() {
 		return quantLinhas;
 	}

@@ -10,12 +10,7 @@ public class Sessao {
 	private LocalDateTime inicioDaSessao;
 	private LocalDateTime fimDaSessao;
 	
-	public Sessao() {
-		
-	}
-	
-
-	 public Sessao(Filme filmeExibido, Sala salaDeExibicao, float valorDoIngresso, LocalDateTime inicioDaSessao){ 
+	public Sessao(Filme filmeExibido, Sala salaDeExibicao, float valorDoIngresso, LocalDateTime inicioDaSessao){ 
 		    this.setFilmeExibido(filmeExibido); 
 		    this.setSalaDeExibicao(salaDeExibicao); 
 		    this.setValorDoIngresso(valorDoIngresso); 
@@ -25,6 +20,9 @@ public class Sessao {
 		        filmeExibido.getDuracao().getMinute())); 
 	}
 
+	public Sessao() {
+		
+	}
 
 	public LocalDateTime getFimDaSessao(){
 		return fimDaSessao;

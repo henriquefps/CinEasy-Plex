@@ -7,10 +7,9 @@ public class Cadeira {
 	
 	
 	public Cadeira(int letra, int num, boolean isDisponivel) {
-		
-		this.letra = transformaEmLetra(letra);
-		this.num = num;
-		this.isDisponivel = isDisponivel;
+		this.setLetra(transformaEmLetra(letra));
+		this.setNum(num);
+		this.setIsDisponivel(isDisponivel);
 	}
 	
 	public char getLetra() {
@@ -28,7 +27,7 @@ public class Cadeira {
 	public boolean isDisponivel() {
 		return isDisponivel;
 	}
-	public void setDisponivel(boolean isDisponivel) {
+	public void setIsDisponivel(boolean isDisponivel) {
 		this.isDisponivel = isDisponivel;
 	}
 
