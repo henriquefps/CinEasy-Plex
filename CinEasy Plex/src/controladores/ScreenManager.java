@@ -23,16 +23,12 @@ public class ScreenManager {
 	private Scene telaRemoverSessao;
 	private Scene telaAlterarSessao;
 	private Scene telaListarSessao;
-	
-<<<<<<< HEAD
-	
+
 	private Scene telaAdicionarSala;
 	private Scene telaListarSala;
-	
-=======
+
 	private Scene telaVenderIngresso;
 
->>>>>>> development
 	private static Stage mainStage;
 
 	private static ScreenManager instance;
