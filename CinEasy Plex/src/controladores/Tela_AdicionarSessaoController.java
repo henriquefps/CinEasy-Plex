@@ -109,21 +109,37 @@ public class Tela_AdicionarSessaoController implements Initializable{
 	
 	@FXML
 	public void cadastrarSessao(){ 
-		 int valor1;
-		 int valor2;
 		//TODO colocar Exceções em hora 
-		valor1 = Integer.parseInt(inicio_hr.getText());
-		valor2 = Integer.parseInt(inicio_min.getText());
-		float valor3 = Float.parseFloat(valorIngresso.getText());
-		LocalDate i = dtSessao.getValue();
-		LocalTime i2 = LocalTime.of(valor1, valor2);
-		LocalDateTime inicioDaSessao = LocalDateTime.of(i, i2);
 		try {
+			int valor1 = Integer.parseInt(inicio_hr.getText());
+			int valor2 = Integer.parseInt(inicio_min.getText());
+			float valor3 = Float.parseFloat(valorIngresso.getText());
+			LocalDate i = dtSessao.getValue();
+			LocalTime i2 = LocalTime.of(valor1, valor2);
+			LocalDateTime inicioDaSessao = LocalDateTime.of(i, i2);
+			
 			f.cadastrarSessao(new Sessao(filmeAtual, salaAtual, valor3, inicioDaSessao));
-		} catch (Exception e) {
+		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Alert a = new Alert(AlertType.ERROR);
+			a.setTitle("Erro");
+			a.setHeaderText("Horário ou Dia");
+			a.setContentText("Parâmetro Inválido");
+			a.showAndWait();
+		} catch (NullPointerException e2){
+			Alert a = new Alert(AlertType.ERROR);
+			a.setTitle("Erro");
+			a.setHeaderText(null);
+			a.setContentText("Preencha todos os dados");
+			a.showAndWait();
+		} catch (Exception e3){
+			Alert a = new Alert(AlertType.ERROR);
+			a.setTitle("Erro");
+			a.setHeaderText(null);
+			a.setContentText(e3.getMessage());
+			a.showAndWait();
 		}
+		
 		
 		inicio_hr.setPromptText("Hora");
 		inicio_min.setPromptText("Min");
