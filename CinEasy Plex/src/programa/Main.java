@@ -9,7 +9,7 @@ import beans.Filme;
 import beans.Sala;
 import beans.Sessao;
 import beans.TipoSala;
-import beans.TipoVisual;
+
 import controladores.ScreenManager;
 import fachada.CinemaFachada;
 import javafx.application.Application;
@@ -28,10 +28,10 @@ public class Main extends Application{
 		}
 		// Salas
 		try {
-			CinemaFachada.getInstance().cadastrarSala(new Sala(20, 20, TipoSala.Convencional, TipoVisual.D2));
-			CinemaFachada.getInstance().cadastrarSala(new Sala(20, 20, TipoSala.IMAX, TipoVisual.D2));
-			CinemaFachada.getInstance().cadastrarSala(new Sala(20, 20, TipoSala.XD, TipoVisual.D3));
-			CinemaFachada.getInstance().cadastrarSala(new Sala(20, 20, TipoSala.Convencional, TipoVisual.D2));
+			CinemaFachada.getInstance().cadastrarSala(new Sala(20, 20, TipoSala.Convencional, false));
+			CinemaFachada.getInstance().cadastrarSala(new Sala(20, 20, TipoSala.IMAX,true));
+			CinemaFachada.getInstance().cadastrarSala(new Sala(20, 20, TipoSala.XD, true));
+			CinemaFachada.getInstance().cadastrarSala(new Sala(20, 20, TipoSala.Convencional, false));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

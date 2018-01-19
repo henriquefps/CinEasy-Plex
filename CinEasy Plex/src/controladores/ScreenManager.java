@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 public class ScreenManager {
 	// Instancias das scenas. Cada Stage(A janela do programa em si, nessa
-	// implementação só temos um stage)
+	// implementaÃ§Ã£o sÃ³ temos um stage)
 	// recebe uma cena.
 	private Scene telaLogin;
 	private Scene telaConfiguracao;
@@ -23,7 +23,11 @@ public class ScreenManager {
 	private Scene telaRemoverSessao;
 	private Scene telaAlterarSessao;
 	private Scene telaListarSessao;
-
+	
+	
+	private Scene telaAdicionarSala;
+	private Scene telaListarSala;
+	
 	private static Stage mainStage;
 
 	private static ScreenManager instance;
@@ -39,7 +43,7 @@ public class ScreenManager {
 		return instance;
 	}
 
-	// Coloca o Stage para mostrar a Cena a. É necessário chamar o setScene(a) e
+	// Coloca o Stage para mostrar a Cena a. Ã‰ necessÃ¡rio chamar o setScene(a) e
 	// depois o
 	// show() para atualizar a imagem da janela
 	public static void setScene(Scene a) {
@@ -58,8 +62,8 @@ public class ScreenManager {
 	public Scene getTelaLogin() {
 		try {
 			if (telaLogin == null) { // Repare no IF.
-				// Esta linha cria uma Scene a partir de um Root, O root é
-				// gerado pelo FXMLLoader e ele lança uma exceção.
+				// Esta linha cria uma Scene a partir de um Root, O root Ã©
+				// gerado pelo FXMLLoader e ele lanÃ§a uma exceÃ§Ã£o.
 				telaLogin = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_Login.fxml")), 1280, 720);
 			}
 		} catch (Exception e) {
@@ -104,6 +108,7 @@ public class ScreenManager {
 		return telaAdicionarFilme;
 	}
 
+	
 	public Scene getTelaRemoverFilme() {
 		try {
 			telaRemoverFilme = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_RemoverFilme.fxml")),
@@ -179,6 +184,33 @@ public class ScreenManager {
 
 		return telaAlterarSessao;
 	}
+
+	public Scene getTelaAdicionarSala() {
+			
+		try {
+			telaAdicionarSala = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_AdicionarSala.fxml")), 1280,720);
+			
+		
+		}
+	catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+		
+		return telaAdicionarSala;
+	}
+	
+	public Scene getTelaListarSala() {
+		try {
+			telaListarFilme = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_ListarSala.fxml")),
+					1280, 720);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return telaListarFilme;
+	}
+
 
 	public Scene getTelaListarSessao() {
 		// TODO

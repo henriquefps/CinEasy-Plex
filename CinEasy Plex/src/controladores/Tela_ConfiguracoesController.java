@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 public class Tela_ConfiguracoesController {
 
 	@FXML public void voltarParaMenuPrincipal(){
-		// Com a implementação do ScreenManager, tudo que preciso é usar o método statico setScene e dar como parâmetro
+		// Com a implementaÃ§Ã£o do ScreenManager, tudo que preciso Ã© usar o mÃ©todo statico setScene e dar como parÃ¢metro
 		// A cena a ser carregada no Stage
 		ScreenManager.setScene(ScreenManager.getInstance().getTelaMenuPrincipal());
 	}
@@ -18,6 +18,7 @@ public class Tela_ConfiguracoesController {
 	}
 	@FXML public void abrirAdicionarSalas(){
 		// TODO
+		ScreenManager.setScene(ScreenManager.getInstance().getTelaAdicionarSala());
 	}
 	@FXML public void abrirAdicionarSessoes(){
 		// TODO abrir tela adicionar Sessoes
@@ -58,6 +59,7 @@ public class Tela_ConfiguracoesController {
 	}
 	@FXML public void abrirListarSalas(){
 		// TODO
+		ScreenManager.setScene(ScreenManager.getInstance().getTelaListarSala());
 	}
 	@FXML public void abrirListarSessoes(){
 		// TODO

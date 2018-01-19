@@ -8,16 +8,20 @@ public class Sala {
 	private int quantColunas;
 	private ArrayList<Cadeira> listaDeCadeiras = new ArrayList<Cadeira>();
 	private TipoSala tipo;
-	private TipoVisual visual;
+	private boolean d3;
 	
-	public Sala(int quantLinhas, int quantColunas, TipoSala tipo, TipoVisual visual) {
+	public Sala(int quantLinhas, int quantColunas, TipoSala tipo, boolean d3) {
 		this.quantLinhas = quantLinhas;
 		this.quantColunas = quantColunas;
 		populaListaCadeiras(quantLinhas, quantColunas);
 		this.tipo = tipo;
-		this.visual = visual;
+		this.d3 = d3;
 	}
 
+	public Sala()
+	{
+		
+	}
 	public int getQuantLinhas() {
 		return quantLinhas;
 	}
@@ -55,12 +59,12 @@ public class Sala {
 		return listaDeCadeiras;
 	}
 
-	public TipoVisual getVisual() {
-		return visual;
+	public boolean getD3() {
+		return d3;
 	}
 
-	public void setVisual(TipoVisual visual) {
-		this.visual = visual;
+	public void setVisual(boolean d3) {
+		this.d3 = d3;
 	}
 	
 	private void populaListaCadeiras(int l, int c) {
@@ -89,15 +93,23 @@ public class Sala {
 			return false;
 		if (tipo != other.tipo)
 			return false;
-		if (visual != other.visual)
+		if (d3 != other.d3)
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
+		
+		if(d3) {
 		return "Sala [idSala=" + idSala + ", quantLinhas=" + quantLinhas + ", quantColunas=" + quantColunas
-				+ ", listaDeCadeiras=" + listaDeCadeiras + ", tipo=" + tipo + ", visual=" + visual + "]";
+				+ ", listaDeCadeiras=" + listaDeCadeiras + ", tipo=" + tipo + ", tela=3D" + "]";
+		}
+		
+			return "Sala [idSala=" + idSala + ", quantLinhas=" + quantLinhas + ", quantColunas=" + quantColunas
+					+ ", listaDeCadeiras=" + listaDeCadeiras + ", tipo=" + tipo + ", tela=2D" + "]";
+		
+		
 	}
 	
 	
