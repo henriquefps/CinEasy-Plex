@@ -101,13 +101,8 @@ public class Tela_AdicionarSessaoController implements Initializable{
 						alert.setHeaderText("Data inválida!");
 						alert.setContentText("Não é permitido marcar sessao antes do dia atual!");
 						alert.showAndWait();
-						dtSessao.setValue(null);
 					}
-				}else{
-					dataSessao = newValue;
-				}
-					
-				
+				}	
 			}
 		});
 	}
@@ -121,7 +116,8 @@ public class Tela_AdicionarSessaoController implements Initializable{
 		valor2 = Integer.parseInt(inicio_min.getText());
 		
 		System.out.println(valor1 + ":" + valor2);
-		LocalDate i = dataSessao;
+		LocalDate i = dtSessao.getValue();
+		System.out.println(i.toString());
 		LocalTime i2 = LocalTime.of(valor1, valor2);
 		LocalDateTime inicioDaSessao = LocalDateTime.of(i, i2);
 		try {
