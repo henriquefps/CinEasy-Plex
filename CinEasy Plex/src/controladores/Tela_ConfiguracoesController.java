@@ -63,5 +63,6 @@ public class Tela_ConfiguracoesController {
 	}
 	@FXML public void abrirListarSessoes(){
 		// TODO
+		ScreenManager.setScene(ScreenManager.getInstance().getTelaListarSessao());
 	}
 }

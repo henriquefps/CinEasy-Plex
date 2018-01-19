@@ -212,7 +212,15 @@ public class ScreenManager {
 
 	public Scene getTelaListarSessao() {
 		// TODO
-		return null;
+		try {
+			telaAlterarSessao = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_ListarSessao.fxml")),
+					1280, 720);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return telaAlterarSessao;
+
 	}
 	
 	public Scene getTelaVenderIngresso() {
