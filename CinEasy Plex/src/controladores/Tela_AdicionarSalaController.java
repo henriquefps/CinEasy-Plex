@@ -4,14 +4,17 @@ import java.util.ArrayList;
 
 import beans.Sala;
 import beans.TipoSala;
+import fachada.CinemaFachada;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 
 public class Tela_AdicionarSalaController {
 	
@@ -23,7 +26,7 @@ public class Tela_AdicionarSalaController {
 	@FXML Spinner linhas;
 	@FXML Spinner colunas;
 	@FXML CheckBox d3;
-	
+	@FXML Label texto;
 
 	@FXML private void initialize()
 	{	
@@ -45,10 +48,28 @@ public class Tela_AdicionarSalaController {
 	@FXML
 	public void cadastrarSala() {
 
-		
+	try {
 	a = new Sala((int) linhas.getValue(), (int) colunas.getValue(), (TipoSala) tipoSala.getValue(), d3.isSelected());
 	System.out.println(a.toString());
+	CinemaFachada.getInstance().cadastrarSala(a);
 	
+	}
+	catch(Exception e){
+		
+		texto.setTextFill(Color.RED);
+		texto.setText("Um erro ocorreu!");
+		
+	}
+
+	tipoSala.setValue(null);
+	linhas.getValueFactory().setValue(0);
+
+	colunas.getValueFactory().setValue(0);
+	
+	texto.setTextFill(Color.GREEN);
+	texto.setText("Sala cadastrada");
+	
+	d3.setSelected(false);
 	}
 
 	

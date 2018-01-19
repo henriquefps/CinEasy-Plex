@@ -52,6 +52,11 @@
                   <Font size="27.0" />
                </font>
             </CheckBox>
+            <Label fx:id="texto" layoutX="389.0" layoutY="593.0" textFill="#2f2f2f">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>
