@@ -1,25 +1,31 @@
 package controladores;
 
+import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 import beans.Filme;
 import beans.Sala;
-import beans.Sessao;
+import beans.TipoSala;
 import fachada.CinemaFachada;
-import interfaces.IRepositorioSala;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
-public class Tela_AdicionarSessaoController {
+public class Tela_AdicionarSessaoController implements Initializable{
 	
-	private CinemaFachada f = CinemaFachada.getInstance();
+	private CinemaFachada f;
 	@FXML
-	private TextField pesquisarFilme;
+	private DatePicker dtSessao;
 	@FXML
-	private TextField pesquisarSala;
+	private Label filmeSelecionado, salaSelecionada;
 	@FXML
 	private TextField inicio_hr;
 	@FXML
@@ -35,22 +41,14 @@ public class Tela_AdicionarSessaoController {
 	@FXML
 	private TableColumn<Sala, Byte> id;
 	@FXML
-	private TableColumn<Sala, String> tipo;
-	@FXML
-	private TableColumn<Sala, Integer > nCadeiras; 
+	private TableColumn<Sala, TipoSala> tipo;
 	
-	@FXML
-	public void buscarFilmes(){
-		
-	}
-	
-	@FXML
-	public void buscarSalas(){
-		ArrayList<Sala> s = new ArrayList<>();
-		s = f.listarTodasSala();
-		for(int i = 0; i < s.size(); i++){
-			System.out.println(s.get(i).getIdSala()+ s.get(i).getTipo().toString() + '\n');
-		}
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+		f = CinemaFachada.getInstance();
+		preencherTabelaFilme();
+		preencherTabelaSala();
 	}
 	
 	@FXML
@@ -63,10 +61,17 @@ public class Tela_AdicionarSessaoController {
 		ScreenManager.setScene(ScreenManager.getInstance().getTelaConfiguracao());
 	}
 	
-	public void preencherTabelas(){
-		ArrayList<Filme> filmes = CinemaFachada.getInstance().listarTodasFilme();
-		ArrayList<Sala> salas = CinemaFachada.getInstance().listarTodasSala();
-		
-		
+	public void preencherTabelaFilme(){
+		ArrayList<Filme> filmes = f.listarTodasFilme();		
+		titulo.setCellValueFactory(new PropertyValueFactory<>("titulo"));
+		duracao.setCellValueFactory(new PropertyValueFactory<>("duracao"));
+		tvFilmes.setItems(FXCollections.observableArrayList(filmes));
+	}
+	
+	public void preencherTabelaSala(){
+		ArrayList<Sala> salas = f.listarTodasSala();
+		tipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+		id.setCellValueFactory(new PropertyValueFactory<>("idSala"));
+		tvSalas.setItems(FXCollections.observableArrayList(salas));
 	}
 }
