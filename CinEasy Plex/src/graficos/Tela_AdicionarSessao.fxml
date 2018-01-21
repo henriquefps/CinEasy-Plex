@@ -105,5 +105,10 @@
             <Font size="24.0" />
          </font>
       </TextField>
+      <Button layoutX="725.0" layoutY="576.0" mnemonicParsing="false" onAction="#zerar" text="Zerar">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

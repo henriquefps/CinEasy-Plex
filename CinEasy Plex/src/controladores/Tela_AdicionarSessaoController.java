@@ -54,7 +54,7 @@ public class Tela_AdicionarSessaoController implements Initializable{
 	
 	private Filme filmeAtual;
 	private Sala salaAtual;
-	private LocalDate dataSessao;
+	
 	private CinemaFachada f;
 	
 	@Override
@@ -139,8 +139,12 @@ public class Tela_AdicionarSessaoController implements Initializable{
 			a.setContentText(e3.getMessage());
 			a.showAndWait();
 		}
-		
-		
+		dtSessao.setValue(dtSessao.getValue().plusDays(1));
+	}
+	
+	@FXML
+	public void zerar(){
+
 		inicio_hr.setPromptText("Hora");
 		inicio_min.setPromptText("Min");
 		inicio_hr.setText(null);
@@ -150,8 +154,8 @@ public class Tela_AdicionarSessaoController implements Initializable{
 		dtSessao.setValue(null);
 		valorIngresso.setText(null);
 		valorIngresso.setPromptText("Preço");
-	}
 	
+	}
 	@FXML
 	public void voltarParaConfiguracoes() {
 		ScreenManager.setScene(ScreenManager.getInstance().getTelaConfiguracao());
