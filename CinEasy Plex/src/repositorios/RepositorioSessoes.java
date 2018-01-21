@@ -56,7 +56,7 @@ public class RepositorioSessoes implements IRepositorioSessoes{
 			return null;
 		else{
 			for(int i = 0; i < repositorio.size(); i++){
-				if(repositorio.get(i).getFilmeExibido().equals(titulo)){
+				if(repositorio.get(i).getFilmeExibido().getTitulo().equals(titulo)){
 					r.add(repositorio.get(i));
 				}
 			}

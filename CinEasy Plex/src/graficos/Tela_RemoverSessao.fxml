@@ -24,22 +24,12 @@
             <Font size="36.0" />
          </font>
       </Button>
-      <TextField fx:id="tfIdSessao" layoutX="793.0" layoutY="232.0" prefHeight="51.0" prefWidth="53.0" promptText="ID">
+      <TextField fx:id="tfFilme" layoutX="793.0" layoutY="300.0" prefHeight="51.0" prefWidth="243.0" promptText="Dígite o título">
          <font>
             <Font size="24.0" />
          </font>
       </TextField>
-      <Button layoutX="868.0" layoutY="232.0" mnemonicParsing="false" onAction="#pesquisarSessao" prefHeight="51.0" prefWidth="197.0" text="Pesquisar Sessao">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Button>
-      <TextField fx:id="tfFilme" layoutX="793.0" layoutY="300.0" prefHeight="51.0" prefWidth="188.0" promptText="Dígite o título">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </TextField>
-      <Button layoutX="997.0" layoutY="300.0" mnemonicParsing="false" onAction="#pesquisarFilme" prefHeight="51.0" prefWidth="188.0" text="Pesquisar Filme">
+      <Button layoutX="1049.0" layoutY="300.0" mnemonicParsing="false" onAction="#pesquisarFilme" prefHeight="51.0" prefWidth="188.0" text="Pesquisar Filme">
          <font>
             <Font size="22.0" />
          </font>
@@ -55,6 +45,11 @@
          </font>
       </Button>
       <Button layoutX="784.0" layoutY="535.0" mnemonicParsing="false" onAction="#removerSessao" prefHeight="51.0" prefWidth="144.0" text="Remover">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Button layoutX="793.0" layoutY="440.0" mnemonicParsing="false" onAction="#listarTodas" prefHeight="51.0" prefWidth="197.0" text="Listar tudo">
          <font>
             <Font size="22.0" />
          </font>

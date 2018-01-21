@@ -203,7 +203,7 @@ public class CinemaFachada implements IFachada {
 	@Override
 	public Sessao buscarSessao(int id) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return sessoes.listarSessoes().get(id);
 	}
 	
 	@Override
@@ -226,7 +226,7 @@ public class CinemaFachada implements IFachada {
 	@Override
 	public boolean existe(Sessao c) {
 		// TODO Auto-generated method stub
-		return false;
+		return sessoes.listarSessoes().contains(c);
 	}
 
 	@Override
