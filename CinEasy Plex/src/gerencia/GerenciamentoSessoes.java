@@ -12,8 +12,18 @@ private IRepositorioSessoes instance = RepositorioSessoes.getInstance();
 	
 	public void criarSessao(Sessao obj) throws Exception{
 		if(obj != null){
-			if(!existe(obj))
+			if(!existe(obj)){
+				for(int i = 0 ; i < instance.listarTodos().size(); i++){
+					if(instance.listarTodos().get(i).getSalaDeExibicao().equals(obj.getSalaDeExibicao())){
+						if(instance.listarTodos().get(i).getInicioDaSessao().isEqual(obj.getInicioDaSessao())
+								|| instance.listarTodos().get(i).getFimDaSessao().isAfter(obj.getInicioDaSessao())){
+								throw new IllegalArgumentException("Sessão já cadastrada nesse horário");
+						}
+					}
+				}
 				instance.cadastrar(obj);
+			}
+				
 			else
 				throw new ObjetoJaExisteException("Sessão Já Existente");
 		}else

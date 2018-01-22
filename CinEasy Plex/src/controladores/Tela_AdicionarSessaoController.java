@@ -108,8 +108,7 @@ public class Tela_AdicionarSessaoController implements Initializable{
 	}
 	
 	@FXML
-	public void cadastrarSessao(){ 
-		//TODO colocar Exceções em hora 
+	public void cadastrarSessao(){  
 		try {
 			int valor1 = Integer.parseInt(inicio_hr.getText());
 			int valor2 = Integer.parseInt(inicio_min.getText());
@@ -144,7 +143,6 @@ public class Tela_AdicionarSessaoController implements Initializable{
 	
 	@FXML
 	public void zerar(){
-
 		inicio_hr.setPromptText("Hora");
 		inicio_min.setPromptText("Min");
 		inicio_hr.setText(null);
