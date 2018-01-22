@@ -65,6 +65,11 @@ public class Tela_ListarSessaoController implements Initializable {
 	}
 	
 	@FXML
+	public void pesquisarSessao(){
+		
+	}
+	
+	@FXML
 	public void listarTodas(){
 		todasSessao = f.listarTodasSessao();
 		preencherTabela(todasSessao);
