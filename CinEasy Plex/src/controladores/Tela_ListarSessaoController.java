@@ -4,7 +4,9 @@ import java.beans.PropertyDescriptor;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;import java.util.Collection;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
@@ -38,35 +40,41 @@ public class Tela_ListarSessaoController implements Initializable {
 	@FXML private TableColumn<Sessao, String> sala;
 	@FXML private TextField tfIdSessao, tfFilme, tfIdSala;
 	
+	private ArrayList<Sessao> todasSessao;
 	private CinemaFachada f;
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		f = CinemaFachada.getInstance();
-		preencherTabela();
-	}
-	
-	@FXML 
-	public void pesquisarSessao(){
-		
+		todasSessao = f.listarTodasSessao();
+		preencherTabela(todasSessao);
 	}
 	
 	@FXML
 	public void pesquisarFilme(){
-		
+		String titulo = tfFilme.getText();
+		todasSessao = f.buscarSessaoPorTitulo(titulo);
+		preencherTabela(todasSessao);
 	}
 	
 	@FXML
 	public void pesquisarSala(){
-		
+		int valor1 = Integer.parseInt(tfIdSala.getText());
+		todasSessao = f.buscarSessaoPorSala((byte) valor1);
+		preencherTabela(todasSessao);
 	}
 	
+	@FXML
+	public void listarTodas(){
+		todasSessao = f.listarTodasSessao();
+		preencherTabela(todasSessao);
+	}
 	@FXML
 	public void voltarParaConfiguracoes() {
 		ScreenManager.setScene(ScreenManager.getInstance().getTelaConfiguracao());
 	}
 	
-	public void preencherTabela(){
+	public void preencherTabela(ArrayList<Sessao> todaSessao){
 		id.setCellValueFactory(new PropertyValueFactory<>("idSessao"));
 		filme.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Sessao,String>, ObservableValue<String>>() {
 			@Override
@@ -93,6 +101,6 @@ public class Tela_ListarSessaoController implements Initializable {
 				return new SimpleStringProperty(arg0.getValue().getSalaDeExibicao().getTipo().toString());
 			}
 		});
-		tvSessao.setItems(FXCollections.observableArrayList(f.listarTodasSessao()));
+		tvSessao.setItems(FXCollections.observableArrayList(todasSessao));
 	}
 }
