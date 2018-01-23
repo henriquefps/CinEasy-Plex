@@ -244,13 +244,7 @@ public class CinemaFachada implements IFachada {
 
 	@Override
 	public Venda buscarVenda(int id) throws Exception {
-		Venda procurada = null;
-		for (int i = 0; i < listarTodasVenda().size(); i++) {
-			if (listarTodasVenda().get(i).getIdVenda() == id) {
-				procurada = listarTodasVenda().get(i);
-			}
-		}
-		return procurada;
+		return vendas.buscarVenda(id);
 	}
 
 	@Override
@@ -260,12 +254,7 @@ public class CinemaFachada implements IFachada {
 
 	@Override
 	public boolean existe(Venda c) {
-		try {
-			if (buscarVenda(c.getIdVenda()) != null) {
-				return true;
-			}
-			return false;
-		} catch (Exception e) {e.printStackTrace();return false;}
+		return vendas.existe(c);
 	}
 	
 }
