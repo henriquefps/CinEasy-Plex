@@ -15,7 +15,8 @@ public class Tela_AdicionarContaController {
 	@FXML public void cadastrarConta(){
 		try {
 			if(CinemaFachada.getInstance().buscarContaLogin(usuarioTextField.getText()) == null &&
-					senhaPasswordField.getText().equals(confirmarSenhaPasswordField.getText())){
+					senhaPasswordField.getText().equals(confirmarSenhaPasswordField.getText()) &&
+					!senhaPasswordField.getText().equals("")){
 				CinemaFachada.getInstance().cadastrarConta(new Conta(usuarioTextField.getText(), senhaPasswordField.getText()));
 				usuarioTextField.setText("");
 				senhaPasswordField.setText("");
