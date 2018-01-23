@@ -4,12 +4,14 @@ package programa;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
+import beans.Cadeira;
 import beans.Conta;
 import beans.Filme;
+import beans.Ingresso;
 import beans.Sala;
 import beans.Sessao;
 import beans.TipoSala;
-
+import beans.Venda;
 import controladores.ScreenManager;
 import fachada.CinemaFachada;
 import javafx.application.Application;
@@ -52,6 +54,13 @@ public class Main extends Application {
 					CinemaFachada.getInstance().buscarSala(4), 50, LocalDateTime.of(2018, 1, 19, 14, 20)));
 			CinemaFachada.getInstance().cadastrarSessao(new Sessao(CinemaFachada.getInstance().buscarFilme(2),
 					CinemaFachada.getInstance().buscarSala(3), 50, LocalDateTime.of(2018, 1, 19, 14, 20)));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		// Vendas
+		try {
+			CinemaFachada.getInstance().cadastrarVenda(new Venda(new Ingresso(false, new Cadeira(0, 1, false), CinemaFachada.getInstance().buscarSessao(0)), CinemaFachada.getInstance().buscarSessao(0)));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
