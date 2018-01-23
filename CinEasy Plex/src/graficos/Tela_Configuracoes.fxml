@@ -114,5 +114,10 @@
             <Font size="24.0" />
          </font>
       </Button>
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="686.0" layoutY="55.0" mnemonicParsing="false" onAction="#abrirTelaVendas" text="Ver Vendas" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
