@@ -1,7 +1,6 @@
 package programa;
 
 
-import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
@@ -15,7 +14,6 @@ import controladores.ScreenManager;
 import fachada.CinemaFachada;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import repositorios.ConnectionFactory;
 
 public class Main extends Application {
 	public void scriptsDePovoamento() {
@@ -73,16 +71,6 @@ public class Main extends Application {
 	}
 
 	public static void main(String[] args) {
-			//launch(args);
-		try {
-			ConnectionFactory.getInstance().getConnection();
-			System.out.println("PEGOU");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 		launch(args);
-
 	}
 }
