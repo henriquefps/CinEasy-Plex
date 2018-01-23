@@ -53,14 +53,18 @@ public class Tela_AlterarSessaoController implements Initializable {
 	private TextField horaInicioTextField;
 	@FXML
 	private TextField minutoInicioTextField;
+	@FXML
+	private TextField valorTextField;
 
 	private Sessao sessaoSelecionada = null;
 	private Filme filmeSelecionado = null;
 	private Sala salaSelecionada = null;
+	private CinemaFachada fachada;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		 preencherTabelaSessoes();
+		fachada = CinemaFachada.getInstance(); 
+		preencherTabelaSessoes();
 	}
 
 	@FXML
@@ -88,23 +92,27 @@ public class Tela_AlterarSessaoController implements Initializable {
 	}
 
 	@FXML
-	public void salvarAlteracoes() {
-		if (sessaoSelecionada != null && filmeSelecionado != null && salaSelecionada != null
-				&& !anoTextField.getText().equals("") && !mesTextField.getText().equals("")
-				&& !diaTextField.getText().equals("") && !horaInicioTextField.getText().equals("")
-				&& !minutoInicioTextField.getText().equals("")) {
-			sessaoSelecionada.setFilmeExibido(filmeSelecionado);
-			sessaoSelecionada.setInicioDaSessao(
-					LocalDateTime.of(Integer.parseInt(anoTextField.getText()), Integer.parseInt(mesTextField.getText()),
-							Integer.parseInt(diaTextField.getText()), Integer.parseInt(horaInicioTextField.getText()),
-							Integer.parseInt(minutoInicioTextField.getText())));
-			sessaoSelecionada.setSalaDeExibicao(salaSelecionada);
-			despreencherTabelasECampos();
-			preencherTabelaSessoes();
-			sessaoSelecionada = null;
-			filmeSelecionado = null;
-			salaSelecionada = null;
+	public void salvarAlteracoes() {	
+		try {
+			Filme f = filmeSelecionado;
+			LocalDateTime l	= LocalDateTime.of(Integer.parseInt(anoTextField.getText()), Integer.parseInt(mesTextField.getText()),
+							  Integer.parseInt(diaTextField.getText()), Integer.parseInt(horaInicioTextField.getText()),
+							  Integer.parseInt(minutoInicioTextField.getText()));
+			Sala s = salaSelecionada;
+			float val = Float.parseFloat(valorTextField.getText());
+			Sessao newObj = new Sessao(f, s, val, l);
+			
+			fachada.alterarSessao(newObj);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+		despreencherTabelasECampos();
+		preencherTabelaSessoes();
+		sessaoSelecionada = null;
+		filmeSelecionado = null;
+		salaSelecionada = null;
+	
 	}
 
 	private void preencherTabelaSessoes() {

@@ -89,8 +89,8 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <DatePicker fx:id="dtSessao" layoutX="745.0" layoutY="244.0" />
-      <Label layoutX="745.0" layoutY="220.0" text="Selecione a data da sessão">
+      <DatePicker fx:id="dtSessao" layoutX="745.0" layoutY="216.0" prefHeight="53.0" prefWidth="282.0" />
+      <Label layoutX="745.0" layoutY="196.0" text="Selecione a data da sessão">
          <font>
             <Font size="14.0" />
          </font>
