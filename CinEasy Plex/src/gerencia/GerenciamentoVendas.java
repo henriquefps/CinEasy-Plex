@@ -1,7 +1,7 @@
 package gerencia;
 
-import beans.Ingresso;
-import beans.Sessao;
+import java.util.ArrayList;
+
 import beans.Venda;
 import interfaces.IRepositorioVendas;
 import repositorios.RepositorioVendas;
@@ -9,16 +9,16 @@ import repositorios.RepositorioVendas;
 public class GerenciamentoVendas {
 private IRepositorioVendas instance = RepositorioVendas.getInstance();
 	
-	public void criarVenda(Ingresso	ingressoVendido, Sessao sessaoVendida){
-		// TODO criar um objeto e salvar no repositorio pela interface
+	public void cadastrarVenda(Venda a){
+		if (a != null) instance.cadastrar(a);
 	}
 	
 	public void removerVenda(Venda e){
-		// TODO
+		if(e != null) instance.remover(e);
 	}
 	
 	
-	public void listarVendas(){
-		// TODO retornar o repositorio
+	public ArrayList<Venda> listarVendas(){
+		return instance.listar();
 	}
 }

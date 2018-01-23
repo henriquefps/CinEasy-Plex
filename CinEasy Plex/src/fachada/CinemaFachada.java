@@ -229,38 +229,43 @@ public class CinemaFachada implements IFachada {
 
 	@Override
 	public void cadastrarVenda(Venda c) throws Exception {
-		// TODO Auto-generated method stub
-		
+		vendas.cadastrarVenda(c);
 	}
 
 	@Override
 	public void alterarVenda(Venda c) throws Exception {
-		// TODO Auto-generated method stub
-		
+		// Unused
 	}
 
 	@Override
 	public void removerVenda(Venda c) throws Exception {
-		// TODO Auto-generated method stub
-		
+		vendas.removerVenda(c);
 	}
 
 	@Override
 	public Venda buscarVenda(int id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		Venda procurada = null;
+		for (int i = 0; i < listarTodasVenda().size(); i++) {
+			if (listarTodasVenda().get(i).getIdVenda() == id) {
+				procurada = listarTodasVenda().get(i);
+			}
+		}
+		return procurada;
 	}
 
 	@Override
 	public ArrayList<Venda> listarTodasVenda() {
-		// TODO Auto-generated method stub
-		return null;
+		return vendas.listarVendas();
 	}
 
 	@Override
 	public boolean existe(Venda c) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			if (buscarVenda(c.getIdVenda()) != null) {
+				return true;
+			}
+			return false;
+		} catch (Exception e) {e.printStackTrace();return false;}
 	}
 	
 }

@@ -4,10 +4,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import com.sun.glass.ui.Screen;
-
 import beans.Conta;
-import beans.Sala;
 import fachada.CinemaFachada;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
