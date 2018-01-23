@@ -20,7 +20,7 @@
             <Font size="36.0" />
          </font>
       </Button>
-      <TableView fx:id="tableViewSalas" layoutX="141.0" layoutY="162.0" onMouseClicked="#selecionarItem" prefHeight="519.0" prefWidth="536.0">
+      <TableView fx:id="tableViewSalas" layoutX="141.0" layoutY="162.0" onMouseClicked="#selecionarSala" prefHeight="519.0" prefWidth="536.0">
          <columns>
             <TableColumn fx:id="tableColumnIdSala" prefWidth="535.0000152587891" text="Sala" />
          </columns>

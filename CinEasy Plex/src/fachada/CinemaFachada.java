@@ -45,7 +45,6 @@ public class CinemaFachada implements IFachada {
 	@Override
 	public void cadastrarConta(Conta c) throws Exception {
 		contas.cadastrar(c);
-		
 	}
 
 	@Override
@@ -63,6 +62,10 @@ public class CinemaFachada implements IFachada {
 	@Override
 	public Conta buscarConta(int id) throws Exception {
 		return contas.buscar(id);
+	}
+	
+	public Conta buscarContaLogin(String cpf){
+		return contas.buscar(cpf);
 	}
 
 	@Override

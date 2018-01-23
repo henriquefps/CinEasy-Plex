@@ -19,7 +19,7 @@
             <Image url="@../../../../ProjetoCinema/src/br/com/ufrpe/cine_easyplex/imagens/logo.png" />
          </image>
       </ImageView>
-      <Button layoutX="1123.0" layoutY="71.0" mnemonicParsing="false" onAction="#voltarParaConfiguracoes" text="Voltar">
+      <Button layoutX="1061.0" layoutY="54.0" mnemonicParsing="false" onAction="#voltarParaConfiguracoes" text="Voltar">
          <font>
             <Font size="36.0" />
          </font>
