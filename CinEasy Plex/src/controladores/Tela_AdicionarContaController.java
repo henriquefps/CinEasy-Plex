@@ -1,11 +1,11 @@
 package controladores;
 
-import java.awt.TextField;
 
 import beans.Conta;
 import fachada.CinemaFachada;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
 public class Tela_AdicionarContaController {
 	@FXML private TextField usuarioTextField;
