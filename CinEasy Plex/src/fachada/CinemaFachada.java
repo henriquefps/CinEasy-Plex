@@ -154,20 +154,17 @@ public class CinemaFachada implements IFachada {
 
 	@Override
 	public void cadastrarSala(Sala c) throws Exception {
-		// TODO Auto-generated method stub
 		salas.cadastrar(c);
 	}
 
 	@Override
 	public void alterarSala(Sala c) throws Exception {
-		// TODO Auto-generated method stub
-		
+		salas.alterar(c);
 	}
 
 	@Override
 	public void removerSala(Sala c) throws Exception {
-		// TODO Auto-generated method stub
-		
+		salas.remover(c);
 	}
 
 	@Override
@@ -182,8 +179,7 @@ public class CinemaFachada implements IFachada {
 
 	@Override
 	public boolean existe(Sala c) {
-		// TODO Auto-generated method stub
-		return false;
+		return salas.existe(c);
 	}
 
 	@Override
@@ -193,19 +189,17 @@ public class CinemaFachada implements IFachada {
 
 	@Override
 	public void alterarSessao(Sessao c) throws Exception {
-		// TODO Auto-generated method stub
 		sessoes.atualizarSessao(c);
 	}
 
 	@Override
 	public void removerSessao(Sessao c) throws Exception {
-		// TODO Auto-generated method stub
 		sessoes.removerSessao(c);
 	}
 
 	@Override
 	public Sessao buscarSessao(int id) throws Exception {
-		// TODO Auto-generated method stub
+		
 		return sessoes.listarSessoes().get(id);
 	}
 	
@@ -216,7 +210,6 @@ public class CinemaFachada implements IFachada {
 	
 	@Override
 	public ArrayList<Sessao> buscarSessaoPorSala(byte id) {
-		// TODO Auto-generated method stub
 		return sessoes.listarSessoesPorSala(id);
 	}
 	
@@ -228,7 +221,6 @@ public class CinemaFachada implements IFachada {
 
 	@Override
 	public boolean existe(Sessao c) {
-		// TODO Auto-generated method stub
 		return sessoes.listarSessoes().contains(c);
 	}
 

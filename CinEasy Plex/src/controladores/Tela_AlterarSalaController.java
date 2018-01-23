@@ -39,6 +39,7 @@ public class Tela_AlterarSalaController implements Initializable{
 		if (selecionada != null ) {
 			selecionada.setTipo(tipoSala.getValue());
 			selecionada.setVisual(d3.isSelected());
+			preencherTabela();
 		}
 	}
 	@FXML public void voltarParaConfiguracoes(){

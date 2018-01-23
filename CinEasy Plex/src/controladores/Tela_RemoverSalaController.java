@@ -29,8 +29,9 @@ public class Tela_RemoverSalaController implements Initializable{
 	@FXML public void removerSala(){
 		if(selecionada != null){
 			try {
-				//TODO LANCAR ALERTA
+				//TODO LANCAR ALERTA PARA REMOVER TODAS AS SESSOES
 				CinemaFachada.getInstance().removerSala(selecionada);
+				preencherTabela();
 			} catch (Exception e) {e.printStackTrace();}
 		}
 	}

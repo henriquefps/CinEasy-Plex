@@ -257,7 +257,7 @@ public class ScreenManager {
 	public Scene getTelaRemover_ListarConta() {
 		try {
 			telaRemover_ListarConta = new Scene(
-					FXMLLoader.load(getClass().getResource("/graficos/Tela_Remover_ListarConta.fxml")), 1280, 720);
+					FXMLLoader.load(getClass().getResource("/graficos/Tela_Remover_ListarContas.fxml")), 1280, 720);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
