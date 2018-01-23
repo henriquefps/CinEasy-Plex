@@ -213,6 +213,9 @@ public class CinemaFachada implements IFachada {
 		return sessoes.listarSessoesPorSala(id);
 	}
 	
+	public ArrayList<Sessao> sessoesPorSala(Sala a){
+		return sessoes.sessoesPorSala(a);
+	}
 
 	@Override
 	public ArrayList<Sessao> listarTodasSessao() {

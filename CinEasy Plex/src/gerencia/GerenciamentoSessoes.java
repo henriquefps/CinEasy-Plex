@@ -1,6 +1,7 @@
 package gerencia;
 import java.util.ArrayList;
 import beans.Cadeira;
+import beans.Sala;
 import beans.Sessao;
 import exceptions.ObjetoJaExisteException;
 import exceptions.ObjetoNaoExisteException;
@@ -81,5 +82,16 @@ private IRepositorioSessoes instance = RepositorioSessoes.getInstance();
 			}
 		}
 		return false;
+	}
+
+	
+	public ArrayList<Sessao> sessoesPorSala(Sala a){
+		ArrayList<Sessao> sessoes = new ArrayList<Sessao>();
+		for (int i = 0; i < listarSessoes().size(); i++) {
+			if (listarSessoes().get(i).getSalaDeExibicao().equals(a)) {
+				sessoes.add(listarSessoes().get(i));
+			}
+		}
+		return sessoes;
 	}
 }
