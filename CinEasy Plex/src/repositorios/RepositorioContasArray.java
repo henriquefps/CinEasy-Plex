@@ -42,7 +42,7 @@ public class RepositorioContasArray implements IRepositorioContas {
 
 	@Override
 	public void remover(Conta obj) {
-		repositorio.remove(obj.getIdConta());
+		repositorio.remove(obj);
 		
 	}
 

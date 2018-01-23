@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
+import beans.Conta;
 import beans.Filme;
 import beans.Sala;
 import beans.Sessao;
@@ -16,8 +17,8 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import repositorios.ConnectionFactory;
 
-public class Main extends Application{
-	public void scriptsDePovoamento(){
+public class Main extends Application {
+	public void scriptsDePovoamento() {
 		// Filmes
 		try {
 			CinemaFachada.getInstance().cadastrarFilme(new Filme("Logan", "Ação", LocalTime.of(2, 15), "18"));
@@ -30,42 +31,47 @@ public class Main extends Application{
 		// Salas
 		try {
 			CinemaFachada.getInstance().cadastrarSala(new Sala(20, 20, TipoSala.Convencional, false));
-			CinemaFachada.getInstance().cadastrarSala(new Sala(20, 20, TipoSala.IMAX,true));
+			CinemaFachada.getInstance().cadastrarSala(new Sala(20, 20, TipoSala.IMAX, true));
 			CinemaFachada.getInstance().cadastrarSala(new Sala(20, 20, TipoSala.XD, true));
 			CinemaFachada.getInstance().cadastrarSala(new Sala(20, 20, TipoSala.Convencional, false));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		// Contas
-		
+		try {
+			CinemaFachada.getInstance().cadastrarConta(new Conta("0000", "0000"));
+			CinemaFachada.getInstance().cadastrarConta(new Conta("0001", "0011"));
+		} catch (Exception e1) {
+			e1.printStackTrace();
+		}
 		// Sessoes
 		try {
-			CinemaFachada.getInstance().cadastrarSessao(new Sessao(CinemaFachada.getInstance().buscarFilme(1), 
-					CinemaFachada.getInstance().buscarSala(2),50, LocalDateTime.of(2018, 1, 19, 14, 20)));
-			CinemaFachada.getInstance().cadastrarSessao(new Sessao(CinemaFachada.getInstance().buscarFilme(3), 
-					CinemaFachada.getInstance().buscarSala(1),50, LocalDateTime.of(2018, 1, 19,14, 20)));
-			CinemaFachada.getInstance().cadastrarSessao(new Sessao(CinemaFachada.getInstance().buscarFilme(4), 
-					CinemaFachada.getInstance().buscarSala(4),50, LocalDateTime.of(2018, 1, 19,14, 20)));
-			CinemaFachada.getInstance().cadastrarSessao(new Sessao(CinemaFachada.getInstance().buscarFilme(2), 
-					CinemaFachada.getInstance().buscarSala(3),50, LocalDateTime.of(2018, 1, 19,14, 20)));
+			CinemaFachada.getInstance().cadastrarSessao(new Sessao(CinemaFachada.getInstance().buscarFilme(1),
+					CinemaFachada.getInstance().buscarSala(2), 50, LocalDateTime.of(2018, 1, 19, 14, 20)));
+			CinemaFachada.getInstance().cadastrarSessao(new Sessao(CinemaFachada.getInstance().buscarFilme(3),
+					CinemaFachada.getInstance().buscarSala(1), 50, LocalDateTime.of(2018, 1, 19, 14, 20)));
+			CinemaFachada.getInstance().cadastrarSessao(new Sessao(CinemaFachada.getInstance().buscarFilme(4),
+					CinemaFachada.getInstance().buscarSala(4), 50, LocalDateTime.of(2018, 1, 19, 14, 20)));
+			CinemaFachada.getInstance().cadastrarSessao(new Sessao(CinemaFachada.getInstance().buscarFilme(2),
+					CinemaFachada.getInstance().buscarSala(3), 50, LocalDateTime.of(2018, 1, 19, 14, 20)));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Override
 	public void start(Stage primaryStage) {
 		try {
 			ScreenManager.getInstance().setMainStage(primaryStage);
 			ScreenManager.getMainStage().setTitle("Cine EasyPlex");
 			ScreenManager.getMainStage().setResizable(false);
-			ScreenManager.setScene(ScreenManager.getInstance().getTelaMenuPrincipal());
+			ScreenManager.setScene(ScreenManager.getInstance().getTelaLogin());
 			scriptsDePovoamento();
-		} catch(Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void main(String[] args) {
 			//launch(args);
 		try {
@@ -76,5 +82,7 @@ public class Main extends Application{
 			e.printStackTrace();
 		}
 		
+		launch(args);
+
 	}
 }

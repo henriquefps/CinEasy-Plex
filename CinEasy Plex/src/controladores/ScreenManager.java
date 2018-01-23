@@ -14,6 +14,10 @@ public class ScreenManager {
 	private Scene telaConfiguracao;
 	private Scene telaMenuPrincipal;
 
+	private Scene telaAdicionarConta;
+	private Scene telaAlterarConta;
+	private Scene telaRemover_ListarConta;
+
 	private Scene telaAdicionarFilme;
 	private Scene telaRemoverFilme;
 	private Scene telaAlterarFilme;
@@ -23,8 +27,12 @@ public class ScreenManager {
 	private Scene telaRemoverSessao;
 	private Scene telaAlterarSessao;
 	private Scene telaListarSessao;
+
 	private Scene telaAdicionarSala;
 	private Scene telaListarSala;
+	private Scene telaRemoverSala;
+	private Scene telaAlterarSala;
+
 	private Scene telaVenderIngresso;
 	private static Stage mainStage;
 
@@ -41,7 +49,8 @@ public class ScreenManager {
 		return instance;
 	}
 
-	// Coloca o Stage para mostrar a Cena a. Ã‰ necessÃ¡rio chamar o setScene(a) e
+	// Coloca o Stage para mostrar a Cena a. Ã‰ necessÃ¡rio chamar o setScene(a)
+	// e
 	// depois o
 	// show() para atualizar a imagem da janela
 	public static void setScene(Scene a) {
@@ -106,7 +115,6 @@ public class ScreenManager {
 		return telaAdicionarFilme;
 	}
 
-	
 	public Scene getTelaRemoverFilme() {
 		try {
 			telaRemoverFilme = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_RemoverFilme.fxml")),
@@ -144,14 +152,12 @@ public class ScreenManager {
 	 * @return the telaAdcionarSessao
 	 */
 	public Scene getTelaAdcionarSessao() {
-		// TODO tela Adicionar Sessao
 		if (telaAdcionarSessao == null) {
 			try {
 
 				telaAdcionarSessao = new Scene(
 						FXMLLoader.load(getClass().getResource("/graficos/Tela_AdicionarSessao.fxml")), 1280, 720);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -159,13 +165,11 @@ public class ScreenManager {
 	}
 
 	public Scene getTelaRemoverSessao() {
-		// TODO tela Remover Sessao
 		if (telaRemoverSessao == null) {
 			try {
 				telaRemoverSessao = new Scene(
 						FXMLLoader.load(getClass().getResource("/graficos/Tela_RemoverSessao.fxml")), 1280, 720);
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -184,53 +188,100 @@ public class ScreenManager {
 	}
 
 	public Scene getTelaAdicionarSala() {
-			
+
 		try {
-			telaAdicionarSala = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_AdicionarSala.fxml")), 1280,720);
-			
-		
-		}
-	catch (IOException e)
-		{
+			telaAdicionarSala = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_AdicionarSala.fxml")),
+					1280, 720);
+
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		return telaAdicionarSala;
 	}
-	
+
 	public Scene getTelaListarSala() {
 		try {
-			telaListarFilme = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_ListarSala.fxml")),
-					1280, 720);
+			telaListarSala = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_ListarSala.fxml")), 1280,
+					720);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return telaListarFilme;
+		return telaListarSala;
 	}
 
-
 	public Scene getTelaListarSessao() {
-		// TODO
 		try {
-			telaAlterarSessao = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_ListarSessao.fxml")),
+			telaListarSessao = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_ListarSessao.fxml")),
 					1280, 720);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		return telaAlterarSessao;
+		return telaListarSessao;
 
 	}
-	
+
 	public Scene getTelaVenderIngresso() {
 		try {
-			telaVenderIngresso = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_VenderIngresso.fxml")),
-					1280, 720);
+			telaVenderIngresso = new Scene(
+					FXMLLoader.load(getClass().getResource("/graficos/Tela_VenderIngresso.fxml")), 1280, 720);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
 		return telaVenderIngresso;
 	}
+
+	public Scene getTelaAdicionarConta() {
+		try {
+			telaAdicionarConta = new Scene(
+					FXMLLoader.load(getClass().getResource("/graficos/Tela_AdicionarConta.fxml")), 1280, 720);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return telaAdicionarConta;
+	}
+
+	public Scene getTelaAlterarConta() {
+		try {
+			telaAlterarConta = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_AlterarConta.fxml")),
+					1280, 720);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return telaAlterarConta;
+	}
+
+	public Scene getTelaRemover_ListarConta() {
+		try {
+			telaRemover_ListarConta = new Scene(
+					FXMLLoader.load(getClass().getResource("/graficos/Tela_Remover_ListarContas.fxml")), 1280, 720);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return telaRemover_ListarConta;
+	}
+
+	public Scene getTelaRemoverSala() {
+		try {
+			telaRemoverSala = new Scene(
+					FXMLLoader.load(getClass().getResource("/graficos/Tela_RemoverSala.fxml")), 1280, 720);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return telaRemoverSala;
+	}
+
+	public Scene getTelaAlterarSala() {
+		try {
+			telaAlterarSala = new Scene(
+					FXMLLoader.load(getClass().getResource("/graficos/Tela_AlterarSala.fxml")), 1280, 720);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return telaAlterarSala;
+	}
+
 }

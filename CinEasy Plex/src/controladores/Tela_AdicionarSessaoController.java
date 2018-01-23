@@ -7,6 +7,8 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import javax.swing.plaf.metal.MetalPopupMenuSeparatorUI;
+
 import beans.Filme;
 import beans.Sala;
 import beans.Sessao;
@@ -108,8 +110,7 @@ public class Tela_AdicionarSessaoController implements Initializable{
 	}
 	
 	@FXML
-	public void cadastrarSessao(){ 
-		//TODO colocar Exceções em hora 
+	public void cadastrarSessao(){  
 		try {
 			int valor1 = Integer.parseInt(inicio_hr.getText());
 			int valor2 = Integer.parseInt(inicio_min.getText());
@@ -119,6 +120,12 @@ public class Tela_AdicionarSessaoController implements Initializable{
 			LocalDateTime inicioDaSessao = LocalDateTime.of(i, i2);
 			
 			f.cadastrarSessao(new Sessao(filmeAtual, salaAtual, valor3, inicioDaSessao));
+			dtSessao.setValue(dtSessao.getValue().plusDays(1));
+			Alert a = new Alert(AlertType.CONFIRMATION);
+			a.setTitle("Sessão cadastrada");
+			a.setHeaderText("Sessão adicionada");
+			a.setContentText("Sessão cadastrada no banco de dados");
+			a.showAndWait();
 		} catch (NumberFormatException e) {
 			// TODO Auto-generated catch block
 			Alert a = new Alert(AlertType.ERROR);
@@ -133,18 +140,21 @@ public class Tela_AdicionarSessaoController implements Initializable{
 			a.setContentText("Preencha todos os dados");
 			a.showAndWait();
 		} catch (Exception e3){
+			inicio_hr.setPromptText("Hora");
+			inicio_min.setPromptText("Min");
+			inicio_hr.setText(null);
+			inicio_min.setText(null);
 			Alert a = new Alert(AlertType.ERROR);
 			a.setTitle("Erro");
 			a.setHeaderText(null);
 			a.setContentText(e3.getMessage());
 			a.showAndWait();
 		}
-		dtSessao.setValue(dtSessao.getValue().plusDays(1));
+		
 	}
 	
 	@FXML
 	public void zerar(){
-
 		inicio_hr.setPromptText("Hora");
 		inicio_min.setPromptText("Min");
 		inicio_hr.setText(null);
