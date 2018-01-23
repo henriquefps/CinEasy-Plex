@@ -13,7 +13,7 @@
    <children>
       <ImageView fitHeight="176.0" fitWidth="800.0" layoutX="241.0" layoutY="59.0">
          <image>
-            <Image url="@../../../../ProjetoCinema/src/br/com/ufrpe/cine_easyplex/imagens/logo.png" />
+            <Image url="@../imagens/logo.png" />
          </image>
       </ImageView>
       <Label layoutX="405.0" layoutY="364.0" text="Login: ">
