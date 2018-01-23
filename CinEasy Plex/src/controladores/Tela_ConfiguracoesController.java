@@ -54,6 +54,6 @@ public class Tela_ConfiguracoesController {
 		ScreenManager.setScene(ScreenManager.getInstance().getTelaListarSessao());
 	}
 	@FXML public void abrirTelaVendas(){
-		//TODO ScreenManager.setScene(ScreenManager.getInstance().)	
+		ScreenManager.setScene(ScreenManager.getInstance().getTelaVendas());
 	}
 }

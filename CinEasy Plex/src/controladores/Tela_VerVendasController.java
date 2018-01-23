@@ -1,12 +1,16 @@
 package controladores;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import beans.Venda;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
-public class Tela_VerVendasController {
+public class Tela_VerVendasController implements Initializable{
 	@FXML private TableView<Venda> tabelaVendas;
 	
 	@FXML private TableColumn<Venda, String> colunaIdVenda;
@@ -25,14 +29,19 @@ public class Tela_VerVendasController {
 	}
 	
 	@FXML public void voltarParaMenuPrincipal(){
-		
+		ScreenManager.setScene(ScreenManager.getInstance().getTelaMenuPrincipal());
 	}
 	
 	@FXML public void selecionarVenda(){
 		
 	}
 	
-	@FXML private void preencherTabela(){
+	private void preencherTabela(){
 		
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		preencherTabela();
 	}
 }

@@ -32,6 +32,8 @@ public class ScreenManager {
 	private Scene telaListarSala;
 	private Scene telaRemoverSala;
 	private Scene telaAlterarSala;
+	
+	private Scene telaVendas;
 
 	private Scene telaVenderIngresso;
 	private static Stage mainStage;
@@ -282,6 +284,16 @@ public class ScreenManager {
 			e.printStackTrace();
 		}
 		return telaAlterarSala;
+	}
+
+	public Scene getTelaVendas() {
+		try {
+			telaVendas = new Scene(
+					FXMLLoader.load(getClass().getResource("/graficos/Tela_VerVendas.fxml")), 1280, 720);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return telaVendas;
 	}
 
 }
