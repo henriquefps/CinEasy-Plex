@@ -96,6 +96,7 @@ public class RepositorioContasArray implements IRepositorioContas, Serializable 
 	@Override
 	public void atualizar(Conta newObj) {
 		repositorio.set(newObj.getIdConta()-1, newObj);
+		this.salvarArquivo();
 		
 	}
 

@@ -1,5 +1,11 @@
 package repositorios;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import beans.Filme;
@@ -19,20 +25,76 @@ public class RepositorioFilmes implements IRepositorioFilmes{
 
 	public static RepositorioFilmes getInstance(){
 		if(instance == null){
-			instance = new RepositorioFilmes();
+			instance = lerArquivo();
 		}
 		return instance;
+	}
+
+
+	public static RepositorioFilmes lerArquivo()
+	{
+		RepositorioFilmes instancia = null;
+		File in = new File("Filmes.dat");
+        FileInputStream fis = null;
+        ObjectInputStream ois = null;
+        
+        try {
+            fis = new FileInputStream(in);
+            ois = new ObjectInputStream(fis);
+            
+            Object o = ois.readObject();
+            instancia = (RepositorioFilmes) o;
+            
+        } catch (Exception e) {
+            instancia = new RepositorioFilmes();
+        } finally {
+            if (ois != null) {
+            	try {
+					ois.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+                
+            }
+        }
+        return instancia;
+        
+	}
+	
+	public void salvarArquivo(){
+		File out = new File("Filmes.dat");
+        FileOutputStream fos = null;
+        ObjectOutputStream oos = null;
+        
+        try {
+            fos = new FileOutputStream(out);
+            oos = new ObjectOutputStream(fos);
+            
+			oos.writeObject(instance);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (oos != null) {
+                try { 
+                	oos.close(); 
+                } catch (IOException e) {
+                	
+                }
+            }
+        }
 	}
 	@Override
 	public void cadastrar(Filme a) {
 		id += 1;
 		a.setIdFilme(id);
 		listaDeFilmes.add(a);
+		this.salvarArquivo();
 	}
 
 	@Override
 	public void remover(Filme a) {
 		listaDeFilmes.remove(a);
+		this.salvarArquivo();
 		
 	}
 
@@ -44,7 +106,8 @@ public class RepositorioFilmes implements IRepositorioFilmes{
 
 	@Override
 	public void atualizar(Filme newObj) {
-		listaDeFilmes.set(newObj.getIdFilme()-1, newObj);	
+		listaDeFilmes.set(newObj.getIdFilme()-1, newObj);
+		this.salvarArquivo();
 	}
 
 
