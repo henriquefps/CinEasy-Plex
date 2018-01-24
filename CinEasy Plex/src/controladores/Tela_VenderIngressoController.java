@@ -88,7 +88,7 @@ public class Tela_VenderIngressoController implements Initializable {
 				sessaoSelecionada = null;
 				cadeiraSelecionada = null;
 				Alert alert = new Alert(AlertType.INFORMATION);
-				alert.setTitle("Sucesso");
+				alert.setTitle("CinEasy Plex");
 				alert.setHeaderText("Compra realizada com sucesso");
 				alert.showAndWait();
 			}
