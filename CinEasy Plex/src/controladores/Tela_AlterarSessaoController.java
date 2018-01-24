@@ -111,6 +111,7 @@ public class Tela_AlterarSessaoController implements Initializable {
 				float val = Float.parseFloat(valorTextField.getText());
 				
 				Sessao newObj = new Sessao(f, s, val, l);
+				newObj.setIdSessao(sessaoSelecionada.getIdSessao());
 				
 				fachada.alterarSessao(newObj);
 			} catch (NumberFormatException e){
@@ -143,7 +144,13 @@ public class Tela_AlterarSessaoController implements Initializable {
 	}
 
 	private void preencherTabelaSessoes() {
-		ArrayList<Sessao> sessoes = CinemaFachada.getInstance().listarTodasSessao();
+		ArrayList<Sessao> sessoes = new ArrayList<>(); 
+		ArrayList<Sessao> s = CinemaFachada.getInstance().listarTodasSessao();
+		for(int i = 0 ; i < s.size(); i++){
+			if(!s.get(i).getInicioDaSessao().isBefore(LocalDateTime.now())){
+				sessoes.add(s.get(i));
+			}
+		}
 
 		colunaSessaoFilme
 				.setCellValueFactory(new Callback<CellDataFeatures<Sessao, String>, ObservableValue<String>>() {
@@ -256,5 +263,6 @@ public class Tela_AlterarSessaoController implements Initializable {
 		diaTextField.setText("");
 		horaInicioTextField.setText("");
 		minutoInicioTextField.setText("");
+		valorTextField.setText("");
 	}
 }
