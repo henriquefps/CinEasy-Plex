@@ -90,6 +90,7 @@ public class Tela_VenderIngressoController implements Initializable {
 		sessaoSelecionada = tabelaSessoes.getSelectionModel().getSelectedItem();
 		if (sessaoSelecionada != null) {
 			preencherTabelaCadeiras();
+			meiaEntradaCheckBox.setDisable(false);
 		}
 	}
 
@@ -208,5 +209,18 @@ public class Tela_VenderIngressoController implements Initializable {
 
 		tabelaCadeira.setItems(FXCollections.observableArrayList(new ArrayList<Cadeira>()));
 		tabelaCadeira.refresh();
+		
+		meiaEntradaCheckBox.setDisable(true);
+	}
+	
+	public void selecionaMeia() {
+		if(meiaEntradaCheckBox.isSelected()) {
+			sessaoSelecionada.setValorDoIngresso(sessaoSelecionada.getValorDoIngresso()/2);
+			tabelaSessoes.refresh();
+		}
+		else {
+			sessaoSelecionada.setValorDoIngresso(sessaoSelecionada.getValorDoIngresso()*2);
+			tabelaSessoes.refresh();
+		}
 	}
 }

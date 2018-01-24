@@ -59,7 +59,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <CheckBox fx:id="meiaEntradaCheckBox" layoutX="345.0" layoutY="573.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="291.0" text="Meia Entrada">
+      <CheckBox fx:id="meiaEntradaCheckBox" disable="true" layoutX="345.0" layoutY="573.0" mnemonicParsing="false" onAction="#selecionaMeia" prefHeight="48.0" prefWidth="291.0" text="Meia Entrada">
          <font>
             <Font size="36.0" />
          </font>

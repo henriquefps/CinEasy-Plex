@@ -1,6 +1,8 @@
 package beans;
 
-public class Conta {
+import java.io.Serializable;
+
+public class Conta implements Serializable{
 	private int idConta;
 	private String login;
 	private String senha;
