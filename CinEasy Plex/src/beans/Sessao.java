@@ -1,6 +1,7 @@
 package beans;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class Sessao {
 	private int idSessao;
@@ -9,28 +10,36 @@ public class Sessao {
 	private float valorDoIngresso;
 	private LocalDateTime inicioDaSessao;
 	private LocalDateTime fimDaSessao;
-	
-	public Sessao(Filme filmeExibido, Sala salaDeExibicao, float valorDoIngresso, LocalDateTime inicioDaSessao){ 
-		    this.setFilmeExibido(filmeExibido); 
-		    this.setSalaDeExibicao(salaDeExibicao); 
-		    this.setValorDoIngresso(valorDoIngresso); 
-		    this.setInicioDaSessao(inicioDaSessao); 
-		    this.setFimDaSessao(inicioDaSessao); 
-		    this.setFimDaSessao(fimDaSessao.plusMinutes(60 * filmeExibido.getDuracao().getHour() + 
-		        filmeExibido.getDuracao().getMinute())); 
+	private ArrayList<Cadeira> cadeirasDaSessao;
+
+	public Sessao(Filme filmeExibido, Sala salaDeExibicao, float valorDoIngresso, LocalDateTime inicioDaSessao) {
+		this.setFilmeExibido(filmeExibido);
+		this.setSalaDeExibicao(salaDeExibicao);
+		this.setValorDoIngresso(valorDoIngresso);
+		this.setInicioDaSessao(inicioDaSessao);
+		this.setFimDaSessao(inicioDaSessao);
+		this.setFimDaSessao(fimDaSessao
+				.plusMinutes(60 * filmeExibido.getDuracao().getHour() + filmeExibido.getDuracao().getMinute()));
+		cadeirasDaSessao = new ArrayList<>();
+		for (int i = 0; i < salaDeExibicao.getListaDeCadeiras().size(); i++) {
+			cadeirasDaSessao
+					.add(new Cadeira(Cadeira.tranformaEmInt(salaDeExibicao.getListaDeCadeiras().get(i).getLetra()),
+							salaDeExibicao.getListaDeCadeiras().get(i).getNum(), true));
+		}
 	}
 
 	public Sessao() {
-		
+
 	}
 
-	public LocalDateTime getFimDaSessao(){
+	public LocalDateTime getFimDaSessao() {
 		return fimDaSessao;
 	}
-	public void setFimDaSessao(LocalDateTime f){
+
+	public void setFimDaSessao(LocalDateTime f) {
 		fimDaSessao = f;
 	}
-	
+
 	/**
 	 * @return the idSessao
 	 */
@@ -39,7 +48,8 @@ public class Sessao {
 	}
 
 	/**
-	 * @param idSessao the idSessao to set
+	 * @param idSessao
+	 *            the idSessao to set
 	 */
 	public void setIdSessao(int idSessao) {
 		this.idSessao = idSessao;
@@ -52,14 +62,13 @@ public class Sessao {
 		return filmeExibido;
 	}
 
-
 	/**
-	 * @param filmeExibido the filmeExibido to set
+	 * @param filmeExibido
+	 *            the filmeExibido to set
 	 */
 	public void setFilmeExibido(Filme filmeExibido) {
 		this.filmeExibido = filmeExibido;
 	}
-
 
 	/**
 	 * @return the salaDeExibicao
@@ -68,14 +77,13 @@ public class Sessao {
 		return salaDeExibicao;
 	}
 
-
 	/**
-	 * @param salaDeExibicao the salaDeExibicao to set
+	 * @param salaDeExibicao
+	 *            the salaDeExibicao to set
 	 */
 	public void setSalaDeExibicao(Sala salaDeExibicao) {
 		this.salaDeExibicao = salaDeExibicao;
 	}
-
 
 	/**
 	 * @return the valorDoIngresso
@@ -84,14 +92,13 @@ public class Sessao {
 		return valorDoIngresso;
 	}
 
-
 	/**
-	 * @param valorDoIngresso the valorDoIngresso to set
+	 * @param valorDoIngresso
+	 *            the valorDoIngresso to set
 	 */
 	public void setValorDoIngresso(float valorDoIngresso) {
 		this.valorDoIngresso = valorDoIngresso;
 	}
-
 
 	/**
 	 * @return the inicioDaSessao
@@ -100,21 +107,28 @@ public class Sessao {
 		return inicioDaSessao;
 	}
 
-
 	/**
-	 * @param inicioDaSessao the inicioDaSessao to set
+	 * @param inicioDaSessao
+	 *            the inicioDaSessao to set
 	 */
 	public void setInicioDaSessao(LocalDateTime inicioDaSessao) {
 		this.inicioDaSessao = inicioDaSessao;
 	}
-		
-	public boolean equals(Object obj){
+
+	public boolean equals(Object obj) {
 		boolean res = false;
-		if(obj != null && obj.getClass() == this.getClass()){
-			if(this.getIdSessao() == ((Sessao)obj).getIdSessao())
+		if (obj != null && obj.getClass() == this.getClass()) {
+			if (this.getIdSessao() == ((Sessao) obj).getIdSessao())
 				res = true;
 		}
 		return res;
 	}
 
+	public ArrayList<Cadeira> getCadeirasDaSessao() {
+		return cadeirasDaSessao;
+	}
+
+	public void setCadeirasDaSessao(ArrayList<Cadeira> cadeirasDaSessao) {
+		this.cadeirasDaSessao = cadeirasDaSessao;
+	}
 }

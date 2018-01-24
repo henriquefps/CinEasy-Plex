@@ -1,6 +1,9 @@
 package gerencia;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import beans.Cadeira;
+import beans.Filme;
 import beans.Sala;
 import beans.Sessao;
 import exceptions.ObjetoJaExisteException;
@@ -60,6 +63,15 @@ private IRepositorioSessoes instance = RepositorioSessoes.getInstance();
 	public ArrayList<Sessao> listarSessoesPorFilme(String titulo){
 		return instance.buscarPorFilme(titulo);
 	}
+	public ArrayList<Sessao> listarSessoesPorFilme(Filme a){
+		ArrayList<Sessao> aux = new ArrayList<Sessao>();
+		for (int i = 0; i < listarSessoes().size(); i++) {
+			if (listarSessoes().get(i).getFilmeExibido().equals(a)) {
+				aux.add(listarSessoes().get(i));
+			}
+		}
+		return aux;
+	}
 	
 	public ArrayList<Sessao> listarSessoesPorSala(byte id){
 		return instance.buscarPorSala(id);
@@ -93,5 +105,25 @@ private IRepositorioSessoes instance = RepositorioSessoes.getInstance();
 			}
 		}
 		return sessoes;
+	}
+	
+	public ArrayList<Sessao> filtrarSessoesFuturas(ArrayList<Sessao> lista){
+		ArrayList<Sessao> futuras = new ArrayList<Sessao>();
+		for (int i = 0; i < lista.size(); i++) {
+			if (lista.get(i).getInicioDaSessao().isAfter(LocalDateTime.now())) {
+				futuras.add(lista.get(i));
+			}
+		}
+		return futuras;
+	}
+	
+	public ArrayList<Cadeira> listarCadeirasDisponiveis(Sessao e){
+		ArrayList<Cadeira> aux = new ArrayList<Cadeira>();
+		for (int i = 0; i < e.getCadeirasDaSessao().size(); i++) {
+			if (e.getCadeirasDaSessao().get(i).isDisponivel()) {
+				aux.add(e.getCadeirasDaSessao().get(i));
+			}
+		}
+		return aux;
 	}
 }
