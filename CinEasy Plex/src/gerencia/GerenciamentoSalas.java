@@ -11,47 +11,50 @@ public class GerenciamentoSalas {
 	private IRepositorio<Sala> instance = RepositorioSalasArray.getInstance();
 	
 	public void cadastrar(Sala obj) throws Exception {
-		if(obj != null) {
-			if(existe(obj))
-				throw new ObjetoJaExisteException("Este Sala já existe");
+		try {
+			if(obj != null) {
+				if(buscar(obj.getIdSala()) != null)
+					throw new ObjetoJaExisteException("Este Sala jï¿½ existe");
+				else
+					instance.cadastrar(obj);
+			}
 			else
-				instance.cadastrar(obj);
+				throw new IllegalArgumentException("Sala Invï¿½lido");
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		else
-			throw new IllegalArgumentException("Sala Inválido");
 		
 	}
 	
 	public void alterar(Sala newObj) throws Exception {
 		if(newObj != null) {
 			if(!existe(newObj))
-				throw new ObjetoNaoExisteException("Este Sala não existe");
+				throw new ObjetoNaoExisteException("Este Sala nï¿½o existe");
 			else
 				instance.atualizar(newObj);
 		}
 		else
-			throw new IllegalArgumentException("Sala Inválido");
+			throw new IllegalArgumentException("Sala Invï¿½lido");
 	}
 	
 	public void remover(Sala obj) throws Exception {
 		if(obj != null) {
 			if(!existe(obj))
-				throw new ObjetoNaoExisteException("Este Sala não existe");
+				throw new ObjetoNaoExisteException("Este Sala nï¿½o existe");
 			else
 				instance.remover(obj);
 		}
 		else
-			throw new IllegalArgumentException("Sala Inválido");
+			throw new IllegalArgumentException("Sala Invï¿½lido");
 	}
 	
 	public Sala buscar(int id) throws Exception {
 		Sala res = null;
-		if(id < 0)
-			throw new IllegalArgumentException("ID Inválido");
-		else {
-			res = instance.buscar(id);
+		for (int i = 0; i < listarTodos().size(); i++) {
+			if (listarTodos().get(i).getIdSala() == id) {
+				res = listarTodos().get(i);
+			}
 		}
-		
 		return res;
 	}
 	

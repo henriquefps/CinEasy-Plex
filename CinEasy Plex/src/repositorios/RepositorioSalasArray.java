@@ -6,12 +6,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import beans.Sala;
 import interfaces.IRepositorio;
 
-public class RepositorioSalasArray implements IRepositorio<Sala>{
+public class RepositorioSalasArray implements IRepositorio<Sala>, Serializable{
 
 	private static RepositorioSalasArray instance;
 	private ArrayList<Sala> salas;

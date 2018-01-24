@@ -1,8 +1,9 @@
 package beans;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Sala {
+public class Sala implements Serializable {
 	private byte idSala;
 	private int quantLinhas;
 	private int quantColunas;

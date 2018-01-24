@@ -6,11 +6,12 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import beans.Sessao;
 import interfaces.IRepositorioSessoes;
 
-public class RepositorioSessoes implements IRepositorioSessoes{
+public class RepositorioSessoes implements IRepositorioSessoes, Serializable{
 
 	private ArrayList<Sessao> repositorio;
 	private static RepositorioSessoes instance;

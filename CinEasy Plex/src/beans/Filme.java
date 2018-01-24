@@ -1,8 +1,9 @@
 package beans;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 
-public class Filme {
+public class Filme implements Serializable {
 	private int idFilme;
 	private String titulo;
 	private String genero;

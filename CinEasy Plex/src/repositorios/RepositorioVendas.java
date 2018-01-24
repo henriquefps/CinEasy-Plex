@@ -6,13 +6,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import beans.Ingresso;
 import beans.Venda;
 import interfaces.IRepositorioVendas;
 
-public class RepositorioVendas implements IRepositorioVendas{
+public class RepositorioVendas implements IRepositorioVendas, Serializable{
 	private ArrayList<Venda> todasAsVendas;
 	private static RepositorioVendas instance;
 	private static int id;

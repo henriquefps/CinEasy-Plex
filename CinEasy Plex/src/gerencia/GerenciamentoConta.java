@@ -10,51 +10,51 @@ import repositorios.RepositorioContasArray;
 
 public class GerenciamentoConta {
 	private IRepositorioContas instance = RepositorioContasArray.getInstance();
-	
+
 	public void cadastrar(Conta obj) throws Exception {
-		if(obj != null) {
-			if(existe(obj))
+		if (obj != null) {
+			if (buscar(obj.getLogin()) != null){
 				throw new ObjetoJaExisteException("Este Conta j� existe");
+			}
 			else
 				instance.cadastrar(obj);
-		}
-		else
+		} else
 			throw new IllegalArgumentException("Conta Inv�lido");
-		
 	}
-	
+
+
+
 	public void alterar(Conta newObj) throws Exception {
-		if(newObj != null) {
-			if(!existe(newObj))
+		if (newObj != null) {
+			if (!existe(newObj))
 				throw new ObjetoNaoExisteException("Este Conta n�o existe");
 			else
 				instance.atualizar(newObj);
-		}
-		else
+		} else
 			throw new IllegalArgumentException("Conta Inv�lido");
 	}
-	
+
 	public void remover(Conta obj) throws Exception {
-		if(obj != null) {
-			if(!existe(obj))
+		if (obj != null) {
+			if (!existe(obj))
 				throw new ObjetoNaoExisteException("Este Conta n�o existe");
 			else
 				instance.remover(obj);
-		}
-		else
+		} else
 			throw new IllegalArgumentException("Conta Inv�lido");
 	}
-	
+
 	public Conta buscar(int id) throws Exception {
 		Conta res = null;
-		if(id < 0)
+		if (id < 0)
 			throw new IllegalArgumentException("ID Inv�lido");
 		else {
 			res = instance.buscar(id);
 		}
-		
+
 		return res;
 	}
+
 	public Conta buscar(String cpf) {
 		Conta res = null;
 		for (int i = 0; i < listarTodos().size(); i++) {
@@ -64,31 +64,29 @@ public class GerenciamentoConta {
 		}
 		return res;
 	}
-	
-	
+
 	public ArrayList<Conta> listarTodos() {
 		return instance.listarTodos();
-		
+
 	}
-	
+
 	public boolean existe(Conta obj) {
 		boolean res = false;
-		if(obj != null) {
+		if (obj != null) {
 			ArrayList<Conta> Contas = listarTodos();
-			if(Contas.contains(obj))
+			if (Contas.contains(obj))
 				res = true;
 		}
-		
+
 		return res;
-	
+
 	}
-	
+
 	public Conta pesquisarPorNome(String s) {
-		if(s != null) {
+		if (s != null) {
 			Conta c = instance.pesquisarPorNome(s);
 			return c;
-		}
-		else
+		} else
 			throw new IllegalArgumentException("Nome Inv�lido");
 	}
 }

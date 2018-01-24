@@ -1,6 +1,8 @@
 package beans;
 
-public class Ingresso {
+import java.io.Serializable;
+
+public class Ingresso implements Serializable {
 	private int idIngresso;
 	private boolean isMeia;
 	private Cadeira cadeiraVendida;

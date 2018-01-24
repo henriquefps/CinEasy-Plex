@@ -1,6 +1,8 @@
 package beans;
 
-public class Venda {
+import java.io.Serializable;
+
+public class Venda implements Serializable {
 	private int idVenda;
 	private Ingresso ingressoVendido;
 	private Sessao sessaoVendida;

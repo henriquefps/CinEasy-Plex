@@ -1,9 +1,10 @@
 package beans;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Sessao {
+public class Sessao implements Serializable {
 	private int idSessao;
 	private Filme filmeExibido;
 	private Sala salaDeExibicao;

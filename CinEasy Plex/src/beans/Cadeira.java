@@ -1,6 +1,8 @@
 package beans;
 
-public class Cadeira {
+import java.io.Serializable;
+
+public class Cadeira implements Serializable{
 	private char letra;
 	private int num;
 	private boolean isDisponivel;

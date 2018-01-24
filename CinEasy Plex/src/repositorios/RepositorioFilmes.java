@@ -6,12 +6,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import beans.Filme;
 import interfaces.IRepositorioFilmes;
 
-public class RepositorioFilmes implements IRepositorioFilmes{
+public class RepositorioFilmes implements IRepositorioFilmes, Serializable{
 
 	private static RepositorioFilmes instance;
 	private ArrayList<Filme> listaDeFilmes;
