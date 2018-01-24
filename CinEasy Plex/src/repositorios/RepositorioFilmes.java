@@ -88,8 +88,10 @@ public class RepositorioFilmes implements IRepositorioFilmes, Serializable{
 	public void cadastrar(Filme a) {
 		id += 1;
 		a.setIdFilme(id);
-		listaDeFilmes.add(a);
-		this.salvarArquivo();
+		if (!existeFilme(a.getIdFilme())) {
+			listaDeFilmes.add(a);
+			this.salvarArquivo();
+		}
 	}
 
 	@Override
@@ -126,6 +128,15 @@ public class RepositorioFilmes implements IRepositorioFilmes, Serializable{
 		}
 		
 		return filmes;
+	}
+	public boolean existeFilme(int id){
+		boolean a = false;
+		for (int i = 0; i < listarTodos().size(); i++) {
+			if (listarTodos().get(i).getIdFilme() == id) {
+				a = true;
+			}
+		}
+		return a;
 	}
 
 }
