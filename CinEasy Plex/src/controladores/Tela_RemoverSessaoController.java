@@ -75,7 +75,7 @@ public class Tela_RemoverSessaoController implements Initializable {
 			alert.setTitle("Remover Sala");
 			alert.setHeaderText("Deseja remover a sessão do filme " + sessaoAtual.getFilmeExibido().getTitulo() + " no dia "
 					+ sessaoAtual.getInicioDaSessao().getDayOfMonth() +"/"+ sessaoAtual.getInicioDaSessao().getMonthValue() 
-					+"/" + sessaoAtual.getInicioDaSessao().getYear() +" as " + sessaoAtual.getInicioDaSessao().getHour()
+					+"/" + sessaoAtual.getInicioDaSessao().getYear() +" às " + sessaoAtual.getInicioDaSessao().getHour()
 					+ ":" + sessaoAtual.getInicioDaSessao().getMinute() + "?");
 			Optional<ButtonType> result = alert.showAndWait();
 			if (result.get() == ButtonType.OK) {
