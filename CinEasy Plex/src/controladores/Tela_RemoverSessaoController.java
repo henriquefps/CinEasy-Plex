@@ -61,9 +61,7 @@ public class Tela_RemoverSessaoController implements Initializable {
 				if (arg2 != null)
 					sessaoAtual = arg2;
 			}
-
 		});
-
 	}
 
 	@FXML
