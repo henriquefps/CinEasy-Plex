@@ -8,12 +8,14 @@ import fachada.CinemaFachada;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.paint.Color;
 
 public class Tela_AdicionarSalaController {
@@ -58,6 +60,12 @@ public class Tela_AdicionarSalaController {
 					d3.isSelected());
 			System.out.println(a.toString());
 			CinemaFachada.getInstance().cadastrarSala(a);
+			
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Cadastrar Sala");
+			alert.setHeaderText(null);
+			alert.setContentText("Salaa cadastrada com sucesso!");
+			alert.showAndWait();
 
 		} catch (Exception e) {
 
@@ -70,9 +78,6 @@ public class Tela_AdicionarSalaController {
 		linhas.getValueFactory().setValue(0);
 
 		colunas.getValueFactory().setValue(0);
-
-		texto.setTextFill(Color.GREEN);
-		texto.setText("Sala cadastrada");
 
 		d3.setSelected(false);
 	}
