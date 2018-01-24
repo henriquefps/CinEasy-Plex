@@ -40,16 +40,16 @@ public class Main extends Application {
 		// Contas
 		try {
 			CinemaFachada.getInstance().cadastrarConta(new Conta("0000", "0000"));
-			CinemaFachada.getInstance().cadastrarConta(new Conta("0001", "0011"));
+			CinemaFachada.getInstance().cadastrarConta(new Conta("0001", "0001"));
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
 		// Sessoes
 		try {
 			CinemaFachada.getInstance().cadastrarSessao(new Sessao(CinemaFachada.getInstance().buscarFilme(1),
-					CinemaFachada.getInstance().buscarSala(2), 50, LocalDateTime.of(2018, 1, 19, 14, 20)));
-			CinemaFachada.getInstance().cadastrarSessao(new Sessao(CinemaFachada.getInstance().buscarFilme(3),
-					CinemaFachada.getInstance().buscarSala(1), 50, LocalDateTime.of(2018, 1, 19, 14, 20)));
+					CinemaFachada.getInstance().buscarSala(2), 50, LocalDateTime.of(2018, 1, 24, 14, 20)));
+			CinemaFachada.getInstance().cadastrarSessao(new Sessao(CinemaFachada.getInstance().buscarFilme(1),
+					CinemaFachada.getInstance().buscarSala(1), 50, LocalDateTime.of(2018, 1, 22, 14, 20)));
 			CinemaFachada.getInstance().cadastrarSessao(new Sessao(CinemaFachada.getInstance().buscarFilme(4),
 					CinemaFachada.getInstance().buscarSala(4), 50, LocalDateTime.of(2018, 1, 19, 14, 20)));
 			CinemaFachada.getInstance().cadastrarSessao(new Sessao(CinemaFachada.getInstance().buscarFilme(2),

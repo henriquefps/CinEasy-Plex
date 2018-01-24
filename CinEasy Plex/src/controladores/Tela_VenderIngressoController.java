@@ -6,7 +6,9 @@ import java.util.ResourceBundle;
 
 import beans.Cadeira;
 import beans.Filme;
+import beans.Ingresso;
 import beans.Sessao;
+import beans.Venda;
 import fachada.CinemaFachada;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
@@ -53,28 +55,47 @@ public class Tela_VenderIngressoController implements Initializable {
 	@FXML
 	private CheckBox meiaEntradaCheckBox;
 
-	private Filme filmeSelecionado;
-	private Sessao sessaoSelecionada;
-	private Cadeira cadeiraselecionada;
+	private Filme filmeSelecionado = null;
+	private Sessao sessaoSelecionada = null;
+	private Cadeira cadeiraSelecionada = null;
 
 	@FXML
 	public void comprarIngresso() {
-
+		try {
+			if (filmeSelecionado != null && sessaoSelecionada != null && cadeiraSelecionada != null) {
+				Ingresso vendido = new Ingresso(meiaEntradaCheckBox.isSelected(), cadeiraSelecionada,
+						sessaoSelecionada);
+				CinemaFachada.getInstance().cadastrarIngresso(vendido);
+				CinemaFachada.getInstance().cadastrarVenda(new Venda(vendido, sessaoSelecionada));
+				cadeiraSelecionada.setDisponivel(false);
+				despreencherTabelas();
+				preencherTabelaFilmes();
+				filmeSelecionado = null;
+				sessaoSelecionada = null;
+				cadeiraSelecionada = null;
+			}
+		} catch (Exception e) {e.printStackTrace();}
 	}
 
 	@FXML
 	public void selecionarFilme() {
-
+		filmeSelecionado = tabelaFilmes.getSelectionModel().getSelectedItem();
+		if (filmeSelecionado != null) {
+			preencherTabelaSessoes();
+		}
 	}
 
 	@FXML
 	public void selecionarSessoes() {
-
+		sessaoSelecionada = tabelaSessoes.getSelectionModel().getSelectedItem();
+		if (sessaoSelecionada != null) {
+			preencherTabelaCadeiras();
+		}
 	}
 
 	@FXML
 	public void selecionarCadeira() {
-
+		cadeiraSelecionada = tabelaCadeira.getSelectionModel().getSelectedItem();
 	}
 
 	@FXML
@@ -174,5 +195,18 @@ public class Tela_VenderIngressoController implements Initializable {
 				return new SimpleStringProperty(todosAsCadeiras.getValue().toString());
 			}
 		});
+		tabelaCadeira.setItems(FXCollections.observableArrayList(cadeiras));
+		tabelaCadeira.refresh();
+	}
+	
+	public void despreencherTabelas(){
+		tabelaFilmes.setItems(FXCollections.observableArrayList(new ArrayList<Filme>()));
+		tabelaFilmes.refresh();
+		
+		tabelaSessoes.setItems(FXCollections.observableArrayList(new ArrayList<Sessao>()));
+		tabelaSessoes.refresh();
+
+		tabelaCadeira.setItems(FXCollections.observableArrayList(new ArrayList<Cadeira>()));
+		tabelaCadeira.refresh();
 	}
 }

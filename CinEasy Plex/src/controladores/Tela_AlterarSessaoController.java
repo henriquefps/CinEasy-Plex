@@ -163,14 +163,14 @@ public class Tela_AlterarSessaoController implements Initializable {
 				.setCellValueFactory(new Callback<CellDataFeatures<Sessao, String>, ObservableValue<String>>() {
 					@Override
 					public ObservableValue<String> call(CellDataFeatures<Sessao, String> todosAsSessoes) {
-						return new SimpleStringProperty(todosAsSessoes.getValue().getInicioDaSessao().toString());
+						return new SimpleStringProperty(ScreenManager.formatarLocalDateTime(todosAsSessoes.getValue().getInicioDaSessao()));
 					}
 				});
 		colunaSessaoSala.setCellValueFactory(new Callback<CellDataFeatures<Sessao, String>, ObservableValue<String>>() {
 			@Override
 			public ObservableValue<String> call(CellDataFeatures<Sessao, String> todosAsSessoes) {
-				return new SimpleStringProperty(Byte.toString(todosAsSessoes.getValue().getSalaDeExibicao().getIdSala())); // TODO Essa linha está com problemas
-			}
+				return new SimpleStringProperty(Byte.toString(todosAsSessoes.getValue().getSalaDeExibicao().getIdSala())); 
+				}
 		});
 
 		sessoesTableView.setItems(FXCollections.observableArrayList(sessoes));

@@ -34,11 +34,11 @@ public class Tela_RemoverSessaoController implements Initializable {
 	@FXML
 	private TableColumn<Sessao, String> filme;
 	@FXML
-	private TableColumn<Sessao, LocalDateTime> data;
+	private TableColumn<Sessao, String> data;
 	@FXML
 	private TableColumn<Sessao, String> duracao;
 	@FXML
-	private TableColumn<Sessao, LocalDateTime> horaFim;
+	private TableColumn<Sessao, String> horaFim;
 	@FXML
 	private TableColumn<Sessao, String> sala;
 	@FXML
@@ -51,7 +51,6 @@ public class Tela_RemoverSessaoController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
 		f = CinemaFachada.getInstance();
 		todasSessao = f.listarTodasSessao();
 		preencherTabela(todasSessao);
@@ -127,8 +126,18 @@ public class Tela_RemoverSessaoController implements Initializable {
 						return new SimpleStringProperty(param.getValue().getFilmeExibido().getTitulo());
 					}
 				});
-		data.setCellValueFactory(new PropertyValueFactory<>("inicioDaSessao"));
-		horaFim.setCellValueFactory(new PropertyValueFactory<>("fimDaSessao"));
+		data.setCellValueFactory(new Callback<CellDataFeatures<Sessao, String>, ObservableValue<String>>() {
+			@Override
+			public ObservableValue<String> call(CellDataFeatures<Sessao, String> todosAsSessoes) {
+				return new SimpleStringProperty(ScreenManager.formatarLocalDateTime(todosAsSessoes.getValue().getInicioDaSessao()));
+			}
+		});
+		horaFim.setCellValueFactory(new Callback<CellDataFeatures<Sessao, String>, ObservableValue<String>>() {
+			@Override
+			public ObservableValue<String> call(CellDataFeatures<Sessao, String> todosAsSessoes) {
+				return new SimpleStringProperty(ScreenManager.formatarLocalDateTime(todosAsSessoes.getValue().getFimDaSessao()));
+			}
+		});
 		duracao.setCellValueFactory(
 				new Callback<TableColumn.CellDataFeatures<Sessao, String>, ObservableValue<String>>() {
 

@@ -333,7 +333,7 @@ public class CinemaFachada implements IFachada {
 	}
 	
 	public ArrayList<Cadeira> listarCadeirasDisponiveis(Sessao e){
-		return sessoes.listarCadeirasDaSessao(e);
+		return sessoes.listarCadeirasDisponiveis(e);
 	}
 	
 }

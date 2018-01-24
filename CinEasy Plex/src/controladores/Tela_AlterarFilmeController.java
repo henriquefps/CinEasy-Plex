@@ -12,9 +12,11 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.util.Callback;
 
@@ -85,6 +87,12 @@ public class Tela_AlterarFilmeController implements Initializable{
 		duracao_horaTextField.setText("");
 		duracao_minutoTextField.setText("");
 		classificacaoTextField.setText("");
+		
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Alterar Filme");
+		alert.setHeaderText(null);
+		alert.setContentText("FIlme alterado com sucesso!");
+		alert.showAndWait();
 		
 		preencherTabela();
 	}
