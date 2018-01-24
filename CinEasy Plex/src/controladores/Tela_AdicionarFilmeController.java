@@ -5,7 +5,9 @@ import java.time.LocalTime;
 import beans.Filme;
 import fachada.CinemaFachada;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 
 public class Tela_AdicionarFilmeController {
 	@FXML
@@ -44,6 +46,12 @@ public class Tela_AdicionarFilmeController {
 					duracao_horaTextField.setText("");
 					duracao_minutoTextField.setText("");
 					classificacaoTextField.setText("");
+					
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("Cadastrar Filme");
+					alert.setHeaderText(null);
+					alert.setContentText("Filme cadastrado com sucesso!");
+					alert.showAndWait();
 				}
 			}
 		} catch (Exception e) {
