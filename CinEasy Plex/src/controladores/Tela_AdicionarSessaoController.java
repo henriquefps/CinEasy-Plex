@@ -61,7 +61,6 @@ public class Tela_AdicionarSessaoController implements Initializable{
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
 		f = CinemaFachada.getInstance();
 		preencherTabelaFilme();
 		preencherTabelaSala();
@@ -69,7 +68,6 @@ public class Tela_AdicionarSessaoController implements Initializable{
 
 			@Override
 			public void changed(ObservableValue<? extends Filme> arg0, Filme arg1, Filme arg2) {
-				// TODO Auto-generated method stub
 				if(arg2 != null)
 					filmeSelecionado.setText(arg2.getTitulo());
 				filmeAtual = arg2;
@@ -81,7 +79,6 @@ public class Tela_AdicionarSessaoController implements Initializable{
 
 			@Override
 			public void changed(ObservableValue<? extends Sala> observable, Sala oldValue, Sala newValue) {
-				// TODO Auto-generated method stub
 				if(newValue != null)
 					salaSelecionada.setText(newValue.getTipo().toString());
 				salaAtual = newValue;
@@ -94,7 +91,6 @@ public class Tela_AdicionarSessaoController implements Initializable{
 			@Override
 			public void changed(ObservableValue<? extends LocalDate> observable, LocalDate oldValue,
 					LocalDate newValue) {
-				// TODO Auto-generated method stub
 				LocalDate agora = LocalDate.now();
 				if(newValue != null){
 					if(newValue.isBefore(agora)){
@@ -127,7 +123,6 @@ public class Tela_AdicionarSessaoController implements Initializable{
 			a.setContentText("Sessão cadastrada no banco de dados");
 			a.showAndWait();
 		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
 			Alert a = new Alert(AlertType.ERROR);
 			a.setTitle("Erro");
 			a.setHeaderText("Horário ou Dia");

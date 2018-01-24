@@ -2,6 +2,7 @@ package fachada;
 
 import java.util.ArrayList;
 
+import beans.Cadeira;
 import beans.Conta;
 import beans.Filme;
 import beans.Ingresso;
@@ -208,6 +209,10 @@ public class CinemaFachada implements IFachada {
 		return sessoes.listarSessoesPorFilme(titulo);
 	}
 	
+	public ArrayList<Sessao> listarSessoesPorFilme(Filme a){
+		return sessoes.listarSessoesPorFilme(a);
+	}
+	
 	@Override
 	public ArrayList<Sessao> buscarSessaoPorSala(byte id) {
 		return sessoes.listarSessoesPorSala(id);
@@ -255,6 +260,14 @@ public class CinemaFachada implements IFachada {
 	@Override
 	public boolean existe(Venda c) {
 		return vendas.existe(c);
+	}
+	
+	public ArrayList<Sessao> filtrarSessoesFuturas(ArrayList<Sessao> lista){
+		return sessoes.filtrarSessoesFuturas(lista);
+	}
+	
+	public ArrayList<Cadeira> listarCadeirasDisponiveis(Sessao e){
+		return sessoes.listarCadeirasDaSessao(e);
 	}
 	
 }

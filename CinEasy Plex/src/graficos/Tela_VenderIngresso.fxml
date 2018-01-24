@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -21,57 +22,47 @@
             <Font size="36.0" />
          </font>
       </Button>
-      <Button disable="true" layoutX="866.0" layoutY="393.0" mnemonicParsing="false" text="Comprar Ingresso">
+      <Button layoutX="669.0" layoutY="564.0" mnemonicParsing="false" onAction="#comprarIngresso" text="Comprar Ingresso">
          <font>
             <Font size="36.0" />
          </font>
       </Button>
-      <TabPane layoutX="25.0" layoutY="186.0" prefHeight="285.0" prefWidth="535.0" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-          <Tab text="Segunda-Feira">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="256.0" prefWidth="508.0">
-                     <children>
-                        <ScrollPane prefHeight="255.0" prefWidth="535.0">
-                          <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="253.0" prefWidth="533.0" />
-                          </content>
-                        </ScrollPane>
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-          <Tab text="Terça-Feira">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </Tab>
-            <Tab text="Quarta-Feira">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
-            <Tab text="Quinta-Feira">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
-            <Tab text="Sexta-Feira">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
-            <Tab text="Sábado">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
-            <Tab text="Domingo">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-              </content>
-            </Tab>
-        </tabs>
-      </TabPane>
+      <TableView fx:id="tabelaFilmes" layoutX="455.0" layoutY="182.0" onMouseClicked="#selecionarFilme" prefHeight="123.0" prefWidth="352.0">
+        <columns>
+          <TableColumn fx:id="colunaFilme" prefWidth="127.84192657470703" text="Filme" />
+          <TableColumn fx:id="colunaGenero" prefWidth="108.15806579589844" text="Genero" />
+            <TableColumn fx:id="colunaClassificacao" prefWidth="115.42129516601562" text="Classificação" />
+        </columns>
+      </TableView>
+      <TableView fx:id="tabelaSessoes" layoutX="244.0" layoutY="384.0" onMouseClicked="#selecionarSessoes" prefHeight="146.0" prefWidth="597.0">
+        <columns>
+          <TableColumn fx:id="colunaData" prefWidth="82.47386932373047" text="Data" />
+          <TableColumn fx:id="colunaHorario" prefWidth="102.84223937988281" text="Horário" />
+            <TableColumn fx:id="colunaDiaDaSemana" prefWidth="107.0" text="Dia da Semana" />
+            <TableColumn fx:id="colunaSala" prefWidth="80.262939453125" text="Sala" />
+            <TableColumn fx:id="colunaTipoSala" prefWidth="118.36813354492188" text="Tipo da Sala" />
+            <TableColumn fx:id="colunaValor" prefWidth="102.84223937988281" text="Valor" />
+        </columns>
+      </TableView>
+      <TableView fx:id="tabelaCadeira" layoutX="864.0" layoutY="384.0" onMouseClicked="#selecionarCadeira" prefHeight="146.0" prefWidth="169.0">
+        <columns>
+          <TableColumn fx:id="colunaCadeira" prefWidth="169.0" text="Cadeira" />
+        </columns>
+      </TableView>
+      <Label layoutX="600.0" layoutY="139.0" text="Filmes">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="581.0" layoutY="344.0" text="Sessões">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <CheckBox fx:id="meiaEntradaCheckBox" layoutX="345.0" layoutY="573.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="291.0" text="Meia Entrada">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </CheckBox>
    </children>
 </AnchorPane>

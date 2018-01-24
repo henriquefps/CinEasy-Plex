@@ -1,6 +1,10 @@
 package controladores;
 
 import java.io.IOException;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -51,10 +55,34 @@ public class ScreenManager {
 		return instance;
 	}
 
-	// Coloca o Stage para mostrar a Cena a. Ã‰ necessÃ¡rio chamar o setScene(a)
-	// e
-	// depois o
-	// show() para atualizar a imagem da janela
+	
+	public static String formatarLocalDate(LocalDate a){
+		return a.getDayOfMonth() + "/" + a.getMonthValue() + "/" + a.getYear();
+	}
+	public static String formatarLocalTime(LocalTime a){
+		return a.getHour() + ":" + a.getMinute();
+	}
+	public static String formatarLocalDateTime(LocalDateTime a){
+		return formatarLocalDate(a.toLocalDate()) + " às " + formatarLocalTime(a.toLocalTime());
+	}
+	public static String formatarDayOfWeek(DayOfWeek a){
+		if(a.equals(DayOfWeek.MONDAY)){
+			return "Segunda-Feira";
+		} else if(a.equals(DayOfWeek.TUESDAY)){
+			return "Terça-Feira";
+		} else if(a.equals(DayOfWeek.WEDNESDAY)){
+			return "Quarta-Feira";
+		} else if(a.equals(DayOfWeek.THURSDAY)){
+			return "Quinta-Feira";
+		} else if(a.equals(DayOfWeek.FRIDAY)){
+			return "Sexta-Feira";
+		} else if(a.equals(DayOfWeek.SATURDAY)){
+			return "Sábado";
+		} else {
+			return "Domingo";
+		}  
+	}
+	
 	public static void setScene(Scene a) {
 		mainStage.setScene(a);
 		mainStage.show();
