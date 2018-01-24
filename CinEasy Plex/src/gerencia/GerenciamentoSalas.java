@@ -13,8 +13,9 @@ public class GerenciamentoSalas {
 	public void cadastrar(Sala obj) throws Exception {
 		try {
 			if(obj != null) {
-				if(buscar(obj.getIdSala()) != null)
+				if(buscar(obj.getIdSala()) != null){
 					throw new ObjetoJaExisteException("Este Sala j� existe");
+				}
 				else
 					instance.cadastrar(obj);
 			}
@@ -40,12 +41,12 @@ public class GerenciamentoSalas {
 	public void remover(Sala obj) throws Exception {
 		if(obj != null) {
 			if(!existe(obj))
-				throw new ObjetoNaoExisteException("Este Sala n�o existe");
+				throw new ObjetoNaoExisteException("Este Sala não existe");
 			else
 				instance.remover(obj);
 		}
 		else
-			throw new IllegalArgumentException("Sala Inv�lido");
+			throw new IllegalArgumentException("Sala Inválido");
 	}
 	
 	public Sala buscar(int id) throws Exception {

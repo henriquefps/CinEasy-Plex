@@ -31,6 +31,7 @@ public class Main extends Application {
 		// Salas
 		try {
 			CinemaFachada.getInstance().cadastrarSala(new Sala(20, 20, TipoSala.Convencional, false));
+			System.out.println("oi");
 			CinemaFachada.getInstance().cadastrarSala(new Sala(20, 20, TipoSala.IMAX, true));
 			CinemaFachada.getInstance().cadastrarSala(new Sala(20, 20, TipoSala.XD, true));
 			CinemaFachada.getInstance().cadastrarSala(new Sala(20, 20, TipoSala.Convencional, false));
