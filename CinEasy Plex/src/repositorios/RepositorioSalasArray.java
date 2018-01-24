@@ -108,7 +108,6 @@ public class RepositorioSalasArray implements IRepositorio<Sala>, Serializable {
 	@Override
 	public void remover(Sala obj) {
 		salas.remove(obj);
-		id -= 1;
 		this.salvarArquivo();
 
 	}

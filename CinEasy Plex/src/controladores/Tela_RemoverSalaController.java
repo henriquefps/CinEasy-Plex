@@ -49,7 +49,7 @@ public class Tela_RemoverSalaController implements Initializable {
 					for (int i = 0; i < sessoesARemover.size(); i++) {
 						CinemaFachada.getInstance().removerSessao(sessoesARemover.get(i));
 					}
-					CinemaFachada.getInstance().removerSala(selecionada);
+					RepositorioSalasArray.getInstance().remover(selecionada);
 					
 					alert = new Alert(AlertType.INFORMATION);
 					alert.setTitle("CinEasy Plex");
