@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.Tela_ListarFilmeController">
+   <children>
+      <ImageView fitHeight="88.0" fitWidth="400.0" layoutX="60.0" layoutY="41.0">
+         <image>
+            <Image url="@../imagens/logo.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="1113.0" layoutY="61.0" mnemonicParsing="false" onAction="#voltarParaConfiguracoes" text="Voltar">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tableViewFilmes" layoutX="386.0" layoutY="152.0" prefHeight="519.0" prefWidth="536.0">
+         <columns>
+            <TableColumn fx:id="colunaTitulo" prefWidth="168.12322998046875" text="Filme" />
+            <TableColumn fx:id="colunaGenero" prefWidth="129.02032470703125" text="Gênero" />
+            <TableColumn fx:id="colunaDuracao" minWidth="1.42462158203125" prefWidth="116.979736328125" text="Duração" />
+            <TableColumn fx:id="colunaClassificacao" prefWidth="121.3984375" text="Classificação" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

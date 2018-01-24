@@ -1,10 +1,12 @@
 package interfaces;
 
+import java.util.ArrayList;
+
+
 import beans.Sessao;
 
-public interface IRepositorioSessoes {
-
-	public abstract void cadastrar(Sessao a);
-	public abstract void remover(Sessao a);
-	public abstract void listar();	
+public interface IRepositorioSessoes extends IRepositorio<Sessao>{
+	ArrayList<Sessao> buscarPorFilme(String titulo);
+	ArrayList<Sessao> buscarPorSala(byte id);
+	
 }

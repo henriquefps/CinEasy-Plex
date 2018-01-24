@@ -1,32 +1,82 @@
 package gerencia;
-
 import java.util.ArrayList;
 
-import beans.Cadeira;
 import beans.Sala;
-import interfaces.IRepositorioIngressos;
-import repositorios.RepositorioIngressos;
+import exceptions.ObjetoJaExisteException;
+import exceptions.ObjetoNaoExisteException;
+import interfaces.IRepositorio;
 
 public class GerenciamentoSalas {
-private IRepositorioIngressos instance = RepositorioIngressos.getInstance();
+	private IRepositorio<Sala> instance;
 	
-	public void criarSala(byte idSala, int quantidadeDeCadeiras, String tipoDeSala){
-		// TODO criar um objeto e salvar no repositorio pela interface
+	public GerenciamentoSalas(IRepositorio<Sala> instance) {
+		this.instance = instance;
 	}
 	
-	public void removerSala(Sala e){
-		// TODO
+	public void cadastrar(Sala obj) throws Exception {
+		try {
+			if(obj != null) {
+				if(existe(obj)){
+					throw new ObjetoJaExisteException("Este Sala j� existe");
+				}
+				else
+					instance.cadastrar(obj);
+			}
+			else
+				throw new IllegalArgumentException("Sala Inv�lido");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
-	public Sala buscarSala(byte idSala){
-		// TODO procurar no arraylist do repositorio e retornar
+	public void alterar(Sala newObj) throws Exception {
+		if(newObj != null) {
+			if(!existe(newObj))
+				throw new ObjetoNaoExisteException("Este Sala n�o existe");
+			else
+				instance.atualizar(newObj);
+		}
+		else
+			throw new IllegalArgumentException("Sala Inv�lido");
 	}
 	
-	public void listarSalas(){
-		// TODO retornar o repositorio
+	public void remover(Sala obj) throws Exception {
+		if(obj != null) {
+			if(!existe(obj))
+				throw new ObjetoNaoExisteException("Este Sala não existe");
+			else
+				instance.remover(obj);
+		}
+		else
+			throw new IllegalArgumentException("Sala Inválido");
 	}
 	
-	public ArrayList<Cadeira> listarCadeirasDaSala(Sala a){
-		//TODO
+	public Sala buscar(int id) throws Exception {
+		Sala res = null;
+		for (int i = 0; i < listarTodos().size(); i++) {
+			if (listarTodos().get(i).getIdSala() == id) {
+				res = listarTodos().get(i);
+			}
+		}
+		return res;
 	}
+	
+	public ArrayList<Sala> listarTodos() {
+		return instance.listarTodos();
+		
+	}
+	
+	public boolean existe(Sala obj) {
+		boolean res = false;
+		if(obj != null) {
+			ArrayList<Sala> Salas = listarTodos();
+			if(Salas.contains(obj))
+				res = true;
+		}
+		
+		return res;
+	
+	}
+
 }

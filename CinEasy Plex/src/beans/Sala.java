@@ -1,33 +1,54 @@
 package beans;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Sala {
+public class Sala implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6383807958438577024L;
 	private byte idSala;
-	private int quantidadeDeCadeiras;
+	private int quantLinhas;
+	private int quantColunas;
 	private ArrayList<Cadeira> listaDeCadeiras = new ArrayList<Cadeira>();
-	private String tipo; //Tipo da sala, 3D, 4K...
+	private TipoSala tipo;
+	private boolean d3;
 	
-	public Sala(byte idSala, int quantidadeDeCadeiras, String tipoDeSala){
-		this.setIdSala(idSala);
-		this.setQuantidadeDeCadeiras(quantidadeDeCadeiras);
-		//TODO algoritmo de criacao dos objetos cadeiras
-		this.setTipo(tipoDeSala);			
+	public Sala(int quantLinhas, int quantColunas, TipoSala tipo, boolean d3) {
+		this.setQuantLinhas(quantLinhas);
+		this.setQuantColunas(quantColunas);
+		populaListaCadeiras(quantLinhas, quantColunas);
+		this.setTipo(tipo);
+		this.setVisual(d3);
 	}
 
-	public int getQuantidadeDeCadeiras() {
-		return quantidadeDeCadeiras;
+	public Sala() {
+		
+	}
+	
+	public int getQuantLinhas() {
+		return quantLinhas;
 	}
 
-	public void setQuantidadeDeCadeiras(int quantidadeDeCadeiras) {
-		this.quantidadeDeCadeiras = quantidadeDeCadeiras;
+	public void setQuantLinhas(int quantLinhas) {
+		this.quantLinhas = quantLinhas;
+		
 	}
 
-	public String getTipo() {
+	public int getQuantColunas() {
+		return quantColunas;
+	}
+
+	public void setQuantColunas(int quantColunas) {
+		this.quantColunas = quantColunas;
+	}
+
+	public TipoSala getTipo() {
 		return tipo;
 	}
 
-	public void setTipo(String tipo) {
+	public void setTipo(TipoSala tipo) {
 		this.tipo = tipo;
 	}
 
@@ -42,5 +63,60 @@ public class Sala {
 	public ArrayList<Cadeira> getListaDeCadeiras() {
 		return listaDeCadeiras;
 	}
+
+	public boolean isD3() {
+		return d3;
+	}
+
+	public void setVisual(boolean d3) {
+		this.d3 = d3;
+	}
+	
+	private void populaListaCadeiras(int l, int c) {
+		listaDeCadeiras.clear();
+		for(int i = 0; i < l; i++) {
+			for(int j = 0; j < c; j++) {
+				listaDeCadeiras.add(new Cadeira(i, j, true));
+			}
+		}
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Sala other = (Sala) obj;
+		if (quantColunas != other.quantColunas)
+			return false;
+		if (quantLinhas != other.quantLinhas)
+			return false;
+		if (tipo != other.tipo)
+			return false;
+		if (d3 != other.d3)
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		
+		if(d3) {
+		return "Sala [idSala=" + idSala + ", quantLinhas=" + quantLinhas + ", quantColunas=" + quantColunas
+				+ ", listaDeCadeiras=" + listaDeCadeiras + ", tipo=" + tipo + ", tela=3D" + "]";
+		}
+		
+			return "Sala [idSala=" + idSala + ", quantLinhas=" + quantLinhas + ", quantColunas=" + quantColunas
+					+ ", listaDeCadeiras=" + listaDeCadeiras + ", tipo=" + tipo + ", tela=2D" + "]";
+		
+		
+	}
+	
+	
+	
+	
 	
 }

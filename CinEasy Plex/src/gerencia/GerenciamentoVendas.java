@@ -1,24 +1,45 @@
 package gerencia;
 
-import beans.Ingresso;
-import beans.Sessao;
+import java.util.ArrayList;
+
 import beans.Venda;
 import interfaces.IRepositorioVendas;
-import repositorios.RepositorioVendas;
 
 public class GerenciamentoVendas {
-private IRepositorioVendas instance = RepositorioVendas.getInstance();
+	private IRepositorioVendas instance;
 	
-	public void criarVenda(Ingresso	ingressoVendido, Sessao sessaoVendida){
-		// TODO criar um objeto e salvar no repositorio pela interface
+	public GerenciamentoVendas(IRepositorioVendas instance) {
+		this.instance = instance;
+	}
+	
+	public void cadastrarVenda(Venda a){
+		if (a != null) instance.cadastrar(a);
 	}
 	
 	public void removerVenda(Venda e){
-		// TODO
+		if(e != null) instance.remover(e);
 	}
 	
 	
-	public void listarVendas(){
-		// TODO retornar o repositorio
+	public ArrayList<Venda> listarVendas(){
+		return instance.listar();
+	}
+	
+	public Venda buscarVenda(int id) throws Exception {
+		Venda procurada = null;
+		for (int i = 0; i < listarVendas().size(); i++) {
+			if (listarVendas().get(i).getIdVenda() == id) {
+				procurada = listarVendas().get(i);
+			}
+		}
+		return procurada;
+	}
+	public boolean existe(Venda c) {
+		try {
+			if (buscarVenda(c.getIdVenda()) != null) {
+				return true;
+			}
+			return false;
+		} catch (Exception e) {e.printStackTrace();return false;}
 	}
 }

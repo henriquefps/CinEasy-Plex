@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.Tela_AdicionarSessaoController">
+   <children>
+      <TableView fx:id="tvFilmes" layoutX="79.0" layoutY="178.0" prefHeight="262.0" prefWidth="296.0">
+        <columns>
+          <TableColumn fx:id="titulo" prefWidth="234.0" text="Título" />
+          <TableColumn fx:id="duracao" minWidth="0.0" prefWidth="61.0" text="Duração" />
+        </columns>
+      </TableView>
+      <TableView fx:id="tvSalas" layoutX="425.0" layoutY="178.0" prefHeight="262.0" prefWidth="289.0">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="67.0" text="Id" />
+            <TableColumn fx:id="tipo" prefWidth="148.0" text="Tipo Sala" />
+            <TableColumn fx:id="coluna3D" prefWidth="72.0" text="3D" />
+        </columns>
+      </TableView>
+      <Text layoutX="79.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filmes">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="425.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salas">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Label layoutX="750.0" layoutY="362.0" text="Inicio da Sessão">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Label>
+      <TextField fx:id="inicio_hr" layoutX="1007.0" layoutY="362.0" prefHeight="50.0" prefWidth="106.0" promptText="Horas">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="inicio_min" layoutX="1132.0" layoutY="362.0" prefHeight="50.0" prefWidth="106.0" promptText="Minutos">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </TextField>
+      <Label layoutX="1122.0" layoutY="360.0" text=":">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="435.0" layoutY="256.0">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Button layoutX="1094.0" layoutY="34.0" mnemonicParsing="false" onAction="#voltarParaConfiguracoes" text="Voltar">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Button>
+      <Button layoutX="604.0" layoutY="595.0" mnemonicParsing="false" onAction="#cadastrarSessao" text="Adicionar Sessão ">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Button>
+      <Label layoutX="79.0" layoutY="450.0" prefHeight="20.0" prefWidth="119.0" text="Filme Selecionado: ">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="425.0" layoutY="450.0" prefHeight="20.0" prefWidth="119.0" text="Sala Selecionada: ">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="filmeSelecionado" layoutX="198.0" layoutY="450.0" prefHeight="20.0" prefWidth="174.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="salaSelecionada" layoutX="533.0" layoutY="450.0" prefHeight="20.0" prefWidth="174.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="dtSessao" layoutX="745.0" layoutY="216.0" prefHeight="38.0" prefWidth="274.0" />
+      <Label layoutX="745.0" layoutY="196.0" text="Selecione a data da sessão">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="751.0" layoutY="288.0" text="Valor do Ingresso">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <TextField fx:id="valorIngresso" layoutX="1060.0" layoutY="291.0" prefHeight="50.0" prefWidth="106.0" promptText="Preço">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </TextField>
+      <Button layoutX="421.0" layoutY="595.0" mnemonicParsing="false" onAction="#zerar" text="Zerar">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="88.0" fitWidth="400.0" layoutX="55.0" layoutY="29.0">
+         <image>
+            <Image url="@../imagens/logo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
