@@ -124,8 +124,10 @@ public class Tela_VerVendasController implements Initializable {
 		colunaMeiaEntrada.setCellValueFactory(new Callback<CellDataFeatures<Venda, String>, ObservableValue<String>>() {
 			@Override
 			public ObservableValue<String> call(CellDataFeatures<Venda, String> todosAsVendas) {
-				return new SimpleStringProperty(
-						Boolean.valueOf(todosAsVendas.getValue().getIngressoVendido().isMeia()).toString());
+				if(todosAsVendas.getValue().getIngressoVendido().isMeia())
+					return new SimpleStringProperty("sim");
+				else	
+				return new SimpleStringProperty("não");
 			}
 		});
 		colunaValorIngresso
@@ -133,7 +135,7 @@ public class Tela_VerVendasController implements Initializable {
 					@Override
 					public ObservableValue<String> call(CellDataFeatures<Venda, String> todosAsVendas) {
 						return new SimpleStringProperty(Float
-								.valueOf(todosAsVendas.getValue().getSessaoVendida().getValorDoIngresso()).toString());
+								.valueOf(todosAsVendas.getValue().getIngressoVendido().getValorIngresso()).toString());
 					}
 				});
 		tabelaVendas.setItems(FXCollections.observableArrayList(listaDeVendas));
@@ -149,7 +151,7 @@ public class Tela_VerVendasController implements Initializable {
 	private void calcularArrecadacao() {
 		Float valor = Float.valueOf(0);
 		for (int i = 0; i < CinemaFachada.getInstance().listarTodasVenda().size(); i++) {
-			valor += CinemaFachada.getInstance().listarTodasVenda().get(i).getSessaoVendida().getValorDoIngresso();
+			valor += CinemaFachada.getInstance().listarTodasVenda().get(i).getIngressoVendido().getValorIngresso();
 		}
 		valorLabel.setText(valor.toString());
 	}

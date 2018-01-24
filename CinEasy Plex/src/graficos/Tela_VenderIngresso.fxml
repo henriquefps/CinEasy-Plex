@@ -22,7 +22,7 @@
             <Font size="36.0" />
          </font>
       </Button>
-      <Button layoutX="669.0" layoutY="564.0" mnemonicParsing="false" onAction="#comprarIngresso" text="Comprar Ingresso">
+      <Button fx:id="btnComprar" disable="true" layoutX="669.0" layoutY="564.0" mnemonicParsing="false" onAction="#comprarIngresso" text="Comprar Ingresso">
          <font>
             <Font size="36.0" />
          </font>

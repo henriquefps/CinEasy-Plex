@@ -5,6 +5,10 @@ public class Venda {
 	private Ingresso ingressoVendido;
 	private Sessao sessaoVendida;
 	
+	public Venda() {
+		
+	}
+	
 	public Venda(Ingresso ingressoVendido, Sessao sessaoVendida) {
 		this.setIngressoVendido(ingressoVendido);
 		this.setSessaoVendida(sessaoVendida);

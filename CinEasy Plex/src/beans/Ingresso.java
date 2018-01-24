@@ -4,8 +4,13 @@ public class Ingresso {
 	private int idIngresso;
 	private boolean isMeia;
 	private Cadeira cadeiraVendida;
+	private float valorIngresso;
 	
 	private Sessao sessao;
+	
+	public Ingresso() {
+		
+	}
 	
 	public Ingresso(boolean isMeia, Cadeira cadeiraVendida, Sessao sessao){
 		this.isMeia = isMeia;
@@ -43,6 +48,14 @@ public class Ingresso {
 
 	public void setSessao(Sessao sessao) {
 		this.sessao = sessao;
+	}
+
+	public float getValorIngresso() {
+		return valorIngresso;
+	}
+
+	public void setValorIngresso(float valorIngresso) {
+		this.valorIngresso = valorIngresso;
 	}
 
 	@Override

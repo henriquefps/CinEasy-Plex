@@ -15,10 +15,11 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn.CellDataFeatures;
+import javafx.scene.control.TableView;
 import javafx.util.Callback;
 
 public class Tela_VenderIngressoController implements Initializable {
@@ -54,6 +55,9 @@ public class Tela_VenderIngressoController implements Initializable {
 
 	@FXML
 	private CheckBox meiaEntradaCheckBox;
+	
+	@FXML
+	private Button btnComprar;
 
 	private Filme filmeSelecionado = null;
 	private Sessao sessaoSelecionada = null;
@@ -65,6 +69,7 @@ public class Tela_VenderIngressoController implements Initializable {
 			if (filmeSelecionado != null && sessaoSelecionada != null && cadeiraSelecionada != null) {
 				Ingresso vendido = new Ingresso(meiaEntradaCheckBox.isSelected(), cadeiraSelecionada,
 						sessaoSelecionada);
+				vendido.setValorIngresso(sessaoSelecionada.getValorDoIngresso());
 				CinemaFachada.getInstance().cadastrarIngresso(vendido);
 				CinemaFachada.getInstance().cadastrarVenda(new Venda(vendido, sessaoSelecionada));
 				cadeiraSelecionada.setDisponivel(false);
@@ -97,6 +102,7 @@ public class Tela_VenderIngressoController implements Initializable {
 	@FXML
 	public void selecionarCadeira() {
 		cadeiraSelecionada = tabelaCadeira.getSelectionModel().getSelectedItem();
+		btnComprar.setDisable(false);
 	}
 
 	@FXML
@@ -211,6 +217,11 @@ public class Tela_VenderIngressoController implements Initializable {
 		tabelaCadeira.refresh();
 		
 		meiaEntradaCheckBox.setDisable(true);
+		if(meiaEntradaCheckBox.isSelected()) {
+			sessaoSelecionada.setValorDoIngresso(sessaoSelecionada.getValorDoIngresso()*2);
+			meiaEntradaCheckBox.setSelected(false);
+		}
+		btnComprar.setDisable(true);
 	}
 	
 	public void selecionaMeia() {

@@ -60,7 +60,12 @@ public class Main extends Application {
 		
 		// Vendas
 		try {
-			CinemaFachada.getInstance().cadastrarVenda(new Venda(new Ingresso(false, new Cadeira(0, 1, false), CinemaFachada.getInstance().buscarSessao(0)), CinemaFachada.getInstance().buscarSessao(0)));
+			Ingresso vendido = new Ingresso();
+			vendido.setCadeiraVendida(new Cadeira(0, 1, false));
+			vendido.setMeia(false);
+			vendido.setSessao(CinemaFachada.getInstance().buscarSessao(0));
+			vendido.setValorIngresso(CinemaFachada.getInstance().buscarSessao(0).getValorDoIngresso());
+			CinemaFachada.getInstance().cadastrarVenda(new Venda(vendido, CinemaFachada.getInstance().buscarSessao(0)));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
