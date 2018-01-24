@@ -12,6 +12,7 @@ import beans.Sala;
 import beans.Sessao;
 import beans.TipoSala;
 import fachada.CinemaFachada;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -19,12 +20,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Callback;
 
 public class Tela_AdicionarSessaoController implements Initializable{
 	
@@ -49,6 +52,8 @@ public class Tela_AdicionarSessaoController implements Initializable{
 	private TableColumn<Sala, Byte> id;
 	@FXML
 	private TableColumn<Sala, TipoSala> tipo;
+	@FXML
+	private TableColumn<Sala, String> coluna3D;
 	
 	private Filme filmeAtual;
 	private Sala salaAtual;
@@ -174,5 +179,14 @@ public class Tela_AdicionarSessaoController implements Initializable{
 		tipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
 		id.setCellValueFactory(new PropertyValueFactory<>("idSala"));
 		tvSalas.setItems(FXCollections.observableArrayList(salas));
+		coluna3D.setCellValueFactory(new Callback<CellDataFeatures<Sala, String>, ObservableValue<String>>() {
+			@Override
+			public ObservableValue<String> call(CellDataFeatures<Sala, String> todosAsSessoes) {
+				if(todosAsSessoes.getValue().isD3())
+					return new SimpleStringProperty("sim");
+				
+				return new SimpleStringProperty("não");
+			}
+		});
 	}
 }

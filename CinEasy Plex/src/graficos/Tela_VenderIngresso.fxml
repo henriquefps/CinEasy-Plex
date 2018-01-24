@@ -34,14 +34,15 @@
             <TableColumn fx:id="colunaClassificacao" prefWidth="112.0" text="Classificação" />
         </columns>
       </TableView>
-      <TableView fx:id="tabelaSessoes" layoutX="244.0" layoutY="384.0" onMouseClicked="#selecionarSessoes" prefHeight="146.0" prefWidth="597.0">
+      <TableView fx:id="tabelaSessoes" layoutX="186.0" layoutY="384.0" onMouseClicked="#selecionarSessoes" prefHeight="146.0" prefWidth="624.0">
         <columns>
           <TableColumn fx:id="colunaData" prefWidth="82.47386932373047" text="Data" />
           <TableColumn fx:id="colunaHorario" prefWidth="102.84223937988281" text="Horário" />
             <TableColumn fx:id="colunaDiaDaSemana" prefWidth="107.0" text="Dia da Semana" />
             <TableColumn fx:id="colunaSala" prefWidth="80.262939453125" text="Sala" />
             <TableColumn fx:id="colunaTipoSala" prefWidth="118.36813354492188" text="Tipo da Sala" />
-            <TableColumn fx:id="colunaValor" prefWidth="102.84223937988281" text="Valor" />
+            <TableColumn fx:id="colunaValor" minWidth="0.0" prefWidth="52.0" text="Valor" />
+            <TableColumn fx:id="coluna3D" prefWidth="75.0" text="3D" />
         </columns>
       </TableView>
       <TableView fx:id="tabelaCadeira" layoutX="864.0" layoutY="384.0" onMouseClicked="#selecionarCadeira" prefHeight="146.0" prefWidth="169.0">

@@ -16,7 +16,7 @@ public class GerenciamentoSalas {
 	public void cadastrar(Sala obj) throws Exception {
 		try {
 			if(obj != null) {
-				if(buscar(obj.getIdSala()) != null){
+				if(existe(obj)){
 					throw new ObjetoJaExisteException("Este Sala j� existe");
 				}
 				else
