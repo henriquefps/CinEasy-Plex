@@ -1,6 +1,6 @@
 package controladores;
 
-import java.net.URL;
+import java.net.URL;]
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -216,6 +216,8 @@ public class Tela_AlterarSessaoController implements Initializable {
 	}
 
 	private void preencherCampos() {
+		Float f = new Float(sessaoSelecionada.getValorDoIngresso());
+		valorTextField.setText(f.toString());
 		anoTextField.setText(String.valueOf(sessaoSelecionada.getInicioDaSessao().getYear()));
 		mesTextField.setText(String.valueOf(sessaoSelecionada.getInicioDaSessao().getMonthValue()));
 		diaTextField.setText(String.valueOf(sessaoSelecionada.getInicioDaSessao().getDayOfMonth()));
