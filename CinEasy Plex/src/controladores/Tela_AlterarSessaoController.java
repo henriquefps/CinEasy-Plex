@@ -14,9 +14,11 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.util.Callback;
 
@@ -93,20 +95,45 @@ public class Tela_AlterarSessaoController implements Initializable {
 
 	@FXML
 	public void salvarAlteracoes() {	
-		try {
-			Filme f = filmeSelecionado;
-			LocalDateTime l	= LocalDateTime.of(Integer.parseInt(anoTextField.getText()), Integer.parseInt(mesTextField.getText()),
-							  Integer.parseInt(diaTextField.getText()), Integer.parseInt(horaInicioTextField.getText()),
-							  Integer.parseInt(minutoInicioTextField.getText()));
-			Sala s = salaSelecionada;
-			float val = Float.parseFloat(valorTextField.getText());
-			Sessao newObj = new Sessao(f, s, val, l);
-			
-			fachada.alterarSessao(newObj);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		if (sessaoSelecionada != null && filmeSelecionado != null && salaSelecionada != null
+				&& !anoTextField.getText().equals("") && !mesTextField.getText().equals("")
+				&& !diaTextField.getText().equals("") && !horaInicioTextField.getText().equals("")
+				&& !minutoInicioTextField.getText().equals("")) {
+			try {
+				Filme f = filmeSelecionado;
+				int val1 = Integer.parseInt(anoTextField.getText());
+				int val2 = Integer.parseInt(mesTextField.getText());
+				int val3 = Integer.parseInt(diaTextField.getText());
+				int val4 = Integer.parseInt(horaInicioTextField.getText());
+				int val5 = Integer.parseInt(minutoInicioTextField.getText());
+				LocalDateTime l	= LocalDateTime.of(val1, val2,val3, val4,val5);
+				Sala s = salaSelecionada;
+				float val = Float.parseFloat(valorTextField.getText());
+				
+				Sessao newObj = new Sessao(f, s, val, l);
+				
+				fachada.alterarSessao(newObj);
+			} catch (NumberFormatException e){
+				Alert a = new Alert(AlertType.ERROR);
+				a.setTitle("Erro");
+				a.setHeaderText("Horário ou Dia");
+				a.setContentText("Parâmetro Inválido");
+				a.showAndWait();
+			} catch(NullPointerException e2){
+				Alert a = new Alert(AlertType.ERROR);
+				a.setTitle("Erro");
+				a.setHeaderText(null);
+				a.setContentText("Preencha todos os dados");
+				a.showAndWait();
+			} catch (Exception e3){
+				Alert a = new Alert(AlertType.ERROR);
+				a.setTitle("Erro");
+				a.setHeaderText(null);
+				a.setContentText(e3.getMessage());
+				a.showAndWait();
+			}
+		}	
+		
 		despreencherTabelasECampos();
 		preencherTabelaSessoes();
 		sessaoSelecionada = null;

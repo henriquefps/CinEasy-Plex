@@ -1,6 +1,7 @@
 package controladores;
 
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -63,5 +64,4 @@ public class Tela_ListarFilmeController implements Initializable{
 		tableViewFilmes.setItems(FXCollections.observableArrayList(listaDeFilmes));
 		tableViewFilmes.refresh();
 	}
-	
 }
