@@ -14,13 +14,16 @@ import interfaces.IRepositorio;
 
 public class RepositorioIngressosArray implements IRepositorio<Ingresso>, Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static IRepositorio<Ingresso> instance;
 	private ArrayList<Ingresso> repositorio;
-	private static int id;
+	private int id;
 	
 	private RepositorioIngressosArray() {
 		repositorio = new ArrayList<>();
-		id = 0;
 	}
 	
 	public static IRepositorio<Ingresso> getInstance(){
@@ -86,6 +89,7 @@ public class RepositorioIngressosArray implements IRepositorio<Ingresso>, Serial
 
 	@Override
 	public void cadastrar(Ingresso obj) {
+		id = repositorio.size();
 		id += 1;
 		obj.setIdIngresso(id);
 		repositorio.add(obj);
@@ -101,7 +105,8 @@ public class RepositorioIngressosArray implements IRepositorio<Ingresso>, Serial
 
 	@Override
 	public void remover(Ingresso obj) {
-		repositorio.remove(obj.getIdIngresso());
+		repositorio.remove(obj);
+		id -= 1;
 		this.salvarArquivo();
 	}
 

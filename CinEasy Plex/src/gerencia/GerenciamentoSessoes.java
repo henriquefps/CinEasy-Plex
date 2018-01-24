@@ -1,7 +1,7 @@
 package gerencia;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.ArrayList;
+
 import beans.Cadeira;
 import beans.Filme;
 import beans.Sala;
@@ -9,10 +9,13 @@ import beans.Sessao;
 import exceptions.ObjetoJaExisteException;
 import exceptions.ObjetoNaoExisteException;
 import interfaces.IRepositorioSessoes;
-import repositorios.RepositorioSessoes;
 
 public class GerenciamentoSessoes {
-private IRepositorioSessoes instance = RepositorioSessoes.getInstance();
+	private IRepositorioSessoes instance;
+
+	public GerenciamentoSessoes(IRepositorioSessoes instance) {
+		this.instance = instance;
+	}
 	
 	public void criarSessao(Sessao obj) throws Exception{
 		if(obj != null){
@@ -115,10 +118,9 @@ private IRepositorioSessoes instance = RepositorioSessoes.getInstance();
 	
 	public ArrayList<Cadeira> listarCadeirasDisponiveis(Sessao e){
 		ArrayList<Cadeira> aux = new ArrayList<Cadeira>();
-		for (int i = 0; i < e.getCadeirasDaSessao().size(); i++) {
-			if (e.getCadeirasDaSessao().get(i).isDisponivel()) {
-				aux.add(e.getCadeirasDaSessao().get(i));
-			}
+		for (Cadeira cadeira : e.getCadeirasDaSessao()) {
+			if(cadeira.isDisponivel())
+				aux.add(cadeira);
 		}
 		return aux;
 	}

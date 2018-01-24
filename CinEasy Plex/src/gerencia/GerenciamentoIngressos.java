@@ -6,50 +6,53 @@ import beans.Ingresso;
 import exceptions.ObjetoJaExisteException;
 import exceptions.ObjetoNaoExisteException;
 import interfaces.IRepositorio;
-import repositorios.RepositorioIngressosArray;
 
 public class GerenciamentoIngressos {
 	
-	private IRepositorio<Ingresso> instance = RepositorioIngressosArray.getInstance();
+	private IRepositorio<Ingresso> instance;
+	
+	public GerenciamentoIngressos(IRepositorio<Ingresso> instance) {
+		this.instance = instance;
+	}
 	
 	public void cadastrar(Ingresso obj) throws Exception {
 		if(obj != null) {
 			if(existe(obj))
-				throw new ObjetoJaExisteException("Este ingresso já existe");
+				throw new ObjetoJaExisteException("Este ingresso jï¿½ existe");
 			else
 				instance.cadastrar(obj);
 		}
 		else
-			throw new IllegalArgumentException("Ingresso Inválido");
+			throw new IllegalArgumentException("Ingresso Invï¿½lido");
 		
 	}
 	
 	public void alterar(Ingresso newObj) throws Exception {
 		if(newObj != null) {
 			if(!existe(newObj))
-				throw new ObjetoNaoExisteException("Este ingresso não existe");
+				throw new ObjetoNaoExisteException("Este ingresso nï¿½o existe");
 			else
 				instance.atualizar(newObj);
 		}
 		else
-			throw new IllegalArgumentException("Ingresso Inválido");
+			throw new IllegalArgumentException("Ingresso Invï¿½lido");
 	}
 	
 	public void remover(Ingresso obj) throws Exception {
 		if(obj != null) {
 			if(!existe(obj))
-				throw new ObjetoNaoExisteException("Este ingresso não existe");
+				throw new ObjetoNaoExisteException("Este ingresso nï¿½o existe");
 			else
 				instance.remover(obj);
 		}
 		else
-			throw new IllegalArgumentException("Ingresso Inválido");
+			throw new IllegalArgumentException("Ingresso Invï¿½lido");
 	}
 	
 	public Ingresso buscar(int id) throws Exception {
 		Ingresso res = null;
 		if(id < 0)
-			throw new IllegalArgumentException("ID Inválido");
+			throw new IllegalArgumentException("ID Invï¿½lido");
 		else {
 			res = instance.buscar(id);
 		}

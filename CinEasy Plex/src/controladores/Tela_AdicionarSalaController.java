@@ -1,7 +1,5 @@
 package controladores;
 
-import java.util.ArrayList;
-
 import beans.Sala;
 import beans.TipoSala;
 import fachada.CinemaFachada;
@@ -9,13 +7,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.paint.Color;
 
 public class Tela_AdicionarSalaController {

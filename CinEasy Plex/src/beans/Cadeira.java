@@ -3,6 +3,10 @@ package beans;
 import java.io.Serializable;
 
 public class Cadeira implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4463450706614908192L;
 	private char letra;
 	private int num;
 	private boolean isDisponivel;

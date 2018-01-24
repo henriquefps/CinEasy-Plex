@@ -4,10 +4,13 @@ import java.util.ArrayList;
 
 import beans.Venda;
 import interfaces.IRepositorioVendas;
-import repositorios.RepositorioVendas;
 
 public class GerenciamentoVendas {
-private IRepositorioVendas instance = RepositorioVendas.getInstance();
+	private IRepositorioVendas instance;
+	
+	public GerenciamentoVendas(IRepositorioVendas instance) {
+		this.instance = instance;
+	}
 	
 	public void cadastrarVenda(Venda a){
 		if (a != null) instance.cadastrar(a);

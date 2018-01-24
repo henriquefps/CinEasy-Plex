@@ -3,6 +3,10 @@ package beans;
 import java.io.Serializable;
 
 public class Venda implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6263244557291863396L;
 	private int idVenda;
 	private Ingresso ingressoVendido;
 	private Sessao sessaoVendida;
@@ -58,8 +62,6 @@ public class Venda implements Serializable {
 			if (other.sessaoVendida != null)
 				return false;
 		} else if (!sessaoVendida.equals(other.sessaoVendida))
-			return false;
-		if (idVenda != other.idVenda)
 			return false;
 		return true;	
 	}

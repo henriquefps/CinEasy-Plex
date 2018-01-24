@@ -5,6 +5,10 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Sessao implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6544381035038380278L;
 	private int idSessao;
 	private Filme filmeExibido;
 	private Sala salaDeExibicao;
@@ -116,13 +120,43 @@ public class Sessao implements Serializable {
 		this.inicioDaSessao = inicioDaSessao;
 	}
 
+	@Override
 	public boolean equals(Object obj) {
-		boolean res = false;
-		if (obj != null && obj.getClass() == this.getClass()) {
-			if (this.getIdSessao() == ((Sessao) obj).getIdSessao())
-				res = true;
-		}
-		return res;
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Sessao other = (Sessao) obj;
+		if (cadeirasDaSessao == null) {
+			if (other.cadeirasDaSessao != null)
+				return false;
+		} else if (!cadeirasDaSessao.equals(other.cadeirasDaSessao))
+			return false;
+		if (filmeExibido == null) {
+			if (other.filmeExibido != null)
+				return false;
+		} else if (!filmeExibido.equals(other.filmeExibido))
+			return false;
+		if (fimDaSessao == null) {
+			if (other.fimDaSessao != null)
+				return false;
+		} else if (!fimDaSessao.equals(other.fimDaSessao))
+			return false;
+		if (inicioDaSessao == null) {
+			if (other.inicioDaSessao != null)
+				return false;
+		} else if (!inicioDaSessao.equals(other.inicioDaSessao))
+			return false;
+		if (salaDeExibicao == null) {
+			if (other.salaDeExibicao != null)
+				return false;
+		} else if (!salaDeExibicao.equals(other.salaDeExibicao))
+			return false;
+		if (Float.floatToIntBits(valorDoIngresso) != Float.floatToIntBits(other.valorDoIngresso))
+			return false;
+		return true;
 	}
 
 	public ArrayList<Cadeira> getCadeirasDaSessao() {

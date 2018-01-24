@@ -5,10 +5,13 @@ import beans.Sala;
 import exceptions.ObjetoJaExisteException;
 import exceptions.ObjetoNaoExisteException;
 import interfaces.IRepositorio;
-import repositorios.RepositorioSalasArray;
 
 public class GerenciamentoSalas {
-	private IRepositorio<Sala> instance = RepositorioSalasArray.getInstance();
+	private IRepositorio<Sala> instance;
+	
+	public GerenciamentoSalas(IRepositorio<Sala> instance) {
+		this.instance = instance;
+	}
 	
 	public void cadastrar(Sala obj) throws Exception {
 		try {

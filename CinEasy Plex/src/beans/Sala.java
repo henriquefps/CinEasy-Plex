@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Sala implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6383807958438577024L;
 	private byte idSala;
 	private int quantLinhas;
 	private int quantColunas;
@@ -60,7 +64,7 @@ public class Sala implements Serializable {
 		return listaDeCadeiras;
 	}
 
-	public boolean getD3() {
+	public boolean isD3() {
 		return d3;
 	}
 
@@ -86,8 +90,6 @@ public class Sala implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Sala other = (Sala) obj;
-		if (idSala != other.idSala)
-			return false;
 		if (quantColunas != other.quantColunas)
 			return false;
 		if (quantLinhas != other.quantLinhas)

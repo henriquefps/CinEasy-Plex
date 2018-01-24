@@ -7,8 +7,6 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import javax.swing.plaf.metal.MetalPopupMenuSeparatorUI;
-
 import beans.Filme;
 import beans.Sala;
 import beans.Sessao;
@@ -27,8 +25,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.util.converter.LocalDateTimeStringConverter;
-import javafx.util.converter.LocalTimeStringConverter;
 
 public class Tela_AdicionarSessaoController implements Initializable{
 	

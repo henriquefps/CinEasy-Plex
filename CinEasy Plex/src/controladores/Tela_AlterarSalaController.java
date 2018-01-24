@@ -32,7 +32,7 @@ public class Tela_AlterarSalaController implements Initializable{
 	@FXML public void selecionarSala(){
 		selecionada = tableViewSalas.getSelectionModel().getSelectedItem();
 		if(selecionada != null){
-			d3.selectedProperty().set(selecionada.getD3());
+			d3.selectedProperty().set(selecionada.isD3());
 		}
 	}
 	public void atualizarSalaSelecionada(){

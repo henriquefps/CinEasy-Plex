@@ -14,13 +14,17 @@ import interfaces.IRepositorioFilmes;
 
 public class RepositorioFilmes implements IRepositorioFilmes, Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static RepositorioFilmes instance;
 	private ArrayList<Filme> listaDeFilmes;
-	private static int id;
+	private int id;
 	
 	private RepositorioFilmes() {
 		listaDeFilmes = new ArrayList<Filme>();
-		id = 0;
+		
 	}
 	
 
@@ -86,6 +90,7 @@ public class RepositorioFilmes implements IRepositorioFilmes, Serializable{
 	}
 	@Override
 	public void cadastrar(Filme a) {
+		id = listaDeFilmes.size();
 		id += 1;
 		a.setIdFilme(id);
 		if (!existeFilme(a.getIdFilme())) {
@@ -97,6 +102,7 @@ public class RepositorioFilmes implements IRepositorioFilmes, Serializable{
 	@Override
 	public void remover(Filme a) {
 		listaDeFilmes.remove(a);
+		id -= 1;
 		this.salvarArquivo();
 		
 	}

@@ -9,19 +9,20 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import beans.Ingresso;
 import beans.Venda;
 import interfaces.IRepositorioVendas;
 
 public class RepositorioVendas implements IRepositorioVendas, Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private ArrayList<Venda> todasAsVendas;
 	private static RepositorioVendas instance;
-	private static int id;
+	private int id;
 	
 	private RepositorioVendas() {
 		this.todasAsVendas = new ArrayList<Venda>();
-		id = 0;
-
 	}
 	
 	public static RepositorioVendas getInstance(){
@@ -86,6 +87,7 @@ public class RepositorioVendas implements IRepositorioVendas, Serializable{
 	}
 	
 	public void cadastrar(Venda a) {
+		id = todasAsVendas.size();
 		id += 1;
 		a.setIdVenda(id);
 		todasAsVendas.add(a);
@@ -95,6 +97,7 @@ public class RepositorioVendas implements IRepositorioVendas, Serializable{
 	
 	public void remover(Venda a) {
 		todasAsVendas.remove(a);
+		id -= 1;
 		this.salvarArquivo();
 	}
 	@Override

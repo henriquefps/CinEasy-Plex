@@ -13,13 +13,16 @@ import interfaces.IRepositorioSessoes;
 
 public class RepositorioSessoes implements IRepositorioSessoes, Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private ArrayList<Sessao> repositorio;
 	private static RepositorioSessoes instance;
-	private static int id;
+	private int id;
 	
 	private RepositorioSessoes(){
 		repositorio = new ArrayList<Sessao>();
-		id = 0;
 	}
 	
 	public static RepositorioSessoes getInstance(){
@@ -90,6 +93,7 @@ public class RepositorioSessoes implements IRepositorioSessoes, Serializable{
 
 	@Override
 	public void cadastrar(Sessao obj) {
+		id = repositorio.size();
 		id += 1;
 		obj.setIdSessao(id);
 		repositorio.add(obj);
@@ -105,6 +109,7 @@ public class RepositorioSessoes implements IRepositorioSessoes, Serializable{
 	@Override
 	public void remover(Sessao obj) {
 		repositorio.remove(obj);
+		id -= 1;
 		this.salvarArquivo();
 	}
 	

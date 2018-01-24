@@ -14,13 +14,16 @@ import interfaces.IRepositorio;
 
 public class RepositorioSalasArray implements IRepositorio<Sala>, Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static RepositorioSalasArray instance;
 	private ArrayList<Sala> salas;
-	private static int id;
+	private int id;
 
 	private RepositorioSalasArray() {
 		salas = new ArrayList<Sala>();
-		id = 0;
 	}
 
 	public static RepositorioSalasArray getInstance() {
@@ -84,6 +87,7 @@ public class RepositorioSalasArray implements IRepositorio<Sala>, Serializable {
 
 	@Override
 	public void cadastrar(Sala obj) {
+		id = salas.size();
 		id += 1;
 		obj.setIdSala((byte) id);
 		
@@ -104,6 +108,7 @@ public class RepositorioSalasArray implements IRepositorio<Sala>, Serializable {
 	@Override
 	public void remover(Sala obj) {
 		salas.remove(obj);
+		id -= 1;
 		this.salvarArquivo();
 
 	}

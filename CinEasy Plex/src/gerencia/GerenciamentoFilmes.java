@@ -6,49 +6,52 @@ import beans.Filme;
 import exceptions.ObjetoJaExisteException;
 import exceptions.ObjetoNaoExisteException;
 import interfaces.IRepositorioFilmes;
-import repositorios.RepositorioFilmes;
 
 public class GerenciamentoFilmes {
-	private IRepositorioFilmes instance = RepositorioFilmes.getInstance();
+	private IRepositorioFilmes instance;
+	
+	public GerenciamentoFilmes(IRepositorioFilmes instance) {
+		this.instance = instance;
+	}
 	
 	public void cadastrar(Filme obj) throws Exception {
 		if(obj != null) {
 			if(existe(obj))
-				throw new ObjetoJaExisteException("Este Filme já existe");
+				throw new ObjetoJaExisteException("Este Filme jï¿½ existe");
 			else
 				instance.cadastrar(obj);
 		}
 		else
-			throw new IllegalArgumentException("Filme Inválido");
+			throw new IllegalArgumentException("Filme Invï¿½lido");
 		
 	}
 	
 	public void alterar(Filme newObj) throws Exception {
 		if(newObj != null) {
 			if(!existe(newObj))
-				throw new ObjetoNaoExisteException("Este Filme não existe");
+				throw new ObjetoNaoExisteException("Este Filme nï¿½o existe");
 			else
 				instance.atualizar(newObj);
 		}
 		else
-			throw new IllegalArgumentException("Filme Inválido");
+			throw new IllegalArgumentException("Filme Invï¿½lido");
 	}
 	
 	public void remover(Filme obj) throws Exception {
 		if(obj != null) {
 			if(!existe(obj))
-				throw new ObjetoNaoExisteException("Este Filme não existe");
+				throw new ObjetoNaoExisteException("Este Filme nï¿½o existe");
 			else
 				instance.remover(obj);
 		}
 		else
-			throw new IllegalArgumentException("Filme Inválido");
+			throw new IllegalArgumentException("Filme Invï¿½lido");
 	}
 	
 	public Filme buscar(int id) throws Exception {
 		Filme res = null;
 		if(id < 0)
-			throw new IllegalArgumentException("ID Inválido");
+			throw new IllegalArgumentException("ID Invï¿½lido");
 		else {
 			res = instance.buscar(id);
 		}
@@ -79,6 +82,6 @@ public class GerenciamentoFilmes {
 			return c;
 		}
 		else
-			throw new IllegalArgumentException("Título Inválido");
+			throw new IllegalArgumentException("Tï¿½tulo Invï¿½lido");
 	}
 }

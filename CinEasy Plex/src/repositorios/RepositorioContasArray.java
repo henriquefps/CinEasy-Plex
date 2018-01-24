@@ -14,13 +14,16 @@ import interfaces.IRepositorioContas;
 
 public class RepositorioContasArray implements IRepositorioContas, Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static RepositorioContasArray instance;
 	private ArrayList<Conta> repositorio;
-	private static int id;
+	private int id;
 	
 	private RepositorioContasArray() {
-		repositorio = new ArrayList<>();
-		id = 0;
+		repositorio = new ArrayList<>();	
 	}
 	
 
@@ -30,8 +33,7 @@ public class RepositorioContasArray implements IRepositorioContas, Serializable 
 		}
 		return instance;
 	}
-
-
+	
 	public static RepositorioContasArray lerArquivo()
 	{
 		RepositorioContasArray instancia = null;
@@ -87,6 +89,7 @@ public class RepositorioContasArray implements IRepositorioContas, Serializable 
 	
 	@Override
 	public void cadastrar(Conta obj) {
+		id = repositorio.size();
 		id += 1;
 		obj.setIdConta(id);
 		repositorio.add(obj);
@@ -104,6 +107,7 @@ public class RepositorioContasArray implements IRepositorioContas, Serializable 
 	@Override
 	public void remover(Conta obj) {
 		repositorio.remove(obj);
+		id -= 1;
 		this.salvarArquivo();
 	}
 

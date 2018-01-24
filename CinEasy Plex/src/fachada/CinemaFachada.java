@@ -16,6 +16,12 @@ import gerencia.GerenciamentoSalas;
 import gerencia.GerenciamentoSessoes;
 import gerencia.GerenciamentoVendas;
 import interfaces.IFachada;
+import repositorios.RepositorioContasArray;
+import repositorios.RepositorioFilmes;
+import repositorios.RepositorioIngressosArray;
+import repositorios.RepositorioSalasArray;
+import repositorios.RepositorioSessoes;
+import repositorios.RepositorioVendas;
 
 public class CinemaFachada implements IFachada {
 	private static CinemaFachada instance;
@@ -28,12 +34,12 @@ public class CinemaFachada implements IFachada {
 	private GerenciamentoVendas vendas;
 	
 	private CinemaFachada(){
-		contas = new GerenciamentoConta();
-		filmes = new GerenciamentoFilmes();
-		ingressos = new GerenciamentoIngressos();
-		salas = new GerenciamentoSalas();
-		sessoes = new GerenciamentoSessoes();
-		vendas = new GerenciamentoVendas();
+		contas = new GerenciamentoConta(RepositorioContasArray.getInstance());
+		filmes = new GerenciamentoFilmes(RepositorioFilmes.getInstance());
+		ingressos = new GerenciamentoIngressos(RepositorioIngressosArray.getInstance());
+		salas = new GerenciamentoSalas(RepositorioSalasArray.getInstance());
+		sessoes = new GerenciamentoSessoes(RepositorioSessoes.getInstance());
+		vendas = new GerenciamentoVendas(RepositorioVendas.getInstance());
 	}
 	
 	public static CinemaFachada getInstance(){

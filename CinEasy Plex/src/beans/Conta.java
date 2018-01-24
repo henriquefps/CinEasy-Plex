@@ -3,6 +3,10 @@ package beans;
 import java.io.Serializable;
 
 public class Conta implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 454471692801660671L;
 	private int idConta;
 	private String login;
 	private String senha;
@@ -49,8 +53,6 @@ public class Conta implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Conta other = (Conta) obj;
-		if (idConta != other.idConta)
-			return false;
 		if (login == null) {
 			if (other.login != null)
 				return false;

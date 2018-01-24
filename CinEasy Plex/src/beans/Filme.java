@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.time.LocalTime;
 
 public class Filme implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4725933753524242545L;
 	private int idFilme;
 	private String titulo;
 	private String genero;
@@ -84,8 +88,6 @@ public class Filme implements Serializable {
 			if (other.genero != null)
 				return false;
 		} else if (!genero.equals(other.genero))
-			return false;
-		if (idFilme != other.idFilme)
 			return false;
 		if (titulo == null) {
 			if (other.titulo != null)

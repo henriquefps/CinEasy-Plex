@@ -6,10 +6,13 @@ import beans.Conta;
 import exceptions.ObjetoJaExisteException;
 import exceptions.ObjetoNaoExisteException;
 import interfaces.IRepositorioContas;
-import repositorios.RepositorioContasArray;
 
 public class GerenciamentoConta {
-	private IRepositorioContas instance = RepositorioContasArray.getInstance();
+	private IRepositorioContas instance;
+	
+	public GerenciamentoConta(IRepositorioContas instance) {
+		this.instance = instance;
+	}
 
 	public void cadastrar(Conta obj) throws Exception {
 		if (obj != null) {
