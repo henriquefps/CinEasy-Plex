@@ -20,6 +20,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.util.Callback;
+import repositorios.RepositorioSalasArray;
 
 public class Tela_RemoverSalaController implements Initializable {
 	@FXML
@@ -55,6 +56,8 @@ public class Tela_RemoverSalaController implements Initializable {
 					alert.setHeaderText(null);
 					alert.setContentText("Sala removida com sucesso!");
 					alert.showAndWait();
+					
+					RepositorioSalasArray.getInstance().salvarArquivo();
 					
 					preencherTabela();
 

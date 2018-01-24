@@ -19,6 +19,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.util.Callback;
+import repositorios.RepositorioFilmes;
 
 public class Tela_AlterarFilmeController implements Initializable{
 	@FXML
@@ -93,6 +94,8 @@ public class Tela_AlterarFilmeController implements Initializable{
 		alert.setHeaderText(null);
 		alert.setContentText("FIlme alterado com sucesso!");
 		alert.showAndWait();
+		
+		RepositorioFilmes.getInstance().salvarArquivo();
 		
 		preencherTabela();
 	}

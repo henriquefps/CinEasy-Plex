@@ -19,6 +19,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.util.Callback;
+import repositorios.RepositorioFilmes;
 
 public class Tela_RemoverFilmeController implements Initializable {
 	@FXML
@@ -48,6 +49,8 @@ public class Tela_RemoverFilmeController implements Initializable {
 				alert.setHeaderText(null);
 				alert.setContentText("Filme removido com sucesso!");
 				alert.showAndWait();
+				
+				RepositorioFilmes.getInstance().salvarArquivo();
 				
 				preencherTabela();
 			}

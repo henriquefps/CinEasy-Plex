@@ -21,6 +21,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.util.Callback;
+import repositorios.RepositorioSalasArray;
 
 public class Tela_AlterarSalaController implements Initializable{
 	@FXML private TableView<Sala> tableViewSalas;
@@ -47,6 +48,8 @@ public class Tela_AlterarSalaController implements Initializable{
 			alert.setHeaderText(null);
 			alert.setContentText("Sala alterada com sucesso!");
 			alert.showAndWait();
+			
+			RepositorioSalasArray.getInstance().salvarArquivo();
 			
 			preencherTabela();
 		}

@@ -22,6 +22,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.util.Callback;
+import repositorios.RepositorioSessoes;
 
 public class Tela_RemoverSessaoController implements Initializable {
 
@@ -81,6 +82,8 @@ public class Tela_RemoverSessaoController implements Initializable {
 				alert.setHeaderText(null);
 				alert.setContentText("Sessão removida com sucesso!");
 				alert.showAndWait();
+				
+				RepositorioSessoes.getInstance().salvarArquivo();
 				
 				preencherTabela(todasSessao);
 			}

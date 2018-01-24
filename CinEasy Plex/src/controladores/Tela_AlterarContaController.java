@@ -19,6 +19,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.util.Callback;
+import repositorios.RepositorioContasArray;
 
 public class Tela_AlterarContaController implements Initializable {
 
@@ -61,6 +62,7 @@ public class Tela_AlterarContaController implements Initializable {
 			alert.setContentText("Conta alterada com sucesso!");
 			alert.showAndWait();
 			preencherTabela();
+			RepositorioContasArray.getInstance().salvarArquivo();
 		}
 	}
 

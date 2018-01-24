@@ -19,6 +19,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.util.Callback;
+import repositorios.RepositorioContasArray;
 
 public class Tela_Remover_ListarContasController implements Initializable {
 	@FXML
@@ -44,6 +45,8 @@ public class Tela_Remover_ListarContasController implements Initializable {
 					alert.setHeaderText(null);
 					alert.setContentText("Conta removida com sucesso!");
 					alert.showAndWait();
+					
+					RepositorioContasArray.getInstance().salvarArquivo();
 					
 					preencherTabela();
 				}

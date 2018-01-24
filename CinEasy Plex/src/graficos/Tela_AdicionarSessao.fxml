@@ -70,7 +70,7 @@
             <Font size="36.0" />
          </font>
       </Button>
-      <Button layoutX="605.0" layoutY="590.0" mnemonicParsing="false" onAction="#cadastrarSessao" text="Adicionar Sessão ">
+      <Button layoutX="604.0" layoutY="595.0" mnemonicParsing="false" onAction="#cadastrarSessao" text="Adicionar Sessão ">
          <font>
             <Font size="36.0" />
          </font>
