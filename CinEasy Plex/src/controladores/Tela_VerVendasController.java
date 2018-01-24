@@ -53,11 +53,18 @@ public class Tela_VerVendasController implements Initializable {
 			try {
 
 				Alert alert = new Alert(AlertType.CONFIRMATION);
-				alert.setTitle("Remover Sala");
+				alert.setTitle("CinEasy Plex");
 				alert.setHeaderText("Deseja remover a venda com ID de valor " + selecionada.getIdVenda() + "?");
 				Optional<ButtonType> result = alert.showAndWait();
 				if (result.get() == ButtonType.OK) {
 					CinemaFachada.getInstance().removerVenda(selecionada);
+
+					alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("CinEasy Plex");
+					alert.setHeaderText(null);
+					alert.setContentText("Venda removida com sucesso!");
+					alert.showAndWait();
+					
 					preencherTabela();
 					calcularArrecadacao();
 				}

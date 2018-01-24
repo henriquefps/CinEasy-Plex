@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -7,9 +12,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.Tela_RemoverSessaoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.Tela_RemoverSessaoController">
    <children>
-      <TableView fx:id="tvSessao" layoutX="14.0" layoutY="148.0" prefHeight="439.0" prefWidth="726.0">
+      <TableView fx:id="tvSessao" layoutX="14.0" layoutY="148.0" prefHeight="430.0" prefWidth="726.0">
         <columns>
           <TableColumn fx:id="id" prefWidth="75.0" text="Id" />
           <TableColumn fx:id="filme" prefWidth="190.0" text="Filme" />
@@ -19,40 +24,45 @@
             <TableColumn fx:id="sala" prefWidth="148.0" text="Sala" />
         </columns>
       </TableView>
-      <Button layoutX="1123.0" layoutY="71.0" mnemonicParsing="false" onAction="#voltarParaConfiguracoes" text="Voltar">
+      <Button layoutX="1093.0" layoutY="39.0" mnemonicParsing="false" onAction="#voltarParaConfiguracoes" text="Voltar">
          <font>
             <Font size="36.0" />
          </font>
       </Button>
-      <TextField fx:id="tfFilme" layoutX="793.0" layoutY="300.0" prefHeight="51.0" prefWidth="243.0" promptText="Dígite o título">
+      <TextField fx:id="tfFilme" layoutX="796.0" layoutY="168.0" prefHeight="51.0" prefWidth="243.0" promptText="Dígite o título">
          <font>
             <Font size="24.0" />
          </font>
       </TextField>
-      <Button layoutX="1049.0" layoutY="300.0" mnemonicParsing="false" onAction="#pesquisarFilme" prefHeight="51.0" prefWidth="188.0" text="Pesquisar Filme">
+      <Button layoutX="1049.0" layoutY="168.0" mnemonicParsing="false" onAction="#pesquisarFilme" prefHeight="51.0" prefWidth="188.0" text="Pesquisar Filme">
          <font>
             <Font size="22.0" />
          </font>
       </Button>
-      <TextField fx:id="tfIdSala" layoutX="793.0" layoutY="368.0" prefHeight="51.0" prefWidth="53.0" promptText="ID">
+      <TextField fx:id="tfIdSala" layoutX="793.0" layoutY="249.0" prefHeight="51.0" prefWidth="53.0" promptText="ID">
          <font>
             <Font size="24.0" />
          </font>
       </TextField>
-      <Button layoutX="868.0" layoutY="368.0" mnemonicParsing="false" onAction="#pesquisarSala" prefHeight="51.0" prefWidth="197.0" text="Pesquisar Sala">
+      <Button layoutX="868.0" layoutY="249.0" mnemonicParsing="false" onAction="#pesquisarSala" prefHeight="51.0" prefWidth="197.0" text="Pesquisar Sala">
          <font>
             <Font size="22.0" />
          </font>
       </Button>
-      <Button layoutX="784.0" layoutY="535.0" mnemonicParsing="false" onAction="#removerSessao" prefHeight="51.0" prefWidth="144.0" text="Remover">
+      <Button layoutX="937.0" layoutY="526.0" mnemonicParsing="false" onAction="#removerSessao" prefHeight="51.0" prefWidth="144.0" text="Remover">
          <font>
             <Font size="22.0" />
          </font>
       </Button>
-      <Button layoutX="793.0" layoutY="440.0" mnemonicParsing="false" onAction="#listarTodas" prefHeight="51.0" prefWidth="197.0" text="Listar tudo">
+      <Button layoutX="793.0" layoutY="331.0" mnemonicParsing="false" onAction="#listarTodas" prefHeight="51.0" prefWidth="197.0" text="Listar tudo">
          <font>
             <Font size="22.0" />
          </font>
       </Button>
+      <ImageView fitHeight="88.0" fitWidth="400.0" layoutX="65.0" layoutY="39.0">
+         <image>
+            <Image url="@../imagens/logo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

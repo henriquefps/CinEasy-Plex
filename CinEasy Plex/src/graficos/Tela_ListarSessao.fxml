@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -7,9 +12,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.Tela_ListarSessaoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.Tela_ListarSessaoController">
    <children>
-      <TableView fx:id="tvSessao" layoutX="14.0" layoutY="148.0" prefHeight="439.0" prefWidth="726.0">
+      <TableView fx:id="tvSessao" layoutX="14.0" layoutY="148.0" prefHeight="433.0" prefWidth="726.0">
         <columns>
           <TableColumn fx:id="id" prefWidth="75.0" text="Id" />
           <TableColumn fx:id="filme" prefWidth="190.0" text="Filme" />
@@ -19,7 +24,7 @@
             <TableColumn fx:id="sala" prefWidth="148.0" text="Sala" />
         </columns>
       </TableView>
-      <Button layoutX="1123.0" layoutY="71.0" mnemonicParsing="false" onAction="#voltarParaConfiguracoes" text="Voltar">
+      <Button layoutX="1091.0" layoutY="39.0" mnemonicParsing="false" onAction="#voltarParaConfiguracoes" text="Voltar">
          <font>
             <Font size="36.0" />
          </font>
@@ -54,5 +59,10 @@
             <Font size="22.0" />
          </font>
       </Button>
+      <ImageView fitHeight="88.0" fitWidth="400.0" layoutX="65.0" layoutY="39.0">
+         <image>
+            <Image url="@../imagens/logo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
