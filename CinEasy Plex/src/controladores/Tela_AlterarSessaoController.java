@@ -2,6 +2,7 @@ package controladores;
 
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -21,6 +22,7 @@ import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.util.Callback;
+import repositorios.RepositorioSessoes;
 
 public class Tela_AlterarSessaoController implements Initializable {
 	@FXML
@@ -65,7 +67,7 @@ public class Tela_AlterarSessaoController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		fachada = CinemaFachada.getInstance(); 
+		fachada = CinemaFachada.getInstance();
 		preencherTabelaSessoes();
 	}
 
@@ -94,60 +96,60 @@ public class Tela_AlterarSessaoController implements Initializable {
 	}
 
 	@FXML
-	public void salvarAlteracoes() {	
+	public void salvarAlteracoes() {
 		if (sessaoSelecionada != null && filmeSelecionado != null && salaSelecionada != null
 				&& !anoTextField.getText().equals("") && !mesTextField.getText().equals("")
 				&& !diaTextField.getText().equals("") && !horaInicioTextField.getText().equals("")
 				&& !minutoInicioTextField.getText().equals("")) {
 			try {
-				Filme f = filmeSelecionado;
-				int val1 = Integer.parseInt(anoTextField.getText());
-				int val2 = Integer.parseInt(mesTextField.getText());
-				int val3 = Integer.parseInt(diaTextField.getText());
-				int val4 = Integer.parseInt(horaInicioTextField.getText());
-				int val5 = Integer.parseInt(minutoInicioTextField.getText());
-				LocalDateTime l	= LocalDateTime.of(val1, val2,val3, val4,val5);
-				Sala s = salaSelecionada;
-				float val = Float.parseFloat(valorTextField.getText());
+				sessaoSelecionada.setFilmeExibido(filmeSelecionado);
+				sessaoSelecionada.setInicioDaSessao(LocalDateTime.of(Integer.parseInt(anoTextField.getText()),
+						Integer.parseInt(mesTextField.getText()), Integer.parseInt(diaTextField.getText()),
+						Integer.parseInt(horaInicioTextField.getText()),
+						Integer.parseInt(minutoInicioTextField.getText())));
+				sessaoSelecionada.setSalaDeExibicao(salaSelecionada);
+				sessaoSelecionada.setFimDaSessao(sessaoSelecionada.getInicioDaSessao().plusMinutes(60 * filmeSelecionado.getDuracao().getHour() + filmeSelecionado.getDuracao().getMinute()));
+				RepositorioSessoes.getInstance().salvarArquivo();
+				sessaoSelecionada = null;
+				filmeSelecionado = null;
+				salaSelecionada = null;
+				despreencherTabelasECampos();
+				preencherTabelaSessoes();
 				
-				Sessao newObj = new Sessao(f, s, val, l);
-				newObj.setIdSessao(sessaoSelecionada.getIdSessao());
 				
-				fachada.alterarSessao(newObj);
-			} catch (NumberFormatException e){
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("CinEasy Plex");
+				alert.setHeaderText(null);
+				alert.setContentText("Sessão alterada com sucesso!");
+				alert.showAndWait();
+
+			} catch (NumberFormatException e) {
 				Alert a = new Alert(AlertType.ERROR);
 				a.setTitle("Erro");
 				a.setHeaderText("Horário ou Dia");
 				a.setContentText("Parâmetro Inválido");
 				a.showAndWait();
-			} catch(NullPointerException e2){
+			} catch (NullPointerException e2) {
 				Alert a = new Alert(AlertType.ERROR);
 				a.setTitle("Erro");
 				a.setHeaderText(null);
 				a.setContentText("Preencha todos os dados");
 				a.showAndWait();
-			} catch (Exception e3){
+			} catch (Exception e3) {
 				Alert a = new Alert(AlertType.ERROR);
 				a.setTitle("Erro");
 				a.setHeaderText(null);
 				a.setContentText(e3.getMessage());
 				a.showAndWait();
 			}
-		}	
-		
-		despreencherTabelasECampos();
-		preencherTabelaSessoes();
-		sessaoSelecionada = null;
-		filmeSelecionado = null;
-		salaSelecionada = null;
-	
+		}
 	}
 
 	private void preencherTabelaSessoes() {
-		ArrayList<Sessao> sessoes = new ArrayList<>(); 
+		ArrayList<Sessao> sessoes = new ArrayList<>();
 		ArrayList<Sessao> s = CinemaFachada.getInstance().listarTodasSessao();
-		for(int i = 0 ; i < s.size(); i++){
-			if(!s.get(i).getInicioDaSessao().isBefore(LocalDateTime.now())){
+		for (int i = 0; i < s.size(); i++) {
+			if (!s.get(i).getInicioDaSessao().isBefore(LocalDateTime.now())) {
 				sessoes.add(s.get(i));
 			}
 		}
@@ -163,14 +165,16 @@ public class Tela_AlterarSessaoController implements Initializable {
 				.setCellValueFactory(new Callback<CellDataFeatures<Sessao, String>, ObservableValue<String>>() {
 					@Override
 					public ObservableValue<String> call(CellDataFeatures<Sessao, String> todosAsSessoes) {
-						return new SimpleStringProperty(ScreenManager.formatarLocalDateTime(todosAsSessoes.getValue().getInicioDaSessao()));
+						return new SimpleStringProperty(
+								ScreenManager.formatarLocalDateTime(todosAsSessoes.getValue().getInicioDaSessao()));
 					}
 				});
 		colunaSessaoSala.setCellValueFactory(new Callback<CellDataFeatures<Sessao, String>, ObservableValue<String>>() {
 			@Override
 			public ObservableValue<String> call(CellDataFeatures<Sessao, String> todosAsSessoes) {
-				return new SimpleStringProperty(Byte.toString(todosAsSessoes.getValue().getSalaDeExibicao().getIdSala())); 
-				}
+				return new SimpleStringProperty(
+						Byte.toString(todosAsSessoes.getValue().getSalaDeExibicao().getIdSala()));
+			}
 		});
 
 		sessoesTableView.setItems(FXCollections.observableArrayList(sessoes));
@@ -226,40 +230,14 @@ public class Tela_AlterarSessaoController implements Initializable {
 	}
 
 	private void despreencherTabelasECampos() {
-		ArrayList<Filme> listaDeFilmes = new ArrayList<Filme>();
-		colunaFilmeFilme.setCellValueFactory(new Callback<CellDataFeatures<Filme, String>, ObservableValue<String>>() {
-			@Override
-			public ObservableValue<String> call(CellDataFeatures<Filme, String> todosOsFilmes) {
-				return new SimpleStringProperty(todosOsFilmes.getValue().getTitulo());
-			}
-		});
-		colunaFilmeDuracao
-				.setCellValueFactory(new Callback<CellDataFeatures<Filme, String>, ObservableValue<String>>() {
-					@Override
-					public ObservableValue<String> call(CellDataFeatures<Filme, String> todosOsFilmes) {
-						return new SimpleStringProperty(todosOsFilmes.getValue().getDuracao().toString());
-					}
-				});
-		filmesTableView.setItems(FXCollections.observableArrayList(listaDeFilmes));
+		sessoesTableView.setItems(FXCollections.observableArrayList(new ArrayList<Sessao>()));
+		sessoesTableView.refresh();
+		
+		filmesTableView.setItems(FXCollections.observableArrayList(new ArrayList<Filme>()));
 		filmesTableView.refresh();
 
-		ArrayList<Sala> listaDeSalas = new ArrayList<Sala>();
-		colunaSalaSala.setCellValueFactory(new Callback<CellDataFeatures<Sala, String>, ObservableValue<String>>() {
-			@Override
-			public ObservableValue<String> call(CellDataFeatures<Sala, String> todosAsSalas) {
-				return new SimpleStringProperty(String.valueOf(todosAsSalas.getValue().getIdSala()));
-			}
-		});
-		colunaSalaTipo.setCellValueFactory(new Callback<CellDataFeatures<Sala, String>, ObservableValue<String>>() {
-			@Override
-			public ObservableValue<String> call(CellDataFeatures<Sala, String> todosAsSalas) {
-				return new SimpleStringProperty(todosAsSalas.getValue().getTipo().toString());
-			}
-		});
-
-		salasTableView.setItems(FXCollections.observableArrayList(listaDeSalas));
+		salasTableView.setItems(FXCollections.observableArrayList(new ArrayList<Sala>()));
 		salasTableView.refresh();
-		preencherTabelaFilmes();
 
 		anoTextField.setText("");
 		mesTextField.setText("");
@@ -267,12 +245,6 @@ public class Tela_AlterarSessaoController implements Initializable {
 		horaInicioTextField.setText("");
 		minutoInicioTextField.setText("");
 		valorTextField.setText("");
-		
-		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("CinEasy Plex");
-		alert.setHeaderText(null);
-		alert.setContentText("Sessão alterada com sucesso!");
-		alert.showAndWait();
-		
+
 	}
 }
