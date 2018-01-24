@@ -123,6 +123,8 @@ public class Tela_AdicionarSessaoController implements Initializable{
 			a.setHeaderText(null);
 			a.setContentText("Sessão cadastrada com sucesso!");
 			a.showAndWait();
+			preencherTabelaFilme();
+			preencherTabelaSala();
 		} catch (NumberFormatException e) {
 			Alert a = new Alert(AlertType.ERROR);
 			a.setTitle("Erro");

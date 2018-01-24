@@ -36,7 +36,7 @@ public class ScreenManager {
 	private Scene telaListarSala;
 	private Scene telaRemoverSala;
 	private Scene telaAlterarSala;
-	
+
 	private Scene telaVendas;
 
 	private Scene telaVenderIngresso;
@@ -55,34 +55,36 @@ public class ScreenManager {
 		return instance;
 	}
 
-	
-	public static String formatarLocalDate(LocalDate a){
+	public static String formatarLocalDate(LocalDate a) {
 		return a.getDayOfMonth() + "/" + a.getMonthValue() + "/" + a.getYear();
 	}
-	public static String formatarLocalTime(LocalTime a){
+
+	public static String formatarLocalTime(LocalTime a) {
 		return a.getHour() + ":" + a.getMinute();
 	}
-	public static String formatarLocalDateTime(LocalDateTime a){
+
+	public static String formatarLocalDateTime(LocalDateTime a) {
 		return formatarLocalDate(a.toLocalDate()) + " às " + formatarLocalTime(a.toLocalTime());
 	}
-	public static String formatarDayOfWeek(DayOfWeek a){
-		if(a.equals(DayOfWeek.MONDAY)){
+
+	public static String formatarDayOfWeek(DayOfWeek a) {
+		if (a.equals(DayOfWeek.MONDAY)) {
 			return "Segunda-Feira";
-		} else if(a.equals(DayOfWeek.TUESDAY)){
+		} else if (a.equals(DayOfWeek.TUESDAY)) {
 			return "Terça-Feira";
-		} else if(a.equals(DayOfWeek.WEDNESDAY)){
+		} else if (a.equals(DayOfWeek.WEDNESDAY)) {
 			return "Quarta-Feira";
-		} else if(a.equals(DayOfWeek.THURSDAY)){
+		} else if (a.equals(DayOfWeek.THURSDAY)) {
 			return "Quinta-Feira";
-		} else if(a.equals(DayOfWeek.FRIDAY)){
+		} else if (a.equals(DayOfWeek.FRIDAY)) {
 			return "Sexta-Feira";
-		} else if(a.equals(DayOfWeek.SATURDAY)){
+		} else if (a.equals(DayOfWeek.SATURDAY)) {
 			return "Sábado";
 		} else {
 			return "Domingo";
-		}  
+		}
 	}
-	
+
 	public static void setScene(Scene a) {
 		mainStage.setScene(a);
 		mainStage.show();
@@ -182,14 +184,12 @@ public class ScreenManager {
 	 * @return the telaAdcionarSessao
 	 */
 	public Scene getTelaAdcionarSessao() {
-		if (telaAdcionarSessao == null) {
-			try {
+		try {
 
-				telaAdcionarSessao = new Scene(
-						FXMLLoader.load(getClass().getResource("/graficos/Tela_AdicionarSessao.fxml")), 1280, 720);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			telaAdcionarSessao = new Scene(
+					FXMLLoader.load(getClass().getResource("/graficos/Tela_AdicionarSessao.fxml")), 1280, 720);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 		return telaAdcionarSessao;
 	}
@@ -296,8 +296,8 @@ public class ScreenManager {
 
 	public Scene getTelaRemoverSala() {
 		try {
-			telaRemoverSala = new Scene(
-					FXMLLoader.load(getClass().getResource("/graficos/Tela_RemoverSala.fxml")), 1280, 720);
+			telaRemoverSala = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_RemoverSala.fxml")),
+					1280, 720);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -306,8 +306,8 @@ public class ScreenManager {
 
 	public Scene getTelaAlterarSala() {
 		try {
-			telaAlterarSala = new Scene(
-					FXMLLoader.load(getClass().getResource("/graficos/Tela_AlterarSala.fxml")), 1280, 720);
+			telaAlterarSala = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_AlterarSala.fxml")),
+					1280, 720);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -316,8 +316,7 @@ public class ScreenManager {
 
 	public Scene getTelaVendas() {
 		try {
-			telaVendas = new Scene(
-					FXMLLoader.load(getClass().getResource("/graficos/Tela_VerVendas.fxml")), 1280, 720);
+			telaVendas = new Scene(FXMLLoader.load(getClass().getResource("/graficos/Tela_VerVendas.fxml")), 1280, 720);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
