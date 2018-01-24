@@ -3,8 +3,6 @@ package repositorios;
 import java.util.ArrayList;
 
 import beans.Ingresso;
-import exceptions.ObjetoJaExisteException;
-import exceptions.ObjetoNaoExisteException;
 import interfaces.IRepositorio;
 
 public class RepositorioIngressosArray implements IRepositorio<Ingresso>{
@@ -29,7 +27,7 @@ public class RepositorioIngressosArray implements IRepositorio<Ingresso>{
 	public void cadastrar(Ingresso obj) {
 		id += 1;
 		obj.setIdIngresso(id);
-		repositorio.add(obj.getIdIngresso(), obj);
+		repositorio.add(obj);
 	}
 
 	@Override

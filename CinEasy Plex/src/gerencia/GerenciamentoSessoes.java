@@ -77,10 +77,6 @@ private IRepositorioSessoes instance = RepositorioSessoes.getInstance();
 		return instance.buscarPorSala(id);
 	}
 	
-	public ArrayList<Cadeira> listarCadeirasDaSessao(Sessao a){
-		// TODO faltando fazer cadeiras
-		return null;
-	}
 	
 	public boolean existe(Sessao obj) throws Exception{
 		ArrayList<Sessao> r = this.listarSessoes();
