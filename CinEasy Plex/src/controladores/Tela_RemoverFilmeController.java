@@ -2,6 +2,7 @@ package controladores;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import beans.Filme;
@@ -11,42 +12,57 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.util.Callback;
 
-public class Tela_RemoverFilmeController implements Initializable{
-	@FXML private TableView<Filme> tableViewFilmes;
-	@FXML private TableColumn<Filme, String>tableColumnTituloFilme;
-	
+public class Tela_RemoverFilmeController implements Initializable {
+	@FXML
+	private TableView<Filme> tableViewFilmes;
+	@FXML
+	private TableColumn<Filme, String> tableColumnTituloFilme;
+
 	private Filme selecionado = null;
-	
-	@FXML public void voltarParaConfiguracoes(){
+
+	@FXML
+	public void voltarParaConfiguracoes() {
 		ScreenManager.setScene(ScreenManager.getInstance().getTelaConfiguracao());
 	}
-	
-	@FXML public void removerFilme(){
+
+	@FXML
+	public void removerFilme() {
 		try {
-			CinemaFachada.getInstance().removerFilme(selecionado);
-			preencherTabela();
+			Alert alert = new Alert(AlertType.CONFIRMATION);
+			alert.setTitle("Remover Filme");
+			alert.setHeaderText("Deseja remover o filme " + selecionado.getTitulo() + "?");
+			Optional<ButtonType> result = alert.showAndWait();
+			if (result.get() == ButtonType.OK) {
+				CinemaFachada.getInstance().removerFilme(selecionado);
+				preencherTabela();
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
-	@FXML public void selecionarItem(){
+
+	@FXML
+	public void selecionarItem() {
 		selecionado = tableViewFilmes.getSelectionModel().getSelectedItem();
 	}
-	
-	private void preencherTabela(){
+
+	private void preencherTabela() {
 		ArrayList<Filme> listaDeFilmes = CinemaFachada.getInstance().listarTodasFilme();
-		tableColumnTituloFilme.setCellValueFactory(new Callback<CellDataFeatures<Filme,String>, ObservableValue<String>>() {
-			@Override
-			public ObservableValue<String> call(CellDataFeatures<Filme, String> todosOsFilmes) {
-				return new SimpleStringProperty(todosOsFilmes.getValue().getTitulo());
-				}
-			});
+		tableColumnTituloFilme
+				.setCellValueFactory(new Callback<CellDataFeatures<Filme, String>, ObservableValue<String>>() {
+					@Override
+					public ObservableValue<String> call(CellDataFeatures<Filme, String> todosOsFilmes) {
+						return new SimpleStringProperty(todosOsFilmes.getValue().getTitulo());
+					}
+				});
 		tableViewFilmes.setItems(FXCollections.observableArrayList(listaDeFilmes));
 		tableViewFilmes.refresh();
 	}
@@ -55,5 +71,5 @@ public class Tela_RemoverFilmeController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		preencherTabela();
 	}
-	
+
 }
