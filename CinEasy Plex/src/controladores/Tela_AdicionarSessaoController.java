@@ -114,9 +114,9 @@ public class Tela_AdicionarSessaoController implements Initializable{
 			f.cadastrarSessao(new Sessao(filmeAtual, salaAtual, valor3, inicioDaSessao));
 			dtSessao.setValue(dtSessao.getValue().plusDays(1));
 			Alert a = new Alert(AlertType.CONFIRMATION);
-			a.setTitle("Sessão cadastrada");
-			a.setHeaderText("Sessão adicionada");
-			a.setContentText("Sessão cadastrada no banco de dados");
+			a.setTitle("CinEasy Plex");
+			a.setHeaderText(null);
+			a.setContentText("Sessão cadastrada com sucesso!");
 			a.showAndWait();
 		} catch (NumberFormatException e) {
 			Alert a = new Alert(AlertType.ERROR);

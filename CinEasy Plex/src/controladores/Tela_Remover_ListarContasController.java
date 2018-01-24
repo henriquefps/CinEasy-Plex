@@ -33,11 +33,18 @@ public class Tela_Remover_ListarContasController implements Initializable {
 		try {
 			if (selecionada != null) {
 				Alert alert = new Alert(AlertType.CONFIRMATION);
-				alert.setTitle("Remover Sala");
+				alert.setTitle("CinEasy Plex");
 				alert.setHeaderText("Deseja remover a conta de Login " + selecionada.getLogin() + "?");
 				Optional<ButtonType> result = alert.showAndWait();
 				if (result.get() == ButtonType.OK) {
 					CinemaFachada.getInstance().removerConta(selecionada);
+
+					alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("CinEasy Plex");
+					alert.setHeaderText(null);
+					alert.setContentText("Conta removida com sucesso!");
+					alert.showAndWait();
+					
 					preencherTabela();
 				}
 			}

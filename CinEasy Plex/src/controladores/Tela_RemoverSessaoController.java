@@ -75,6 +75,13 @@ public class Tela_RemoverSessaoController implements Initializable {
 			Optional<ButtonType> result = alert.showAndWait();
 			if (result.get() == ButtonType.OK) {
 				f.removerSessao(sessaoAtual);
+				
+				alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("CinEasy Plex");
+				alert.setHeaderText(null);
+				alert.setContentText("Sessão removida com sucesso!");
+				alert.showAndWait();
+				
 				preencherTabela(todasSessao);
 			}
 		} catch (Exception e) {

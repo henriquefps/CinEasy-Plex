@@ -89,7 +89,7 @@ public class Tela_AlterarFilmeController implements Initializable{
 		classificacaoTextField.setText("");
 		
 		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("Alterar Filme");
+		alert.setTitle("CinEasy Plex");
 		alert.setHeaderText(null);
 		alert.setContentText("FIlme alterado com sucesso!");
 		alert.showAndWait();

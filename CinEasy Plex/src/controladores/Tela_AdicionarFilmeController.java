@@ -47,8 +47,8 @@ public class Tela_AdicionarFilmeController {
 					duracao_minutoTextField.setText("");
 					classificacaoTextField.setText("");
 					
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("Cadastrar Filme");
+					Alert alert = new Alert(AlertType.CONFIRMATION);
+					alert.setTitle("CinEasy Plex");
 					alert.setHeaderText(null);
 					alert.setContentText("Filme cadastrado com sucesso!");
 					alert.showAndWait();

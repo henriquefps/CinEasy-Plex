@@ -257,6 +257,7 @@ public class Tela_AlterarSessaoController implements Initializable {
 
 		salasTableView.setItems(FXCollections.observableArrayList(listaDeSalas));
 		salasTableView.refresh();
+		preencherTabelaFilmes();
 
 		anoTextField.setText("");
 		mesTextField.setText("");
@@ -264,5 +265,12 @@ public class Tela_AlterarSessaoController implements Initializable {
 		horaInicioTextField.setText("");
 		minutoInicioTextField.setText("");
 		valorTextField.setText("");
+		
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("CinEasy Plex");
+		alert.setHeaderText(null);
+		alert.setContentText("Sessão alterada com sucesso!");
+		alert.showAndWait();
+		
 	}
 }

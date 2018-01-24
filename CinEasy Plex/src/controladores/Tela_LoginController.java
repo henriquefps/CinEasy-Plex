@@ -20,6 +20,7 @@ public class Tela_LoginController {
 		else{
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("CinEasy Plex");
+			alert.setHeaderText(null);
 			alert.setHeaderText("Sua Conta ou Senha são inválidas");
 			alert.showAndWait();
 		}

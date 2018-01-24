@@ -37,11 +37,18 @@ public class Tela_RemoverFilmeController implements Initializable {
 	public void removerFilme() {
 		try {
 			Alert alert = new Alert(AlertType.CONFIRMATION);
-			alert.setTitle("Remover Filme");
+			alert.setTitle("CinEasy Plex");
 			alert.setHeaderText("Deseja remover o filme " + selecionado.getTitulo() + "?");
 			Optional<ButtonType> result = alert.showAndWait();
 			if (result.get() == ButtonType.OK) {
 				CinemaFachada.getInstance().removerFilme(selecionado);
+
+				alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("CinEasy Plex");
+				alert.setHeaderText(null);
+				alert.setContentText("Filme removido com sucesso!");
+				alert.showAndWait();
+				
 				preencherTabela();
 			}
 		} catch (Exception e) {

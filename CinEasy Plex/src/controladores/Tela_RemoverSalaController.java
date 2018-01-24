@@ -39,7 +39,7 @@ public class Tela_RemoverSalaController implements Initializable {
 		if (selecionada != null) {
 			try {
 				Alert alert = new Alert(AlertType.CONFIRMATION);
-				alert.setTitle("Remover Sala");
+				alert.setTitle("CinEasy Plex");
 				alert.setHeaderText("Deseja remover a sala " + selecionada.getIdSala()
 						+ "?\nAo remover uma sala você irá remover todas as sessoes relacionadas à sala " + selecionada.getIdSala() + ".\nDeseja Continuar?");
 				Optional<ButtonType> result = alert.showAndWait();
@@ -49,6 +49,13 @@ public class Tela_RemoverSalaController implements Initializable {
 						CinemaFachada.getInstance().removerSessao(sessoesARemover.get(i));
 					}
 					CinemaFachada.getInstance().removerSala(selecionada);
+					
+					alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("CinEasy Plex");
+					alert.setHeaderText(null);
+					alert.setContentText("Sala removida com sucesso!");
+					alert.showAndWait();
+					
 					preencherTabela();
 
 				}

@@ -24,8 +24,8 @@ public class Tela_AdicionarContaController {
 				senhaPasswordField.setText("");
 				confirmarSenhaPasswordField.setText("");
 				
-				Alert alert = new Alert(AlertType.INFORMATION);
-				alert.setTitle("Cadastrar Conta");
+				Alert alert = new Alert(AlertType.CONFIRMATION);
+				alert.setTitle("CinEasy Plex");
 				alert.setHeaderText(null);
 				alert.setContentText("Conta cadastrada com sucesso!");
 				alert.showAndWait();

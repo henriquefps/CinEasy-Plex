@@ -59,10 +59,10 @@ public class Tela_AdicionarSalaController {
 			System.out.println(a.toString());
 			CinemaFachada.getInstance().cadastrarSala(a);
 			
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("Cadastrar Sala");
+			Alert alert = new Alert(AlertType.CONFIRMATION);
+			alert.setTitle("CinEasy Plex");
 			alert.setHeaderText(null);
-			alert.setContentText("Salaa cadastrada com sucesso!");
+			alert.setContentText("Sala cadastrada com sucesso!");
 			alert.showAndWait();
 
 		} catch (Exception e) {

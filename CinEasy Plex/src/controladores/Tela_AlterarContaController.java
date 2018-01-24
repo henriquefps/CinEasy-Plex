@@ -11,10 +11,12 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.util.Callback;
 
@@ -52,6 +54,12 @@ public class Tela_AlterarContaController implements Initializable {
 			usuarioTextField.setText("");
 			senhaPasswordField.setText("");
 			confirmarSenhaPasswordField.setText("");
+			
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("CinEasy Plex");
+			alert.setHeaderText(null);
+			alert.setContentText("Conta alterada com sucesso!");
+			alert.showAndWait();
 			preencherTabela();
 		}
 	}
