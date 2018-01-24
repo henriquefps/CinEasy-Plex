@@ -15,6 +15,8 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
@@ -49,6 +51,8 @@ public class Tela_VenderIngressoController implements Initializable {
 	private TableColumn<Sessao, String> colunaTipoSala;
 	@FXML
 	private TableColumn<Sessao, String> colunaValor;
+	@FXML
+	private TableColumn<Sessao,String> coluna3D;
 
 	@FXML
 	private TableColumn<Cadeira, String> colunaCadeira;
@@ -70,16 +74,43 @@ public class Tela_VenderIngressoController implements Initializable {
 				Ingresso vendido = new Ingresso(meiaEntradaCheckBox.isSelected(), cadeiraSelecionada,
 						sessaoSelecionada);
 				vendido.setValorIngresso(sessaoSelecionada.getValorDoIngresso());
+				mexeNasCadeiras();
+				if(meiaEntradaCheckBox.isSelected()) {
+					sessaoSelecionada.setValorDoIngresso(sessaoSelecionada.getValorDoIngresso()*2);
+					meiaEntradaCheckBox.setSelected(false);
+				}
 				CinemaFachada.getInstance().cadastrarIngresso(vendido);
 				CinemaFachada.getInstance().cadastrarVenda(new Venda(vendido, sessaoSelecionada));
-				cadeiraSelecionada.setDisponivel(false);
+				CinemaFachada.getInstance().alterarSessao(sessaoSelecionada);
 				despreencherTabelas();
 				preencherTabelaFilmes();
 				filmeSelecionado = null;
 				sessaoSelecionada = null;
 				cadeiraSelecionada = null;
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("Sucesso");
+				alert.setHeaderText("Compra realizada com sucesso");
+				alert.showAndWait();
 			}
-		} catch (Exception e) {e.printStackTrace();}
+		} catch (Exception e) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("Erro");
+			alert.setHeaderText("Houve um erro na compra do ingresso");
+			alert.setContentText(e.getMessage());
+			alert.showAndWait();
+		}
+	}
+	
+	private void mexeNasCadeiras() {
+		ArrayList<Cadeira> cadeiras = sessaoSelecionada.getCadeirasDaSessao();
+		for(int i = 0; i < cadeiras.size(); i++) {
+			if(cadeiraSelecionada.equals(cadeiras.get(i))) {
+				cadeiraSelecionada.setDisponivel(false);
+				cadeiras.set(i, cadeiraSelecionada);
+			}
+		}
+		sessaoSelecionada.setCadeirasDaSessao(cadeiras);
+		
 	}
 
 	@FXML
@@ -189,6 +220,16 @@ public class Tela_VenderIngressoController implements Initializable {
 						Float.valueOf(todosAsSessoes.getValue().getValorDoIngresso()).toString());
 			}
 		});
+		
+		coluna3D.setCellValueFactory(new Callback<CellDataFeatures<Sessao, String>, ObservableValue<String>>() {
+			@Override
+			public ObservableValue<String> call(CellDataFeatures<Sessao, String> todosAsSessoes) {
+				if(todosAsSessoes.getValue().getSalaDeExibicao().isD3())
+					return new SimpleStringProperty("sim");
+				
+				return new SimpleStringProperty("não");
+			}
+		});
 
 		tabelaSessoes.setItems(FXCollections.observableArrayList(sessoes));
 		tabelaSessoes.refresh();
@@ -218,7 +259,6 @@ public class Tela_VenderIngressoController implements Initializable {
 		
 		meiaEntradaCheckBox.setDisable(true);
 		if(meiaEntradaCheckBox.isSelected()) {
-			sessaoSelecionada.setValorDoIngresso(sessaoSelecionada.getValorDoIngresso()*2);
 			meiaEntradaCheckBox.setSelected(false);
 		}
 		btnComprar.setDisable(true);

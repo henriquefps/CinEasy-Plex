@@ -16,4 +16,8 @@ public class Tela_MenuPrincipalController {
 	@FXML public void abrirConfiguracoes(){
 		ScreenManager.setScene(ScreenManager.getInstance().getTelaConfiguracao());
 	}
+	
+	public void sair() {
+		System.exit(0);
+	}
 }

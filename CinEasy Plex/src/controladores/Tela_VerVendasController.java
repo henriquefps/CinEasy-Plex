@@ -69,7 +69,7 @@ public class Tela_VerVendasController implements Initializable {
 
 	@FXML
 	public void voltarParaMenuPrincipal() {
-		ScreenManager.setScene(ScreenManager.getInstance().getTelaMenuPrincipal());
+		ScreenManager.setScene(ScreenManager.getInstance().getTelaConfiguracao());
 	}
 
 	@FXML

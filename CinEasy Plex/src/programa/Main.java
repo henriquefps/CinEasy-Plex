@@ -59,16 +59,16 @@ public class Main extends Application {
 		}
 		
 		// Vendas
-		try {
-			Ingresso vendido = new Ingresso();
-			vendido.setCadeiraVendida(new Cadeira(0, 1, false));
-			vendido.setMeia(false);
-			vendido.setSessao(CinemaFachada.getInstance().buscarSessao(0));
-			vendido.setValorIngresso(CinemaFachada.getInstance().buscarSessao(0).getValorDoIngresso());
-			CinemaFachada.getInstance().cadastrarVenda(new Venda(vendido, CinemaFachada.getInstance().buscarSessao(0)));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		try {
+//			Ingresso vendido = new Ingresso();
+//			vendido.setCadeiraVendida(new Cadeira(0, 1, false));
+//			vendido.setMeia(false);
+//			vendido.setSessao(CinemaFachada.getInstance().buscarSessao(0));
+//			vendido.setValorIngresso(CinemaFachada.getInstance().buscarSessao(0).getValorDoIngresso());
+//			CinemaFachada.getInstance().cadastrarVenda(new Venda(vendido, CinemaFachada.getInstance().buscarSessao(0)));
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 	}
 
 	@Override
