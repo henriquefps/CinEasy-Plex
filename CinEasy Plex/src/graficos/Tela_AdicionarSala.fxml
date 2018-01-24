@@ -16,7 +16,7 @@
          <children>
             <ImageView fitHeight="88.0" fitWidth="400.0" layoutX="60.0" layoutY="41.0">
                <image>
-                  <Image url="@../../../../ProjetoCinema/src/br/com/ufrpe/cine_easyplex/imagens/logo.png" />
+                  <Image url="@../imagens/logo.png" />
                </image>
             </ImageView>
             <Button layoutX="1103.0" layoutY="51.0" mnemonicParsing="false" onAction="#voltarParaConfiguracoes" text="Voltar">
